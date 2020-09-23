@@ -1,0 +1,19 @@
+/* 
+  Localizable.strings
+  adatip
+
+  Created by Onur YILMAZ on 17.09.2020.
+  Copyright © 2020 Onur YILMAZ. All rights reserved.
+*/
+
+"adatip" = "ADATIP";
+"our_hospitals" = "Hastanelerimiz";
+"ok" = "Tamam";
+"consult_doctor" = "Doktora Danış";
+"new_appointment" = "Yeni Randevu Al";
+"our_units" = "Birimlerimiz";
+"our_doctors" = "Doktorlarımız";
+"online_services" = "Online Hizmetler";
+"an_unexpected_error_occurred" = "Beklenmedik Bir Hata Oluştu";
+"announcement_detail" = "Duyuru Detay";
+"notifications" = "Bildirimler";

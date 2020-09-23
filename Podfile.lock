@@ -1,0 +1,32 @@
+PODS:
+  - Alamofire (4.9.1)
+  - ImageSlideshow (1.9.1):
+    - ImageSlideshow/Core (= 1.9.1)
+  - ImageSlideshow/Core (1.9.1)
+  - IQKeyboardManagerSwift (6.5.6)
+  - Kingfisher (5.15.2):
+    - Kingfisher/Core (= 5.15.2)
+  - Kingfisher/Core (5.15.2)
+
+DEPENDENCIES:
+  - Alamofire (~> 4.7)
+  - ImageSlideshow (~> 1.9.0)
+  - IQKeyboardManagerSwift
+  - Kingfisher (~> 5.0)
+
+SPEC REPOS:
+  trunk:
+    - Alamofire
+    - ImageSlideshow
+    - IQKeyboardManagerSwift
+    - Kingfisher
+
+SPEC CHECKSUMS:
+  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  ImageSlideshow: 67184be896a28472bd3b906c33ce4e0734aa3d22
+  IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
+  Kingfisher: 1f60394409c6b916ce31474bcf73fdde6f3b9a7b
+
+PODFILE CHECKSUM: 40be96ff55a760e0a6767bf7c380125e33cf659f
+
+COCOAPODS: 1.9.3

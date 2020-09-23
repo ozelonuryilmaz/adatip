@@ -3,27 +3,152 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
+		4060FE40458FF0C22B5F4068 /* Pods_adatip.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C00D5A6EE72486C30D79D209 /* Pods_adatip.framework */; };
+		670FD70A251636910069AA8A /* Image + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670FD709251636910069AA8A /* Image + Extension.swift */; };
+		670FD70E251637580069AA8A /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670FD70D251637580069AA8A /* MainTabBarController.swift */; };
+		670FD710251638480069AA8A /* View + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 670FD70F251638480069AA8A /* View + Extension.swift */; };
+		67150FF525189A11009079F3 /* Label + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67150FF425189A11009079F3 /* Label + Extension.swift */; };
+		67150FF72518A9E1009079F3 /* RoundedCornerView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67150FF62518A9E1009079F3 /* RoundedCornerView.swift */; };
+		67150FF92518ADE4009079F3 /* BezierPath + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67150FF82518ADE4009079F3 /* BezierPath + Extension.swift */; };
 		672B5EE02513D4540017FE31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672B5EDF2513D4540017FE31 /* AppDelegate.swift */; };
 		672B5EE22513D4540017FE31 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672B5EE12513D4540017FE31 /* SceneDelegate.swift */; };
-		672B5EE42513D4540017FE31 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672B5EE32513D4540017FE31 /* ViewController.swift */; };
 		672B5EE72513D4540017FE31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 672B5EE52513D4540017FE31 /* Main.storyboard */; };
 		672B5EE92513D4610017FE31 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 672B5EE82513D4610017FE31 /* Assets.xcassets */; };
 		672B5EEC2513D4610017FE31 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 672B5EEA2513D4610017FE31 /* LaunchScreen.storyboard */; };
+		672B5F062513D8500017FE31 /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 672B5F082513D8500017FE31 /* Localizable.strings */; };
+		672B5F0C2513D9530017FE31 /* String + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672B5F0B2513D9530017FE31 /* String + Extension.swift */; };
+		672B5F102513DA720017FE31 /* Helper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672B5F0F2513DA720017FE31 /* Helper.swift */; };
+		672B5F122513E1140017FE31 /* Config.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672B5F112513E1140017FE31 /* Config.swift */; };
+		672B5F142513E1270017FE31 /* Constant.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672B5F132513E1270017FE31 /* Constant.swift */; };
+		672B5F162513E1380017FE31 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672B5F152513E1380017FE31 /* BaseViewController.swift */; };
+		672B5F182513E1C50017FE31 /* Color + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672B5F172513E1C50017FE31 /* Color + Extension.swift */; };
+		672B5F1A2513E1E30017FE31 /* Font + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672B5F192513E1E30017FE31 /* Font + Extension.swift */; };
+		672B5F252513E2880017FE31 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 672B5F1F2513E2790017FE31 /* OpenSans-Bold.ttf */; };
+		672B5F262513E28B0017FE31 /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 672B5F1E2513E2790017FE31 /* OpenSans-BoldItalic.ttf */; };
+		672B5F272513E28E0017FE31 /* OpenSans-ExtraBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 672B5F202513E2790017FE31 /* OpenSans-ExtraBold.ttf */; };
+		672B5F282513E2910017FE31 /* OpenSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 672B5F1D2513E2790017FE31 /* OpenSans-ExtraBoldItalic.ttf */; };
+		672B5F292513E2940017FE31 /* OpenSans-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 672B5F222513E27A0017FE31 /* OpenSans-Light.ttf */; };
+		672B5F2A2513E2960017FE31 /* OpenSans-Italic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 672B5F212513E2790017FE31 /* OpenSans-Italic.ttf */; };
+		672B5F2B2513E29A0017FE31 /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 672B5F232513E27A0017FE31 /* OpenSans-LightItalic.ttf */; };
+		672B5F2C2513E29E0017FE31 /* OpenSans-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 672B5F242513E27A0017FE31 /* OpenSans-Regular.ttf */; };
+		672B5F2D2513E2A50017FE31 /* OpenSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 672B5F1B2513E2780017FE31 /* OpenSans-SemiBold.ttf */; };
+		672B5F2E2513E2A90017FE31 /* OpenSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 672B5F1C2513E2780017FE31 /* OpenSans-SemiBoldItalic.ttf */; };
+		672B5F302513E5660017FE31 /* ViewController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672B5F2F2513E5650017FE31 /* ViewController + Extension.swift */; };
+		672B5F322513E6260017FE31 /* BaseNetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672B5F312513E6260017FE31 /* BaseNetworkManager.swift */; };
+		672B5F342513E6970017FE31 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672B5F332513E6970017FE31 /* NetworkManager.swift */; };
+		672B5F372513E7E50017FE31 /* Splash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672B5F362513E7E50017FE31 /* Splash.swift */; };
+		672B5F442513EBE60017FE31 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672B5F432513EBE60017FE31 /* Home.swift */; };
+		672B5F462513EBF60017FE31 /* UnitCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672B5F452513EBF60017FE31 /* UnitCategory.swift */; };
+		672B5F492513EC0C0017FE31 /* Appointment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672B5F482513EC0C0017FE31 /* Appointment.swift */; };
+		672B5F4B2513EC1B0017FE31 /* StaffCategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672B5F4A2513EC1B0017FE31 /* StaffCategory.swift */; };
+		672B5F4D2513EC2B0017FE31 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672B5F4C2513EC2B0017FE31 /* Profile.swift */; };
+		672B5F4F2513EC5F0017FE31 /* Home.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 672B5F4E2513EC5F0017FE31 /* Home.storyboard */; };
+		672B5F512513EC700017FE31 /* UnitCategory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 672B5F502513EC700017FE31 /* UnitCategory.storyboard */; };
+		672B5F532513EC810017FE31 /* Appointment.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 672B5F522513EC810017FE31 /* Appointment.storyboard */; };
+		672B5F552513EC8F0017FE31 /* StaffCategory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 672B5F542513EC8E0017FE31 /* StaffCategory.storyboard */; };
+		672B5F572513EC9A0017FE31 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 672B5F562513EC9A0017FE31 /* Profile.storyboard */; };
+		672B5F592513F0170017FE31 /* HospitalList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672B5F582513F0170017FE31 /* HospitalList.swift */; };
+		6761D1842519E24F00E8FC01 /* Home + CollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6761D1832519E24F00E8FC01 /* Home + CollectionViewExtension.swift */; };
+		6761D1892519F34F00E8FC01 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6761D1872519F34F00E8FC01 /* HomeCollectionViewCell.swift */; };
+		67707D8625174AAB00D97CFC /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D8525174AAB00D97CFC /* SplashViewModel.swift */; };
+		67707D8825174C1D00D97CFC /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D8725174C1D00D97CFC /* BaseViewModel.swift */; };
+		67707D8A2517505B00D97CFC /* HospitalListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D892517505B00D97CFC /* HospitalListViewModel.swift */; };
+		67707D8E2517525900D97CFC /* HospitalList + TableViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D8D2517525900D97CFC /* HospitalList + TableViewExtension.swift */; };
+		67707D912517530500D97CFC /* HospitalListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D8F2517530500D97CFC /* HospitalListCell.swift */; };
+		67707D922517530500D97CFC /* HospitalListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67707D902517530500D97CFC /* HospitalListCell.xib */; };
+		67707D962517685100D97CFC /* KingfisherSource.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D952517685100D97CFC /* KingfisherSource.swift */; };
+		67707D9B25177A7200D97CFC /* GetHospitalsResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D9A25177A7200D97CFC /* GetHospitalsResponseModel.swift */; };
+		67707D9D25177C3100D97CFC /* ResponseException.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D9C25177C3100D97CFC /* ResponseException.swift */; };
+		67707D9F25179CF500D97CFC /* GetHospitalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D9E25179CF500D97CFC /* GetHospitalInfo.swift */; };
+		67707DA125179D5A00D97CFC /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707DA025179D5A00D97CFC /* ValidationError.swift */; };
+		67707DA325179DA200D97CFC /* GetHospitalResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707DA225179DA200D97CFC /* GetHospitalResult.swift */; };
+		67DECB53251A3D7800F2920E /* GetAnnouncementDetailResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DECB52251A3D7800F2920E /* GetAnnouncementDetailResponseModel.swift */; };
+		67DECB55251A3D8C00F2920E /* GetAnnouncementDetailResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DECB54251A3D8C00F2920E /* GetAnnouncementDetailResult.swift */; };
+		67DECB58251A3F6300F2920E /* AnnouncementDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DECB57251A3F6300F2920E /* AnnouncementDetail.swift */; };
+		67DECB5A251A439700F2920E /* AnnouncementDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DECB59251A439700F2920E /* AnnouncementDetailViewModel.swift */; };
+		67DECB5C251A4DCB00F2920E /* MyNotifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DECB5B251A4DCB00F2920E /* MyNotifications.swift */; };
+		67F173A3251A21F40025AD8A /* GetAnnouncementsResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F173A2251A21F40025AD8A /* GetAnnouncementsResponseModel.swift */; };
+		67F173A5251A22240025AD8A /* GetAnnouncementResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F173A4251A22240025AD8A /* GetAnnouncementResult.swift */; };
+		67F173A7251A23490025AD8A /* HomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F173A6251A23490025AD8A /* HomeViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		672B5EDC2513D4540017FE31 /* adatip.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = adatip.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		0C67156B9D104999BAD15F24 /* Pods-adatip.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-adatip.debug.xcconfig"; path = "Target Support Files/Pods-adatip/Pods-adatip.debug.xcconfig"; sourceTree = "<group>"; };
+		670FD709251636910069AA8A /* Image + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Image + Extension.swift"; sourceTree = "<group>"; };
+		670FD70D251637580069AA8A /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
+		670FD70F251638480069AA8A /* View + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "View + Extension.swift"; sourceTree = "<group>"; };
+		67150FF425189A11009079F3 /* Label + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Label + Extension.swift"; sourceTree = "<group>"; };
+		67150FF62518A9E1009079F3 /* RoundedCornerView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedCornerView.swift; sourceTree = "<group>"; };
+		67150FF82518ADE4009079F3 /* BezierPath + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "BezierPath + Extension.swift"; sourceTree = "<group>"; };
+		672B5EDC2513D4540017FE31 /* ADATIP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ADATIP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		672B5EDF2513D4540017FE31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		672B5EE12513D4540017FE31 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		672B5EE32513D4540017FE31 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
-		672B5EE62513D4540017FE31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		672B5EE82513D4610017FE31 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
-		672B5EEB2513D4610017FE31 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		672B5EED2513D4610017FE31 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		672B5F0A2513D8D70017FE31 /* tr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = tr; path = tr.lproj/Localizable.strings; sourceTree = "<group>"; };
+		672B5F0B2513D9530017FE31 /* String + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String + Extension.swift"; sourceTree = "<group>"; };
+		672B5F0F2513DA720017FE31 /* Helper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Helper.swift; sourceTree = "<group>"; };
+		672B5F112513E1140017FE31 /* Config.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Config.swift; sourceTree = "<group>"; };
+		672B5F132513E1270017FE31 /* Constant.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constant.swift; sourceTree = "<group>"; };
+		672B5F152513E1380017FE31 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
+		672B5F172513E1C50017FE31 /* Color + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color + Extension.swift"; sourceTree = "<group>"; };
+		672B5F192513E1E30017FE31 /* Font + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Font + Extension.swift"; sourceTree = "<group>"; };
+		672B5F1B2513E2780017FE31 /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
+		672B5F1C2513E2780017FE31 /* OpenSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
+		672B5F1D2513E2790017FE31 /* OpenSans-ExtraBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBoldItalic.ttf"; sourceTree = "<group>"; };
+		672B5F1E2513E2790017FE31 /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
+		672B5F1F2513E2790017FE31 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Bold.ttf"; sourceTree = "<group>"; };
+		672B5F202513E2790017FE31 /* OpenSans-ExtraBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-ExtraBold.ttf"; sourceTree = "<group>"; };
+		672B5F212513E2790017FE31 /* OpenSans-Italic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Italic.ttf"; sourceTree = "<group>"; };
+		672B5F222513E27A0017FE31 /* OpenSans-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Light.ttf"; sourceTree = "<group>"; };
+		672B5F232513E27A0017FE31 /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
+		672B5F242513E27A0017FE31 /* OpenSans-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "OpenSans-Regular.ttf"; sourceTree = "<group>"; };
+		672B5F2F2513E5650017FE31 /* ViewController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ViewController + Extension.swift"; sourceTree = "<group>"; };
+		672B5F312513E6260017FE31 /* BaseNetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseNetworkManager.swift; sourceTree = "<group>"; };
+		672B5F332513E6970017FE31 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
+		672B5F362513E7E50017FE31 /* Splash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Splash.swift; sourceTree = "<group>"; };
+		672B5F432513EBE60017FE31 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		672B5F452513EBF60017FE31 /* UnitCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitCategory.swift; sourceTree = "<group>"; };
+		672B5F482513EC0C0017FE31 /* Appointment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Appointment.swift; sourceTree = "<group>"; };
+		672B5F4A2513EC1B0017FE31 /* StaffCategory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffCategory.swift; sourceTree = "<group>"; };
+		672B5F4C2513EC2B0017FE31 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		672B5F4E2513EC5F0017FE31 /* Home.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Home.storyboard; sourceTree = "<group>"; };
+		672B5F502513EC700017FE31 /* UnitCategory.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UnitCategory.storyboard; sourceTree = "<group>"; };
+		672B5F522513EC810017FE31 /* Appointment.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Appointment.storyboard; sourceTree = "<group>"; };
+		672B5F542513EC8E0017FE31 /* StaffCategory.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StaffCategory.storyboard; sourceTree = "<group>"; };
+		672B5F562513EC9A0017FE31 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		672B5F582513F0170017FE31 /* HospitalList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalList.swift; sourceTree = "<group>"; };
+		6761D1832519E24F00E8FC01 /* Home + CollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Home + CollectionViewExtension.swift"; sourceTree = "<group>"; };
+		6761D1872519F34F00E8FC01 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
+		67707D8525174AAB00D97CFC /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
+		67707D8725174C1D00D97CFC /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
+		67707D892517505B00D97CFC /* HospitalListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalListViewModel.swift; sourceTree = "<group>"; };
+		67707D8D2517525900D97CFC /* HospitalList + TableViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HospitalList + TableViewExtension.swift"; sourceTree = "<group>"; };
+		67707D8F2517530500D97CFC /* HospitalListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalListCell.swift; sourceTree = "<group>"; };
+		67707D902517530500D97CFC /* HospitalListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HospitalListCell.xib; sourceTree = "<group>"; };
+		67707D952517685100D97CFC /* KingfisherSource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KingfisherSource.swift; sourceTree = "<group>"; };
+		67707D9A25177A7200D97CFC /* GetHospitalsResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetHospitalsResponseModel.swift; sourceTree = "<group>"; };
+		67707D9C25177C3100D97CFC /* ResponseException.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResponseException.swift; sourceTree = "<group>"; };
+		67707D9E25179CF500D97CFC /* GetHospitalInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetHospitalInfo.swift; sourceTree = "<group>"; };
+		67707DA025179D5A00D97CFC /* ValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationError.swift; sourceTree = "<group>"; };
+		67707DA225179DA200D97CFC /* GetHospitalResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetHospitalResult.swift; sourceTree = "<group>"; };
+		67DECB52251A3D7800F2920E /* GetAnnouncementDetailResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAnnouncementDetailResponseModel.swift; sourceTree = "<group>"; };
+		67DECB54251A3D8C00F2920E /* GetAnnouncementDetailResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAnnouncementDetailResult.swift; sourceTree = "<group>"; };
+		67DECB57251A3F6300F2920E /* AnnouncementDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementDetail.swift; sourceTree = "<group>"; };
+		67DECB59251A439700F2920E /* AnnouncementDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementDetailViewModel.swift; sourceTree = "<group>"; };
+		67DECB5B251A4DCB00F2920E /* MyNotifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyNotifications.swift; sourceTree = "<group>"; };
+		67F173A2251A21F40025AD8A /* GetAnnouncementsResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAnnouncementsResponseModel.swift; sourceTree = "<group>"; };
+		67F173A4251A22240025AD8A /* GetAnnouncementResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAnnouncementResult.swift; sourceTree = "<group>"; };
+		67F173A6251A23490025AD8A /* HomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewModel.swift; sourceTree = "<group>"; };
+		67F173A8251A2AFC0025AD8A /* ADATIP.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ADATIP.entitlements; sourceTree = "<group>"; };
+		67F5455F2519C1C000029645 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		67F545602519C1C100029645 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		C00D5A6EE72486C30D79D209 /* Pods_adatip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_adatip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		FD40C507733E51014629BE00 /* Pods-adatip.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-adatip.release.xcconfig"; path = "Target Support Files/Pods-adatip/Pods-adatip.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -31,24 +156,52 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				4060FE40458FF0C22B5F4068 /* Pods_adatip.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		164BC52F574BA3565DF65796 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				0C67156B9D104999BAD15F24 /* Pods-adatip.debug.xcconfig */,
+				FD40C507733E51014629BE00 /* Pods-adatip.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		670FD711251639560069AA8A /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				672B5F0B2513D9530017FE31 /* String + Extension.swift */,
+				672B5F172513E1C50017FE31 /* Color + Extension.swift */,
+				672B5F192513E1E30017FE31 /* Font + Extension.swift */,
+				670FD709251636910069AA8A /* Image + Extension.swift */,
+				67150FF425189A11009079F3 /* Label + Extension.swift */,
+				670FD70F251638480069AA8A /* View + Extension.swift */,
+				672B5F2F2513E5650017FE31 /* ViewController + Extension.swift */,
+				67150FF82518ADE4009079F3 /* BezierPath + Extension.swift */,
+			);
+			name = Extensions;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		672B5ED32513D4540017FE31 = {
 			isa = PBXGroup;
 			children = (
 				672B5EDE2513D4540017FE31 /* adatip */,
 				672B5EDD2513D4540017FE31 /* Products */,
+				164BC52F574BA3565DF65796 /* Pods */,
+				B38EF2844D6F2DD1261AF7BD /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		672B5EDD2513D4540017FE31 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				672B5EDC2513D4540017FE31 /* adatip.app */,
+				672B5EDC2513D4540017FE31 /* ADATIP.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -56,15 +209,277 @@
 		672B5EDE2513D4540017FE31 /* adatip */ = {
 			isa = PBXGroup;
 			children = (
-				672B5EDF2513D4540017FE31 /* AppDelegate.swift */,
-				672B5EE12513D4540017FE31 /* SceneDelegate.swift */,
-				672B5EE32513D4540017FE31 /* ViewController.swift */,
-				672B5EE52513D4540017FE31 /* Main.storyboard */,
-				672B5EE82513D4610017FE31 /* Assets.xcassets */,
-				672B5EEA2513D4610017FE31 /* LaunchScreen.storyboard */,
-				672B5EED2513D4610017FE31 /* Info.plist */,
+				67F173A8251A2AFC0025AD8A /* ADATIP.entitlements */,
+				672B5EF32513D6660017FE31 /* Base */,
+				672B5EF52513D67A0017FE31 /* Helper */,
+				672B5EF42513D66C0017FE31 /* NetworkManager */,
+				672B5EF62513D6AB0017FE31 /* Model */,
+				672B5EF82513D6D40017FE31 /* View */,
+				672B5EF72513D6C70017FE31 /* ViewModel */,
+				672B5EF92513D7080017FE31 /* Resource */,
 			);
 			path = adatip;
+			sourceTree = "<group>";
+		};
+		672B5EF32513D6660017FE31 /* Base */ = {
+			isa = PBXGroup;
+			children = (
+				672B5EDF2513D4540017FE31 /* AppDelegate.swift */,
+				672B5EE12513D4540017FE31 /* SceneDelegate.swift */,
+				672B5F112513E1140017FE31 /* Config.swift */,
+				672B5F132513E1270017FE31 /* Constant.swift */,
+				672B5F152513E1380017FE31 /* BaseViewController.swift */,
+				67707D8725174C1D00D97CFC /* BaseViewModel.swift */,
+			);
+			path = Base;
+			sourceTree = "<group>";
+		};
+		672B5EF42513D66C0017FE31 /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				672B5F312513E6260017FE31 /* BaseNetworkManager.swift */,
+				672B5F332513E6970017FE31 /* NetworkManager.swift */,
+			);
+			path = NetworkManager;
+			sourceTree = "<group>";
+		};
+		672B5EF52513D67A0017FE31 /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				670FD711251639560069AA8A /* Extensions */,
+				672B5F0F2513DA720017FE31 /* Helper.swift */,
+				67707D952517685100D97CFC /* KingfisherSource.swift */,
+				67150FF62518A9E1009079F3 /* RoundedCornerView.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		672B5EF62513D6AB0017FE31 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				67707D972517775800D97CFC /* Main */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		672B5EF72513D6C70017FE31 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				672B5F3D2513EB950017FE31 /* Main */,
+				672B5F382513EB590017FE31 /* Home */,
+				672B5F392513EB5F0017FE31 /* UnitCategory */,
+				672B5F3A2513EB6A0017FE31 /* Appointment */,
+				672B5F3B2513EB750017FE31 /* StaffCategory */,
+				672B5F3C2513EB810017FE31 /* Profile */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
+		672B5EF82513D6D40017FE31 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				672B5F352513E7CC0017FE31 /* Main */,
+				672B5F422513EBBA0017FE31 /* Home */,
+				672B5F412513EBB20017FE31 /* UnitCategory */,
+				672B5F402513EBAB0017FE31 /* Appointment */,
+				672B5F3F2513EBA30017FE31 /* StaffCategory */,
+				672B5F3E2513EB9C0017FE31 /* Profile */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		672B5EF92513D7080017FE31 /* Resource */ = {
+			isa = PBXGroup;
+			children = (
+				672B5EFA2513D7370017FE31 /* Storyboard */,
+				672B5EFB2513D7530017FE31 /* Assets */,
+				672B5F082513D8500017FE31 /* Localizable.strings */,
+				672B5EED2513D4610017FE31 /* Info.plist */,
+			);
+			path = Resource;
+			sourceTree = "<group>";
+		};
+		672B5EFA2513D7370017FE31 /* Storyboard */ = {
+			isa = PBXGroup;
+			children = (
+				672B5EEA2513D4610017FE31 /* LaunchScreen.storyboard */,
+				672B5EE52513D4540017FE31 /* Main.storyboard */,
+				672B5F4E2513EC5F0017FE31 /* Home.storyboard */,
+				672B5F502513EC700017FE31 /* UnitCategory.storyboard */,
+				672B5F522513EC810017FE31 /* Appointment.storyboard */,
+				672B5F542513EC8E0017FE31 /* StaffCategory.storyboard */,
+				672B5F562513EC9A0017FE31 /* Profile.storyboard */,
+			);
+			path = Storyboard;
+			sourceTree = "<group>";
+		};
+		672B5EFB2513D7530017FE31 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				672B5EFC2513D75D0017FE31 /* FontFiles */,
+				672B5EE82513D4610017FE31 /* Assets.xcassets */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
+		672B5EFC2513D75D0017FE31 /* FontFiles */ = {
+			isa = PBXGroup;
+			children = (
+				672B5F1F2513E2790017FE31 /* OpenSans-Bold.ttf */,
+				672B5F1E2513E2790017FE31 /* OpenSans-BoldItalic.ttf */,
+				672B5F202513E2790017FE31 /* OpenSans-ExtraBold.ttf */,
+				672B5F1D2513E2790017FE31 /* OpenSans-ExtraBoldItalic.ttf */,
+				672B5F212513E2790017FE31 /* OpenSans-Italic.ttf */,
+				672B5F222513E27A0017FE31 /* OpenSans-Light.ttf */,
+				672B5F232513E27A0017FE31 /* OpenSans-LightItalic.ttf */,
+				672B5F242513E27A0017FE31 /* OpenSans-Regular.ttf */,
+				672B5F1B2513E2780017FE31 /* OpenSans-SemiBold.ttf */,
+				672B5F1C2513E2780017FE31 /* OpenSans-SemiBoldItalic.ttf */,
+			);
+			path = FontFiles;
+			sourceTree = "<group>";
+		};
+		672B5F352513E7CC0017FE31 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				67707D8C2517523A00D97CFC /* HospitalList */,
+				672B5F362513E7E50017FE31 /* Splash.swift */,
+				67DECB5B251A4DCB00F2920E /* MyNotifications.swift */,
+				670FD70D251637580069AA8A /* MainTabBarController.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		672B5F382513EB590017FE31 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				67F173A6251A23490025AD8A /* HomeViewModel.swift */,
+				67DECB59251A439700F2920E /* AnnouncementDetailViewModel.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		672B5F392513EB5F0017FE31 /* UnitCategory */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UnitCategory;
+			sourceTree = "<group>";
+		};
+		672B5F3A2513EB6A0017FE31 /* Appointment */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Appointment;
+			sourceTree = "<group>";
+		};
+		672B5F3B2513EB750017FE31 /* StaffCategory */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = StaffCategory;
+			sourceTree = "<group>";
+		};
+		672B5F3C2513EB810017FE31 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		672B5F3D2513EB950017FE31 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				67707D8525174AAB00D97CFC /* SplashViewModel.swift */,
+				67707D892517505B00D97CFC /* HospitalListViewModel.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		672B5F3E2513EB9C0017FE31 /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				672B5F4C2513EC2B0017FE31 /* Profile.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		672B5F3F2513EBA30017FE31 /* StaffCategory */ = {
+			isa = PBXGroup;
+			children = (
+				672B5F4A2513EC1B0017FE31 /* StaffCategory.swift */,
+			);
+			path = StaffCategory;
+			sourceTree = "<group>";
+		};
+		672B5F402513EBAB0017FE31 /* Appointment */ = {
+			isa = PBXGroup;
+			children = (
+				672B5F482513EC0C0017FE31 /* Appointment.swift */,
+			);
+			path = Appointment;
+			sourceTree = "<group>";
+		};
+		672B5F412513EBB20017FE31 /* UnitCategory */ = {
+			isa = PBXGroup;
+			children = (
+				672B5F452513EBF60017FE31 /* UnitCategory.swift */,
+			);
+			path = UnitCategory;
+			sourceTree = "<group>";
+		};
+		672B5F422513EBBA0017FE31 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				6761D1822519E21E00E8FC01 /* Home */,
+				67DECB57251A3F6300F2920E /* AnnouncementDetail.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		6761D1822519E21E00E8FC01 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				672B5F432513EBE60017FE31 /* Home.swift */,
+				6761D1832519E24F00E8FC01 /* Home + CollectionViewExtension.swift */,
+				6761D1872519F34F00E8FC01 /* HomeCollectionViewCell.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		67707D8C2517523A00D97CFC /* HospitalList */ = {
+			isa = PBXGroup;
+			children = (
+				672B5F582513F0170017FE31 /* HospitalList.swift */,
+				67707D8D2517525900D97CFC /* HospitalList + TableViewExtension.swift */,
+				67707D8F2517530500D97CFC /* HospitalListCell.swift */,
+				67707D902517530500D97CFC /* HospitalListCell.xib */,
+			);
+			path = HospitalList;
+			sourceTree = "<group>";
+		};
+		67707D972517775800D97CFC /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				67707D9C25177C3100D97CFC /* ResponseException.swift */,
+				67707DA025179D5A00D97CFC /* ValidationError.swift */,
+				67707D9A25177A7200D97CFC /* GetHospitalsResponseModel.swift */,
+				67707DA225179DA200D97CFC /* GetHospitalResult.swift */,
+				67707D9E25179CF500D97CFC /* GetHospitalInfo.swift */,
+				67F173A2251A21F40025AD8A /* GetAnnouncementsResponseModel.swift */,
+				67F173A4251A22240025AD8A /* GetAnnouncementResult.swift */,
+				67DECB52251A3D7800F2920E /* GetAnnouncementDetailResponseModel.swift */,
+				67DECB54251A3D8C00F2920E /* GetAnnouncementDetailResult.swift */,
+			);
+			path = Main;
+			sourceTree = "<group>";
+		};
+		B38EF2844D6F2DD1261AF7BD /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				C00D5A6EE72486C30D79D209 /* Pods_adatip.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -74,9 +489,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 672B5EF02513D4610017FE31 /* Build configuration list for PBXNativeTarget "adatip" */;
 			buildPhases = (
+				809C215D5D7A6D84E1C83BF2 /* [CP] Check Pods Manifest.lock */,
 				672B5ED82513D4540017FE31 /* Sources */,
 				672B5ED92513D4540017FE31 /* Frameworks */,
 				672B5EDA2513D4540017FE31 /* Resources */,
+				E7552AE680C2CAB1F204978A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -84,7 +501,7 @@
 			);
 			name = adatip;
 			productName = adatip;
-			productReference = 672B5EDC2513D4540017FE31 /* adatip.app */;
+			productReference = 672B5EDC2513D4540017FE31 /* ADATIP.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -104,10 +521,10 @@
 			};
 			buildConfigurationList = 672B5ED72513D4540017FE31 /* Build configuration list for PBXProject "adatip" */;
 			compatibilityVersion = "Xcode 9.3";
-			developmentRegion = en;
+			developmentRegion = tr;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
+				tr,
 				Base,
 			);
 			mainGroup = 672B5ED32513D4540017FE31;
@@ -125,22 +542,124 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				672B5F262513E28B0017FE31 /* OpenSans-BoldItalic.ttf in Resources */,
+				67707D922517530500D97CFC /* HospitalListCell.xib in Resources */,
+				672B5F572513EC9A0017FE31 /* Profile.storyboard in Resources */,
 				672B5EEC2513D4610017FE31 /* LaunchScreen.storyboard in Resources */,
+				672B5F272513E28E0017FE31 /* OpenSans-ExtraBold.ttf in Resources */,
+				672B5F2A2513E2960017FE31 /* OpenSans-Italic.ttf in Resources */,
+				672B5F062513D8500017FE31 /* Localizable.strings in Resources */,
+				672B5F552513EC8F0017FE31 /* StaffCategory.storyboard in Resources */,
+				672B5F2B2513E29A0017FE31 /* OpenSans-LightItalic.ttf in Resources */,
+				672B5F4F2513EC5F0017FE31 /* Home.storyboard in Resources */,
+				672B5F2D2513E2A50017FE31 /* OpenSans-SemiBold.ttf in Resources */,
 				672B5EE92513D4610017FE31 /* Assets.xcassets in Resources */,
+				672B5F252513E2880017FE31 /* OpenSans-Bold.ttf in Resources */,
+				672B5F532513EC810017FE31 /* Appointment.storyboard in Resources */,
+				672B5F292513E2940017FE31 /* OpenSans-Light.ttf in Resources */,
 				672B5EE72513D4540017FE31 /* Main.storyboard in Resources */,
+				672B5F512513EC700017FE31 /* UnitCategory.storyboard in Resources */,
+				672B5F2C2513E29E0017FE31 /* OpenSans-Regular.ttf in Resources */,
+				672B5F2E2513E2A90017FE31 /* OpenSans-SemiBoldItalic.ttf in Resources */,
+				672B5F282513E2910017FE31 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		809C215D5D7A6D84E1C83BF2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-adatip-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E7552AE680C2CAB1F204978A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-adatip/Pods-adatip-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-adatip/Pods-adatip-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-adatip/Pods-adatip-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		672B5ED82513D4540017FE31 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				672B5EE42513D4540017FE31 /* ViewController.swift in Sources */,
+				67707D9F25179CF500D97CFC /* GetHospitalInfo.swift in Sources */,
+				672B5F372513E7E50017FE31 /* Splash.swift in Sources */,
+				67DECB55251A3D8C00F2920E /* GetAnnouncementDetailResult.swift in Sources */,
+				67150FF525189A11009079F3 /* Label + Extension.swift in Sources */,
+				672B5F142513E1270017FE31 /* Constant.swift in Sources */,
+				67DECB58251A3F6300F2920E /* AnnouncementDetail.swift in Sources */,
+				67707D8A2517505B00D97CFC /* HospitalListViewModel.swift in Sources */,
+				6761D1892519F34F00E8FC01 /* HomeCollectionViewCell.swift in Sources */,
+				67DECB5C251A4DCB00F2920E /* MyNotifications.swift in Sources */,
+				672B5F302513E5660017FE31 /* ViewController + Extension.swift in Sources */,
+				670FD710251638480069AA8A /* View + Extension.swift in Sources */,
+				672B5F342513E6970017FE31 /* NetworkManager.swift in Sources */,
+				67707D8825174C1D00D97CFC /* BaseViewModel.swift in Sources */,
+				67707D8E2517525900D97CFC /* HospitalList + TableViewExtension.swift in Sources */,
 				672B5EE02513D4540017FE31 /* AppDelegate.swift in Sources */,
+				67707DA325179DA200D97CFC /* GetHospitalResult.swift in Sources */,
+				670FD70E251637580069AA8A /* MainTabBarController.swift in Sources */,
+				672B5F102513DA720017FE31 /* Helper.swift in Sources */,
+				670FD70A251636910069AA8A /* Image + Extension.swift in Sources */,
+				67150FF92518ADE4009079F3 /* BezierPath + Extension.swift in Sources */,
+				6761D1842519E24F00E8FC01 /* Home + CollectionViewExtension.swift in Sources */,
+				672B5F442513EBE60017FE31 /* Home.swift in Sources */,
+				67707D962517685100D97CFC /* KingfisherSource.swift in Sources */,
+				672B5F4B2513EC1B0017FE31 /* StaffCategory.swift in Sources */,
+				67707D9D25177C3100D97CFC /* ResponseException.swift in Sources */,
+				672B5F0C2513D9530017FE31 /* String + Extension.swift in Sources */,
+				672B5F162513E1380017FE31 /* BaseViewController.swift in Sources */,
+				672B5F322513E6260017FE31 /* BaseNetworkManager.swift in Sources */,
+				67150FF72518A9E1009079F3 /* RoundedCornerView.swift in Sources */,
+				67707D8625174AAB00D97CFC /* SplashViewModel.swift in Sources */,
+				67707D9B25177A7200D97CFC /* GetHospitalsResponseModel.swift in Sources */,
+				672B5F462513EBF60017FE31 /* UnitCategory.swift in Sources */,
 				672B5EE22513D4540017FE31 /* SceneDelegate.swift in Sources */,
+				67707D912517530500D97CFC /* HospitalListCell.swift in Sources */,
+				672B5F122513E1140017FE31 /* Config.swift in Sources */,
+				672B5F1A2513E1E30017FE31 /* Font + Extension.swift in Sources */,
+				672B5F4D2513EC2B0017FE31 /* Profile.swift in Sources */,
+				67DECB5A251A439700F2920E /* AnnouncementDetailViewModel.swift in Sources */,
+				67707DA125179D5A00D97CFC /* ValidationError.swift in Sources */,
+				67F173A3251A21F40025AD8A /* GetAnnouncementsResponseModel.swift in Sources */,
+				67F173A7251A23490025AD8A /* HomeViewModel.swift in Sources */,
+				67F173A5251A22240025AD8A /* GetAnnouncementResult.swift in Sources */,
+				672B5F592513F0170017FE31 /* HospitalList.swift in Sources */,
+				672B5F492513EC0C0017FE31 /* Appointment.swift in Sources */,
+				672B5F182513E1C50017FE31 /* Color + Extension.swift in Sources */,
+				67DECB53251A3D7800F2920E /* GetAnnouncementDetailResponseModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -150,7 +669,7 @@
 		672B5EE52513D4540017FE31 /* Main.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				672B5EE62513D4540017FE31 /* Base */,
+				67F545602519C1C100029645 /* Base */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -158,9 +677,17 @@
 		672B5EEA2513D4610017FE31 /* LaunchScreen.storyboard */ = {
 			isa = PBXVariantGroup;
 			children = (
-				672B5EEB2513D4610017FE31 /* Base */,
+				67F5455F2519C1C000029645 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		672B5F082513D8500017FE31 /* Localizable.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				672B5F0A2513D8D70017FE31 /* tr */,
+			);
+			name = Localizable.strings;
 			sourceTree = "<group>";
 		};
 /* End PBXVariantGroup section */
@@ -170,6 +697,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -230,6 +758,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -282,17 +811,21 @@
 		};
 		672B5EF12513D4610017FE31 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0C67156B9D104999BAD15F24 /* Pods-adatip.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = adatip/ADATIP.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 3PLNUDG749;
-				INFOPLIST_FILE = adatip/Info.plist;
+				INFOPLIST_FILE = adatip/Resource/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.btkurumsal.adatip;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ADATIP;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -300,17 +833,21 @@
 		};
 		672B5EF22513D4610017FE31 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD40C507733E51014629BE00 /* Pods-adatip.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = adatip/ADATIP.entitlements;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = 3PLNUDG749;
-				INFOPLIST_FILE = adatip/Info.plist;
+				INFOPLIST_FILE = adatip/Resource/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.btkurumsal.adatip;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = ADATIP;
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
