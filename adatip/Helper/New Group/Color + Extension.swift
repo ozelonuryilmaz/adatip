@@ -53,6 +53,10 @@ extension UIColor {
         return UIColor.init(hexString: "#FFFFFF")
     }
     
+    class var customColorWhiteLight: UIColor {
+        return UIColor.init(hexString: "#F5F8FA")
+    }
+    
     class var customColorWhiteDarker: UIColor {
         return UIColor.init(hexString: "#D2DCE3")
     }

@@ -35,13 +35,14 @@ class HospitalListCell: UITableViewCell {
     }
     @IBOutlet weak var imgHospital: UIImageView!{
         didSet{
-            imgHospital.contentMode = .scaleToFill
+            imgHospital.contentMode = .scaleAspectFill
         }
     }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        
     }
 
     func setHospitalList(hospital: GetHospitalResult){

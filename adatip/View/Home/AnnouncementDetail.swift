@@ -31,7 +31,7 @@ class AnnouncementDetail: BaseViewController {
         
         initBarButtonNotification()
         
-        imgAnnouncement.contentMode = .scaleToFill
+        imgAnnouncement.contentMode = .scaleAspectFill
         imgAnnouncement.clipsToBounds = true
         imgAnnouncement.layer.cornerRadius = 25
         
@@ -41,7 +41,7 @@ class AnnouncementDetail: BaseViewController {
         lblTitle.numberOfLines = 0
         lblTitle.sizeToFit()
         
-        lblDesc.font = UIFont.customFont(size: 14, customStyle: .Regular)
+        lblDesc.font = UIFont.customFont(size: 15, customStyle: .Regular)
         lblDesc.textColor = UIColor.customColorBlack
         lblDesc.numberOfLines = 0
         lblDesc.sizeToFit()

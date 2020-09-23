@@ -134,5 +134,75 @@ class NetworkManager: NSObject {
             
         }
     }
+    
+    //MARK: - Get Our Units (OurUnits)
+    class func getUnitCategoryList(hospitalId: Int, success:@escaping (_ response: GetUnitCategoryResponseModel) -> Void, failure:@escaping (_ error:Error, _ statusCode:Int, _ errorResponse: GetUnitCategoryResponseModel?) -> Void) -> Void {
+        
+        let url = Constant.Url.PAGE + "v1/unit-category/list/\(hospitalId)"
+        
+        BaseNetworkManager.get(url: url, parameters: nil, headers: getHeaderWithoutToken(), success: { (data) in
+
+            var theResponse : GetUnitCategoryResponseModel
+
+            do {
+                let decoder = JSONDecoder()
+                theResponse = try decoder.decode(GetUnitCategoryResponseModel.self, from: data!)
+                success(theResponse)
+            } catch let error {
+                printAndShowError(url: url, error: error, statusCode: -1)
+                failure(error, -1, nil)
+            }
+
+        }) { (Error, StatusCode, ErrorData) in
+            
+            var theErrorResponse : GetUnitCategoryResponseModel
+            
+            do {
+                let decoder = JSONDecoder()
+                theErrorResponse = try decoder.decode(GetUnitCategoryResponseModel.self, from: ErrorData!)
+                printAndShowError(url: url, error: Error, statusCode: StatusCode)
+                failure(Error, StatusCode, theErrorResponse)
+            } catch let error {
+                printAndShowError(url: url, error: error, statusCode: StatusCode)
+                failure(error, StatusCode, nil)
+            }
+            
+        }
+    }
+    
+    //MARK: - Get Unit Sub Categories (UnitCategory)
+    class func getUnitSubCategoryList(hospitalId: Int, unitCategoryId: Int, success:@escaping (_ response: GetUnitSubCategoryResponseModel) -> Void, failure:@escaping (_ error:Error, _ statusCode:Int, _ errorResponse: GetUnitSubCategoryResponseModel?) -> Void) -> Void {
+        
+        let url = Constant.Url.PAGE + "v1/unit-category/list/\(hospitalId)/\(unitCategoryId)/subCategories"
+        
+        BaseNetworkManager.get(url: url, parameters: nil, headers: getHeaderWithoutToken(), success: { (data) in
+
+            var theResponse : GetUnitSubCategoryResponseModel
+
+            do {
+                let decoder = JSONDecoder()
+                theResponse = try decoder.decode(GetUnitSubCategoryResponseModel.self, from: data!)
+                success(theResponse)
+            } catch let error {
+                printAndShowError(url: url, error: error, statusCode: -1)
+                failure(error, -1, nil)
+            }
+
+        }) { (Error, StatusCode, ErrorData) in
+            
+            var theErrorResponse : GetUnitSubCategoryResponseModel
+            
+            do {
+                let decoder = JSONDecoder()
+                theErrorResponse = try decoder.decode(GetUnitSubCategoryResponseModel.self, from: ErrorData!)
+                printAndShowError(url: url, error: Error, statusCode: StatusCode)
+                failure(Error, StatusCode, theErrorResponse)
+            } catch let error {
+                printAndShowError(url: url, error: error, statusCode: StatusCode)
+                failure(error, StatusCode, nil)
+            }
+            
+        }
+    }
 
 }

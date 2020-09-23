@@ -13,7 +13,7 @@ class Helper: NSObject {
     // MARK: *** Setup TabBar Controller
     class func setupTabBarControler(tabBarController: UITabBarController) {
         
-        tabBarController.tabBar.unselectedItemTintColor = UIColor.customColorBlack.withAlphaComponent(0.5)
+        tabBarController.tabBar.unselectedItemTintColor = UIColor.customColorBlack.withAlphaComponent(0.4)
         tabBarController.tabBar.tintColor = UIColor.primaryColor
         tabBarController.tabBar.barTintColor = UIColor.secondaryColor
         

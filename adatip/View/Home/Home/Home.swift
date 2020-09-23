@@ -66,7 +66,7 @@ class Home: BaseViewController {
         
         imgSlideshow.backgroundColor = UIColor.customColorWhite
         imgSlideshow.slideshowInterval = 5
-        imgSlideshow.contentScaleMode = UIView.ContentMode.scaleToFill
+        imgSlideshow.contentScaleMode = UIView.ContentMode.scaleAspectFill
         //imgSlideshow.activityIndicator = DefaultActivityIndicator.init(style: .whiteLarge, color: UIColor.secondaryColor)
         imgSlideshow.pageIndicatorPosition = PageIndicatorPosition.init(horizontal: .center, vertical: .under)
         
@@ -183,7 +183,6 @@ class Home: BaseViewController {
         print("Doctor")
     }
     
-    // MARK: *** Button Tap Action
     @IBAction func tapBtnAppointment(sender: AnyObject){
         print("Appointment")
     }
