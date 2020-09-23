@@ -12,7 +12,7 @@ class UnitCategory: BaseViewController {
     
     @IBOutlet weak var collectionViewSubCategory: UICollectionView!
     var subCategoryArray: [GetUnitSubCategoryResult] = []
-    let padding: CGFloat = 20
+    let padding: CGFloat = 20.0
     
     var titleName = String()
     var unitCategoryId = Int()
@@ -23,6 +23,7 @@ class UnitCategory: BaseViewController {
         setupViewComponents()
         
         getUnitSubCategoryList(hospitalId: self.hospitalId, unitCategoryId: self.unitCategoryId)
+        
     }
     
     private func setupViewComponents(){

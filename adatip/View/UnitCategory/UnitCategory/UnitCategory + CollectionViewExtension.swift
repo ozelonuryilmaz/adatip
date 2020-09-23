@@ -9,7 +9,7 @@
 import UIKit
 
 
-extension UnitCategory: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+extension UnitCategory: UICollectionViewDelegate, UICollectionViewDataSource {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return self.subCategoryArray.count
@@ -29,20 +29,6 @@ extension UnitCategory: UICollectionViewDelegate, UICollectionViewDataSource, UI
         return cell
     }
     
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        
-        let collectionViewSize = collectionView.frame.size.width / 2 - self.padding
-        
-        return CGSize(width: collectionViewSize, height: 208)
-    }
-    
-    
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        let inset: CGFloat = self.padding / 2
-        return UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
-    }
-    
-    
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         
         let subCategory = self.subCategoryArray[indexPath.row]
@@ -54,5 +40,33 @@ extension UnitCategory: UICollectionViewDelegate, UICollectionViewDataSource, UI
         
     }
     
+}
+
+
+extension UnitCategory: UICollectionViewDelegateFlowLayout{
     
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        
+        let collectionViewSize = collectionView.frame.size.width / 2 + self.padding
+        return CGSize(width: collectionViewSize, height: 208)
+    }
+    /*
+    let estimateWidth: CGFloat = 160.0
+    let cellMarginSize: CGFloat = 16.0
+     
+    func calculateWidth() -> CGFloat{
+        let cellCount = floor(CGFloat(self.view.frame.size.width / self.estimateWidth))
+        
+        let margin = CGFloat(self.cellMarginSize * 2)
+        let width = (self.view.frame.size.width - CGFloat(self.cellMarginSize) * (cellCount - 1) - margin) / cellCount
+        
+        return width
+    }*/
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        
+        let inset: CGFloat = self.padding / 2
+        return UIEdgeInsets(top: inset, left: inset, bottom: inset, right: inset)
+    }
 }

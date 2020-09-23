@@ -179,7 +179,7 @@
                                                 </connections>
                                             </collectionView>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="h7X-xl-ts3">
-                                                <rect key="frame" x="44" y="391" width="157" height="40"/>
+                                                <rect key="frame" x="38" y="391" width="163" height="40"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="doctor" translatesAutoresizingMaskIntoConstraints="NO" id="SbJ-Zz-Nib">
                                                         <rect key="frame" x="8" y="8" width="24" height="24"/>
@@ -189,7 +189,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XBO-JO-L71">
-                                                        <rect key="frame" x="40" y="0.0" width="117" height="40"/>
+                                                        <rect key="frame" x="38" y="0.0" width="125" height="40"/>
                                                         <state key="normal" title="-">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
@@ -202,12 +202,12 @@
                                                     <constraint firstItem="SbJ-Zz-Nib" firstAttribute="centerY" secondItem="XBO-JO-L71" secondAttribute="centerY" id="Rgo-1x-T67"/>
                                                     <constraint firstItem="SbJ-Zz-Nib" firstAttribute="leading" secondItem="h7X-xl-ts3" secondAttribute="leading" constant="8" id="dzH-8b-Ggg"/>
                                                     <constraint firstItem="XBO-JO-L71" firstAttribute="top" secondItem="h7X-xl-ts3" secondAttribute="top" id="f1h-Dj-VLE"/>
-                                                    <constraint firstItem="XBO-JO-L71" firstAttribute="leading" secondItem="SbJ-Zz-Nib" secondAttribute="trailing" constant="8" id="pqF-eB-rA1"/>
+                                                    <constraint firstItem="XBO-JO-L71" firstAttribute="leading" secondItem="SbJ-Zz-Nib" secondAttribute="trailing" constant="6" id="pqF-eB-rA1"/>
                                                     <constraint firstAttribute="height" constant="40" id="z2T-Yk-J7z"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="hwr-2I-BYW">
-                                                <rect key="frame" x="213" y="391" width="157" height="40"/>
+                                                <rect key="frame" x="213" y="391" width="163" height="40"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="tabBarIcon2" translatesAutoresizingMaskIntoConstraints="NO" id="MAa-6k-7sM">
                                                         <rect key="frame" x="8" y="8" width="24" height="24"/>
@@ -217,7 +217,7 @@
                                                         </constraints>
                                                     </imageView>
                                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vci-re-l3H">
-                                                        <rect key="frame" x="40" y="0.0" width="117" height="40"/>
+                                                        <rect key="frame" x="38" y="0.0" width="125" height="40"/>
                                                         <state key="normal" title="-">
                                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                         </state>
@@ -231,7 +231,7 @@
                                                     <constraint firstItem="MAa-6k-7sM" firstAttribute="leading" secondItem="hwr-2I-BYW" secondAttribute="leading" constant="8" id="Pp6-uD-mBW"/>
                                                     <constraint firstAttribute="trailing" secondItem="Vci-re-l3H" secondAttribute="trailing" id="glr-8r-fqi"/>
                                                     <constraint firstAttribute="bottom" secondItem="Vci-re-l3H" secondAttribute="bottom" id="kiJ-it-oqs"/>
-                                                    <constraint firstItem="Vci-re-l3H" firstAttribute="leading" secondItem="MAa-6k-7sM" secondAttribute="trailing" constant="8" id="rgZ-3a-Qaa"/>
+                                                    <constraint firstItem="Vci-re-l3H" firstAttribute="leading" secondItem="MAa-6k-7sM" secondAttribute="trailing" constant="6" id="rgZ-3a-Qaa"/>
                                                 </constraints>
                                             </view>
                                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3YD-Qq-wND">
@@ -376,10 +376,10 @@
                                             <constraint firstItem="tkn-fH-0vz" firstAttribute="top" secondItem="pGu-Kz-brW" secondAttribute="top" id="aJl-Av-Obb"/>
                                             <constraint firstItem="hwr-2I-BYW" firstAttribute="top" secondItem="cNo-Bc-qYh" secondAttribute="bottom" constant="-21" id="bLT-yE-y0r"/>
                                             <constraint firstItem="tkn-fH-0vz" firstAttribute="leading" secondItem="pGu-Kz-brW" secondAttribute="leading" id="bcb-z9-ad9"/>
-                                            <constraint firstAttribute="trailing" secondItem="hwr-2I-BYW" secondAttribute="trailing" constant="44" id="buW-ai-vsG"/>
+                                            <constraint firstAttribute="trailing" secondItem="hwr-2I-BYW" secondAttribute="trailing" constant="38" id="buW-ai-vsG"/>
                                             <constraint firstItem="3YD-Qq-wND" firstAttribute="width" secondItem="x8M-qf-XyF" secondAttribute="width" id="cj7-rp-v29"/>
                                             <constraint firstAttribute="trailing" secondItem="cNo-Bc-qYh" secondAttribute="trailing" id="ddX-dc-fzB"/>
-                                            <constraint firstItem="h7X-xl-ts3" firstAttribute="leading" secondItem="pGu-Kz-brW" secondAttribute="leading" constant="44" id="eHh-Fb-tkb"/>
+                                            <constraint firstItem="h7X-xl-ts3" firstAttribute="leading" secondItem="pGu-Kz-brW" secondAttribute="leading" constant="38" id="eHh-Fb-tkb"/>
                                             <constraint firstItem="sEi-93-Te3" firstAttribute="leading" secondItem="pGu-Kz-brW" secondAttribute="leading" id="eLl-Tp-CjR"/>
                                             <constraint firstItem="m0o-5c-1hV" firstAttribute="bottom" secondItem="tkn-fH-0vz" secondAttribute="bottom" constant="-36" id="gPS-N8-sNp"/>
                                             <constraint firstItem="cNo-Bc-qYh" firstAttribute="top" secondItem="tkn-fH-0vz" secondAttribute="bottom" id="kQ0-5s-68Z"/>
