@@ -38,6 +38,7 @@ class BaseViewController: UIViewController {
         
         //when the hospital changed.
         NotificationCenter.default.addObserver(self, selector: #selector(changeHospitalInfo), name: NSNotification.Name(rawValue: Constant.NotificationKeys.CHANGE_HOSPITAL_INFO), object: nil)
+        
     }
     
     override func viewDidLayoutSubviews(){
@@ -57,6 +58,20 @@ class BaseViewController: UIViewController {
         self.navigationController?.popToRootViewController(animated: true)
     }
     
+    func initBarButtonNotification() {
+        
+        let btnNotification = UIButton(type: .custom)
+        btnNotification.setImage(UIImage(named: "bell"), for: .normal)
+        btnNotification.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
+        btnNotification.addTarget(self, action: #selector(tapBtnNotification(sender:)), for: .touchUpInside)
+        let notificationBarButtonItem = UIBarButtonItem(customView: btnNotification)
+        self.navigationItem.rightBarButtonItem = notificationBarButtonItem
+    }
+    
+    //MARK: *** Bar Button Action
+    @IBAction func tapBtnNotification(sender: UIButton){
+        self.navigationController?.pushViewController(MyNotifications.create(), animated: true)
+    }
     
     // MARK: *** Setup Navigation Controller
     func setupNavigationBar(titleName: String, subtitle: String? = nil) {
@@ -100,7 +115,7 @@ class BaseViewController: UIViewController {
         
         subtitleLabel.backgroundColor = UIColor.clear
         subtitleLabel.textColor = UIColor.secondaryColor
-        subtitleLabel.font = UIFont.customFont(size: 14, customStyle: .Regular)
+        subtitleLabel.font = UIFont.customFont(size: 13, customStyle: .Regular)
         subtitleLabel.text = withSubtitle.localizable()
         subtitleLabel.sizeToFit()
 

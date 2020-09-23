@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="8Ea-Xb-EbQ">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16097.3" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="280-dR-aiP">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -11,7 +11,7 @@
         <!--Unit Category-->
         <scene sceneID="czM-TY-BU9">
             <objects>
-                <viewController storyboardIdentifier="unitCategory" useStoryboardIdentifierAsRestorationIdentifier="YES" id="8Ea-Xb-EbQ" customClass="UnitCategory" customModule="AdaTip" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="unitCategory" id="8Ea-Xb-EbQ" customClass="UnitCategory" customModule="ADATIP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="GUL-cn-8UX">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -21,7 +21,37 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="F8n-du-aDP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="42" y="90"/>
+            <point key="canvasLocation" x="1420" y="64"/>
+        </scene>
+        <!--Unit Category Detail-->
+        <scene sceneID="9lg-hR-w9l">
+            <objects>
+                <viewController storyboardIdentifier="unitCategoryDetail" id="tjs-qL-FpJ" customClass="UnitCategoryDetail" customModule="ADATIP" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="cqQ-0N-AD9">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="jAh-0t-RP6"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WHg-9M-mf4" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2233" y="64"/>
+        </scene>
+        <!--Our Units-->
+        <scene sceneID="24B-Eb-N9B">
+            <objects>
+                <viewController storyboardIdentifier="ourUnits" useStoryboardIdentifierAsRestorationIdentifier="YES" id="280-dR-aiP" customClass="OurUnits" customModule="ADATIP" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="lYc-xc-Ykb">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="40W-Uc-5Du"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4un-P1-tLx" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="606" y="64"/>
         </scene>
     </scenes>
 </document>

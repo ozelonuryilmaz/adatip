@@ -36,6 +36,7 @@ class Constant: NSObject {
         static let TABBAR_CENTER_BUTTON = "tabBarCenterButton"
         static let CHANGE_HOSPITAL = "changeHospital"
         static let CHANGE_HOSPITAL_INFO = "changeHospitalInfo"
+        static let CHANGE_HOSPITAL_POP_VC = "changeHospitalPopVC"
     }
 
 }

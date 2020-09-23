@@ -52,18 +52,16 @@ class Home: BaseViewController {
     private func setupViewComponents(){
         self.setupNavigationBar(titleName: "adatip", subtitle: "(" + self.hospitalTitle + ")")
         
-        let btnNotification = UIButton(type: .custom)
-        btnNotification.setImage(UIImage(named: "bell"), for: .normal)
-        btnNotification.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
-        btnNotification.addTarget(self, action: #selector(tapBtnNotification(sender:)), for: .touchUpInside)
-        let notificationBarButtonItem = UIBarButtonItem(customView: btnNotification)
-        self.navigationItem.rightBarButtonItem = notificationBarButtonItem
+        initBarButtonNotification()
         
         let btnLogo = UIImageView()
         btnLogo.image = UIImage(named: "maskgroup")
         btnLogo.contentMode = .center
         btnLogo.frame = CGRect(x: 0, y: 0, width: 30, height: 30)
-        let logoBarButtonItem = UIBarButtonItem(customView: btnLogo)
+        let btnLogoConteinerView = UIView(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
+        btnLogoConteinerView.addGestureRecognizer(UITapGestureRecognizer(target: self, action: #selector(tabOurHospitalTapped(sender:))))
+        btnLogoConteinerView.addSubview(btnLogo)
+        let logoBarButtonItem = UIBarButtonItem(customView: btnLogoConteinerView)
         self.navigationItem.leftBarButtonItem = logoBarButtonItem
         
         imgSlideshow.backgroundColor = UIColor.customColorWhite
@@ -180,9 +178,6 @@ class Home: BaseViewController {
     }
     
     // MARK: *** Button Tap Action
-    @IBAction func tapBtnNotification(sender: UIButton){
-        self.navigationController?.pushViewController(MyNotifications.create(), animated: true)
-    }
     
     @IBAction func tapBtnConsultDoctor(sender: AnyObject){
         print("Doctor")

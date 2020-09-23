@@ -29,6 +29,8 @@ class AnnouncementDetail: BaseViewController {
     private func setupViewComponents(){
         self.setupNavigationBar(titleName: "announcement_detail", subtitle: "(" + self.hospitalTitle + ")")
         
+        initBarButtonNotification()
+        
         imgAnnouncement.contentMode = .scaleToFill
         imgAnnouncement.clipsToBounds = true
         imgAnnouncement.layer.cornerRadius = 25

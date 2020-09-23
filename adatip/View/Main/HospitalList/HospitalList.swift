@@ -20,7 +20,7 @@ class HospitalList: BaseViewController {
         
         if !firstTime {
             let barButtonClose = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(tapBtnClose(sender:)))
-            self.navigationItem.rightBarButtonItem = barButtonClose
+            self.navigationItem.leftBarButtonItem = barButtonClose
         }
         
         tableViewHospital.register(HospitalListCell.nib(), forCellReuseIdentifier: HospitalListCell.reuseID)
