@@ -50,7 +50,7 @@ class OurUnitsCell: UITableViewCell {
     func setOurUnitList(ourUnit: GetUnitCategoryResult){
         self.lblTitle.text = ourUnit.categoryName
         self.lblShortDesc.text = ourUnit.shortDescription
-        self.imgUnit.kf.setImage(with: URL(string: ourUnit.imageUrl ?? ""))
+        self.imgUnit.kf.setImage(with: URL(string: ourUnit.imageUrl?.encodedTexts() ?? ""))
         
         self.constTitle.constant = CGFloat(self.lblTitle.calculateMaxLines * 25)
     }

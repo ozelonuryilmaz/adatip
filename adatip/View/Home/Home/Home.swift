@@ -49,6 +49,11 @@ class Home: BaseViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(changeHospital), name: NSNotification.Name(rawValue: Constant.NotificationKeys.CHANGE_HOSPITAL), object: nil)
     }
     
+    @objc private func changeHospital() {
+        updateNavigationBarTitle(title: "adatip", subtitle: "(" + self.hospitalTitle + ")")
+        getBanners(hospitalId: self.hospitalId)
+    }
+    
     private func setupViewComponents(){
         self.setupNavigationBar(titleName: "adatip", subtitle: "(" + self.hospitalTitle + ")")
         
@@ -172,11 +177,6 @@ class Home: BaseViewController {
         
     }
     
-    @objc private func changeHospital() {
-        updateNavigationBarTitle(title: "adatip", subtitle: "(" + self.hospitalTitle + ")")
-        getBanners(hospitalId: self.hospitalId)
-    }
-    
     // MARK: *** Button Tap Action
     
     @IBAction func tapBtnConsultDoctor(sender: AnyObject){
@@ -221,7 +221,7 @@ class Home: BaseViewController {
         imageSourcesForBanner.removeAll()
         
         for hospital in banners {
-            imageSourcesForBanner.append(KingfisherSource(urlString: hospital.imageUrl ?? "")!)
+            imageSourcesForBanner.append(KingfisherSource(urlString: hospital.imageUrl?.encodedTexts() ?? "")!)
         }
         
         imgSlideshow.setImageInputs(imageSourcesForBanner)

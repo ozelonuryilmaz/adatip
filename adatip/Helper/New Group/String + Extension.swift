@@ -28,7 +28,7 @@ extension String {
         
         return ceil(boundingBox.width)
     }
-
+    
     /*
      font: Add your font as usually do in a UILabel/UITextView, using UIFont with the name of your custom font and the size.
      csscolor: Either add color in HEX format, like "#000000" or use the name of the color, like "black".
@@ -64,5 +64,14 @@ extension String {
             return nil
         }
     }
+    
+    func encodedTexts() -> String {
+        let encodedTexts = self.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed)
+        if let encodedTexts = encodedTexts {
+            return encodedTexts
+        }
         
+        return ""
+    }
+
 }

@@ -204,5 +204,40 @@ class NetworkManager: NSObject {
             
         }
     }
+    
+    //MARK: - Get Doctors (StaffCategory)
+    class func getDoctorList(hospitalId: Int, success:@escaping (_ response: GetDoctorResponseModel) -> Void, failure:@escaping (_ error:Error, _ statusCode:Int, _ errorResponse: GetDoctorResponseModel?) -> Void) -> Void {
+        
+        let url = Constant.Url.PAGE + "v1/doctor/list/\(hospitalId)"
+        
+        BaseNetworkManager.get(url: url, parameters: nil, headers: getHeaderWithoutToken(), success: { (data) in
+
+            var theResponse : GetDoctorResponseModel
+
+            do {
+                let decoder = JSONDecoder()
+                theResponse = try decoder.decode(GetDoctorResponseModel.self, from: data!)
+                success(theResponse)
+            } catch let error {
+                printAndShowError(url: url, error: error, statusCode: -1)
+                failure(error, -1, nil)
+            }
+
+        }) { (Error, StatusCode, ErrorData) in
+            
+            var theErrorResponse : GetDoctorResponseModel
+            
+            do {
+                let decoder = JSONDecoder()
+                theErrorResponse = try decoder.decode(GetDoctorResponseModel.self, from: ErrorData!)
+                printAndShowError(url: url, error: Error, statusCode: StatusCode)
+                failure(Error, StatusCode, theErrorResponse)
+            } catch let error {
+                printAndShowError(url: url, error: error, statusCode: StatusCode)
+                failure(error, StatusCode, nil)
+            }
+            
+        }
+    }
 
 }

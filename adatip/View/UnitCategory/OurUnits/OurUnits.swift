@@ -24,6 +24,11 @@ class OurUnits: BaseViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(changeHospital), name: NSNotification.Name(rawValue: Constant.NotificationKeys.CHANGE_HOSPITAL), object: nil)
     }
     
+    @objc private func changeHospital() {
+        updateNavigationBarTitle(title: "our_units", subtitle: "(" + self.hospitalTitle + ")")
+        getUnitCategoryList(hospitalId: self.hospitalId)
+    }
+    
     private func setupViewComponents(){
         self.setupNavigationBar(titleName: "our_units", subtitle: "(" + self.hospitalTitle + ")")
         
@@ -36,11 +41,6 @@ class OurUnits: BaseViewController {
         tableViewOurUnits.estimatedRowHeight = 300
         tableViewOurUnits.tableFooterView = UIView()
         
-    }
-    
-    @objc private func changeHospital() {
-        updateNavigationBarTitle(title: "our_units", subtitle: "(" + self.hospitalTitle + ")")
-        getUnitCategoryList(hospitalId: self.hospitalId)
     }
     
     private func getUnitCategoryList(hospitalId: Int){

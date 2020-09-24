@@ -33,7 +33,7 @@ extension UnitCategory: UICollectionViewDelegate, UICollectionViewDataSource {
         
         let subCategory = self.subCategoryArray[indexPath.row]
         let unitCategoryDetail = UnitCategoryDetail.create(titleName: self.titleName,
-                                                           imageUrl: subCategory.imageUrl ?? "",
+                                                           imageUrl: subCategory.imageUrl?.encodedTexts() ?? "",
                                                            subCategoryName: subCategory.subCategoryName ?? "",
                                                            unitDescription: subCategory.unitDescription ?? "")
         self.navigationController?.pushViewController(unitCategoryDetail, animated: true)

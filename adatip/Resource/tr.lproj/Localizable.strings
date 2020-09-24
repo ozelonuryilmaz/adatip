@@ -13,9 +13,11 @@
 "new_appointment" = "Yeni Randevu Al";
 "our_units" = "Birimlerimiz";
 "our_doctors" = "Doktorlarımız";
+"our_employees" = "Hekimlerimiz";
 "online_services" = "Online Hizmetler";
 "an_unexpected_error_occurred" = "Beklenmedik Bir Hata Oluştu";
 "announcement_detail" = "Duyuru Detay";
 "notifications" = "Bildirimler";
 "e_appointment" = "E-Randevu";
 "e_lab" = "E-Laboratuvar";
+"search_doctor" = "Hekim Arayın";

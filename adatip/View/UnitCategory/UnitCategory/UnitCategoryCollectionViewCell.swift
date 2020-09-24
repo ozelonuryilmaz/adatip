@@ -33,7 +33,7 @@ class UnitCategoryCollectionViewCell: UICollectionViewCell {
     
     func setSubCategoryList(subCategory: GetUnitSubCategoryResult, lblWidth: CGFloat){
         self.lblTitle.text = subCategory.subCategoryName
-        self.imgUnit.kf.setImage(with: URL(string: subCategory.imageUrl ?? ""))
+        self.imgUnit.kf.setImage(with: URL(string: subCategory.imageUrl?.encodedTexts() ?? ""))
         
         self.constWidthTitle.constant = lblWidth
     }

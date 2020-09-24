@@ -47,7 +47,7 @@ class HospitalListCell: UITableViewCell {
 
     func setHospitalList(hospital: GetHospitalResult){
         self.lblTitle.text = hospital.title
-        self.imgHospital.kf.setImage(with: URL(string: hospital.imageUrl ?? ""))//, placeholder: UIImage(named: "empty-res"), options: nil, progressBlock: nil, completionHandler: nil)
+        self.imgHospital.kf.setImage(with: URL(string: hospital.imageUrl?.encodedTexts() ?? ""))//, placeholder: UIImage(named: "empty-res"), options: nil, progressBlock: nil, completionHandler: nil)
     }
     
 }

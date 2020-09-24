@@ -53,7 +53,7 @@ class AnnouncementDetail: BaseViewController {
         self.showProgressView(self.view)
         AnnouncementDetailViewModel.getAnnouncementDetail(announcementId: announcementId, complation: { (announcementDetail) in
             
-            self.imgAnnouncement.kf.setImage(with: URL(string: announcementDetail.imageUrl ?? ""))
+            self.imgAnnouncement.kf.setImage(with: URL(string: announcementDetail.imageUrl?.encodedTexts() ?? ""))
             self.lblDesc.attributedText = announcementDetail.fullDescription?.convertHtmlToAttributedStringWithCSS(font: self.lblDesc.font, csscolor: "black", lineheight: 5, csstextalign: "left")
             
             self.constTitle.constant = CGFloat(self.lblTitle.calculateMaxLines * 40)

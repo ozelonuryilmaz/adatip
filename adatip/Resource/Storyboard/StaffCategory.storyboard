@@ -11,17 +11,61 @@
         <!--Staff Category-->
         <scene sceneID="rp2-Uj-Mld">
             <objects>
-                <viewController storyboardIdentifier="staffCategory" useStoryboardIdentifierAsRestorationIdentifier="YES" id="66h-co-r2A" customClass="StaffCategory" customModule="AdaTip" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="staffCategory" useStoryboardIdentifierAsRestorationIdentifier="YES" id="66h-co-r2A" customClass="StaffCategory" customModule="ADATIP" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="tTh-s9-zwC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UMo-Y6-E5E">
+                                <rect key="frame" x="21" y="56" width="372" height="40"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="searchsymbols" translatesAutoresizingMaskIntoConstraints="NO" id="dzP-1g-NgO">
+                                        <rect key="frame" x="12" y="13" width="14" height="14"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="14" id="U3j-YN-Csk"/>
+                                            <constraint firstAttribute="width" constant="14" id="iS9-YE-0Jf"/>
+                                        </constraints>
+                                    </imageView>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="FIj-Im-SVb">
+                                        <rect key="frame" x="34" y="0.0" width="330" height="40"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="40" id="LlW-TK-MfC"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                </subviews>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                <constraints>
+                                    <constraint firstItem="FIj-Im-SVb" firstAttribute="leading" secondItem="dzP-1g-NgO" secondAttribute="trailing" constant="8" id="0M4-as-7G2"/>
+                                    <constraint firstAttribute="trailing" secondItem="FIj-Im-SVb" secondAttribute="trailing" constant="8" id="L5x-fB-mmw"/>
+                                    <constraint firstItem="dzP-1g-NgO" firstAttribute="centerY" secondItem="FIj-Im-SVb" secondAttribute="centerY" id="htI-et-3YE"/>
+                                    <constraint firstItem="FIj-Im-SVb" firstAttribute="top" secondItem="UMo-Y6-E5E" secondAttribute="top" id="imX-gz-4vk"/>
+                                    <constraint firstItem="dzP-1g-NgO" firstAttribute="leading" secondItem="UMo-Y6-E5E" secondAttribute="leading" constant="12" id="nM8-dZ-2Ea"/>
+                                    <constraint firstAttribute="height" constant="40" id="vcH-HY-Kqh"/>
+                                    <constraint firstAttribute="bottom" secondItem="FIj-Im-SVb" secondAttribute="bottom" id="vrb-rY-uYI"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <constraints>
+                            <constraint firstItem="xCD-7u-QEf" firstAttribute="trailing" secondItem="UMo-Y6-E5E" secondAttribute="trailing" constant="21" id="R0w-gb-7kQ"/>
+                            <constraint firstItem="UMo-Y6-E5E" firstAttribute="top" secondItem="xCD-7u-QEf" secondAttribute="top" constant="12" id="ZE5-A2-WgD"/>
+                            <constraint firstItem="UMo-Y6-E5E" firstAttribute="leading" secondItem="xCD-7u-QEf" secondAttribute="leading" constant="21" id="lla-Qe-8v1"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="xCD-7u-QEf"/>
                     </view>
+                    <connections>
+                        <outlet property="bgSearchDoctorView" destination="UMo-Y6-E5E" id="LCD-aC-ecW"/>
+                        <outlet property="tfSearcDoctor" destination="FIj-Im-SVb" id="El5-Rk-2VA"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MwW-qk-89S" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="139" y="100"/>
+            <point key="canvasLocation" x="137.68115942028987" y="99.776785714285708"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="searchsymbols" width="14" height="14"/>
+    </resources>
 </document>
