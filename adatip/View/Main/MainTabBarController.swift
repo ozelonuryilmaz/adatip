@@ -48,7 +48,8 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         addCenterButton()
         
         //when the tab changed.
-        NotificationCenter.default.addObserver(self, selector: #selector(self.btnChangeColor), name: NSNotification.Name(rawValue: Constant.NotificationKeys.TABBAR_CENTER_BUTTON), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.tabBarPrimaryCenterButton), name: NSNotification.Name(rawValue: Constant.NotificationKeys.TABBAR_PRIMARY_CENTER_BUTTON), object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(self.tabBarSecondaryCenterButton), name: NSNotification.Name(rawValue: Constant.NotificationKeys.TABBAR_SECONDARY_CENTER_BUTTON), object: nil)
         
     }
     
@@ -102,13 +103,14 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         
         centerButtonFrame()
         centerButton.backgroundColor = UIColor.secondaryColor
-        centerButton.layer.cornerRadius = self.tabBar.frame.size.height / 2
+        centerButton.clipsToBounds = true
+        centerButton.layer.cornerRadius = centerButton.frame.size.height / 2
         centerButton.adjustsImageWhenHighlighted = false
         
-        centerButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.25).cgColor
-        centerButton.layer.shadowOffset = CGSize(width: 0, height: 3)
+        centerButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5).cgColor
+        centerButton.layer.shadowOffset = CGSize(width: 0, height: 1)
         centerButton.layer.shadowOpacity = 1.0
-        centerButton.layer.shadowRadius = 10.0
+        centerButton.layer.shadowRadius = 4.0
         centerButton.layer.masksToBounds = false
         
         self.tabBar.addSubview(centerButton)
@@ -144,7 +146,11 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         }
     }
     
-    @objc private func btnChangeColor(){
+    @objc private func tabBarPrimaryCenterButton(){
         centerButton.backgroundColor = UIColor.primaryColor
+    }
+    
+    @objc private func tabBarSecondaryCenterButton(){
+        centerButton.backgroundColor = UIColor.secondaryColor
     }
 }

@@ -33,7 +33,8 @@ class Constant: NSObject {
     }
     
     struct NotificationKeys {
-        static let TABBAR_CENTER_BUTTON = "tabBarCenterButton"
+        static let TABBAR_PRIMARY_CENTER_BUTTON = "tabBarPrimaryCenterButton"
+        static let TABBAR_SECONDARY_CENTER_BUTTON = "tabBarSecondaryPrimaryCenterButton"
         static let CHANGE_HOSPITAL = "changeHospital"
         static let CHANGE_HOSPITAL_INFO = "changeHospitalInfo"
         static let CHANGE_HOSPITAL_POP_VC = "changeHospitalPopVC"

@@ -67,7 +67,7 @@ class Home: BaseViewController {
         imgSlideshow.backgroundColor = UIColor.customColorWhite
         imgSlideshow.slideshowInterval = 5
         imgSlideshow.contentScaleMode = UIView.ContentMode.scaleAspectFill
-        //imgSlideshow.activityIndicator = DefaultActivityIndicator.init(style: .whiteLarge, color: UIColor.secondaryColor)
+        imgSlideshow.activityIndicator = DefaultActivityIndicator.init(style: .whiteLarge, color: UIColor.secondaryColor)
         imgSlideshow.pageIndicatorPosition = PageIndicatorPosition.init(horizontal: .center, vertical: .under)
         
         let pageControl = UIPageControl()
@@ -204,7 +204,7 @@ class Home: BaseViewController {
     
     @objc private func tabOnlineServiceTapped(sender: UITapGestureRecognizer) {
         self.tabBarController?.selectedIndex = 2
-        NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constant.NotificationKeys.TABBAR_CENTER_BUTTON), object: nil, userInfo: nil)
+        NotificationCenter.default.post(name: NSNotification.Name(rawValue: Constant.NotificationKeys.TABBAR_PRIMARY_CENTER_BUTTON), object: nil, userInfo: nil)
     }
     
     @objc private func tabOurDoctorTapped(sender: UITapGestureRecognizer) {

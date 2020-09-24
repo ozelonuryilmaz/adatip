@@ -17,3 +17,5 @@
 "an_unexpected_error_occurred" = "Beklenmedik Bir Hata Oluştu";
 "announcement_detail" = "Duyuru Detay";
 "notifications" = "Bildirimler";
+"e_appointment" = "E-Randevu";
+"e_lab" = "E-Laboratuvar";
