@@ -13,6 +13,11 @@ class StaffCategory: BaseViewController {
     @IBOutlet weak var bgSearchDoctorView: UIView!
     @IBOutlet weak var tfSearcDoctor: UITextField!
     
+    @IBOutlet weak var collectionViewDoctor: UICollectionView!
+    
+    var estimateWidth = 160.0
+    var cellMarginSize = 16.0
+    
     var doctorArray: [GetDoctorResult] = []
     
     override func viewDidLoad() {
@@ -24,6 +29,15 @@ class StaffCategory: BaseViewController {
         NotificationCenter.default.addObserver(self, selector: #selector(changeHospital), name: NSNotification.Name(rawValue: Constant.NotificationKeys.CHANGE_HOSPITAL), object: nil)
         
         getDoctorList(hospitalId: self.hospitalId)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        self.setupGridViewForCollectionView()
+        DispatchQueue.main.async {
+            self.collectionViewDoctor.reloadData()
+        }
     }
     
     @objc private func changeHospital() {
@@ -47,6 +61,16 @@ class StaffCategory: BaseViewController {
         tfSearcDoctor.borderStyle = .none
         tfSearcDoctor.textColor = UIColor.primaryColor
         tfSearcDoctor.font = UIFont.customFont(size: 14, customStyle: .SemiBold)
+        
+        collectionViewDoctor.register(StaffCategoryCollectionViewCell.nib(), forCellWithReuseIdentifier: StaffCategoryCollectionViewCell.reuseID)
+        setupGridViewForCollectionView()
+        
+    }
+    
+    private func setupGridViewForCollectionView(){
+        let flow = collectionViewDoctor?.collectionViewLayout as! UICollectionViewFlowLayout
+        flow.minimumInteritemSpacing = CGFloat(self.cellMarginSize)
+        flow.minimumLineSpacing = CGFloat(self.cellMarginSize)
     }
     
     private func getDoctorList(hospitalId: Int){
@@ -55,7 +79,7 @@ class StaffCategory: BaseViewController {
         StaffCategoryViewModel.getDoctorList(hospitalId: hospitalId, complation: { (doctorList) in
             self.doctorArray = doctorList
             self.hideProgressView(self.view)
-            //self.collectionViewDoctor.reloadData()
+            self.collectionViewDoctor.reloadData()
         }) { (errorMessage) in
             self.hideProgressView(self.view)
             self.showAlert(title: nil, message: errorMessage)

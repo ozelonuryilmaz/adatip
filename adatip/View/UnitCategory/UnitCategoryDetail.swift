@@ -71,7 +71,7 @@ class UnitCategoryDetail: BaseViewController {
         btnAppointment.addTarget(self, action: #selector(tapBtnAppointment(sender:)), for: .touchUpInside)
     
     
-        self.imgUnitCategory.kf.setImage(with: URL(string: self.imageUrl.encodedTexts()))
+        self.imgUnitCategory.kf.setImage(with: URL(string: self.imageUrl))
         self.lblTitle.text = self.subCategoryName
         self.lblDesc.attributedText = self.unitDescription.convertHtmlToAttributedStringWithCSS(font: self.lblDesc.font, csscolor: "black", lineheight: 5, csstextalign: "left")
         

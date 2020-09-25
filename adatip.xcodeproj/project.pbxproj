@@ -54,6 +54,9 @@
 		672B5F592513F0170017FE31 /* HospitalList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672B5F582513F0170017FE31 /* HospitalList.swift */; };
 		6761D1842519E24F00E8FC01 /* Home + CollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6761D1832519E24F00E8FC01 /* Home + CollectionViewExtension.swift */; };
 		6761D1892519F34F00E8FC01 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6761D1872519F34F00E8FC01 /* HomeCollectionViewCell.swift */; };
+		6770657B251DCC4200C62554 /* StaffCategory + CollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6770657A251DCC4200C62554 /* StaffCategory + CollectionViewExtension.swift */; };
+		6770657E251DCC8600C62554 /* StaffCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6770657C251DCC8600C62554 /* StaffCategoryCollectionViewCell.swift */; };
+		6770657F251DCC8600C62554 /* StaffCategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6770657D251DCC8600C62554 /* StaffCategoryCollectionViewCell.xib */; };
 		67707D8625174AAB00D97CFC /* SplashViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D8525174AAB00D97CFC /* SplashViewModel.swift */; };
 		67707D8825174C1D00D97CFC /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D8725174C1D00D97CFC /* BaseViewModel.swift */; };
 		67707D8A2517505B00D97CFC /* HospitalListViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D892517505B00D97CFC /* HospitalListViewModel.swift */; };
@@ -142,6 +145,9 @@
 		672B5F582513F0170017FE31 /* HospitalList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalList.swift; sourceTree = "<group>"; };
 		6761D1832519E24F00E8FC01 /* Home + CollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Home + CollectionViewExtension.swift"; sourceTree = "<group>"; };
 		6761D1872519F34F00E8FC01 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
+		6770657A251DCC4200C62554 /* StaffCategory + CollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StaffCategory + CollectionViewExtension.swift"; sourceTree = "<group>"; };
+		6770657C251DCC8600C62554 /* StaffCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		6770657D251DCC8600C62554 /* StaffCategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StaffCategoryCollectionViewCell.xib; sourceTree = "<group>"; };
 		67707D8525174AAB00D97CFC /* SplashViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplashViewModel.swift; sourceTree = "<group>"; };
 		67707D8725174C1D00D97CFC /* BaseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		67707D892517505B00D97CFC /* HospitalListViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalListViewModel.swift; sourceTree = "<group>"; };
@@ -572,6 +578,9 @@
 			isa = PBXGroup;
 			children = (
 				672B5F4A2513EC1B0017FE31 /* StaffCategory.swift */,
+				6770657A251DCC4200C62554 /* StaffCategory + CollectionViewExtension.swift */,
+				6770657C251DCC8600C62554 /* StaffCategoryCollectionViewCell.swift */,
+				6770657D251DCC8600C62554 /* StaffCategoryCollectionViewCell.xib */,
 			);
 			path = Doctor;
 			sourceTree = "<group>";
@@ -661,6 +670,7 @@
 				672B5F532513EC810017FE31 /* Appointment.storyboard in Resources */,
 				672B5F292513E2940017FE31 /* OpenSans-Light.ttf in Resources */,
 				672B5EE72513D4540017FE31 /* Main.storyboard in Resources */,
+				6770657F251DCC8600C62554 /* StaffCategoryCollectionViewCell.xib in Resources */,
 				672B5F512513EC700017FE31 /* UnitCategory.storyboard in Resources */,
 				672B5F2C2513E29E0017FE31 /* OpenSans-Regular.ttf in Resources */,
 				672B5F2E2513E2A90017FE31 /* OpenSans-SemiBoldItalic.ttf in Resources */,
@@ -726,6 +736,7 @@
 				67F7B653251CF77400AA7573 /* GetDoctorResult.swift in Sources */,
 				67DECB58251A3F6300F2920E /* AnnouncementDetail.swift in Sources */,
 				67707D8A2517505B00D97CFC /* HospitalListViewModel.swift in Sources */,
+				6770657B251DCC4200C62554 /* StaffCategory + CollectionViewExtension.swift in Sources */,
 				6761D1892519F34F00E8FC01 /* HomeCollectionViewCell.swift in Sources */,
 				67BFDE29251B4F180087A4FD /* OurUnits.swift in Sources */,
 				67DECB5C251A4DCB00F2920E /* MyNotifications.swift in Sources */,
@@ -752,6 +763,7 @@
 				67BFDE3B251B6BBF0087A4FD /* GetUnitCategoryResponseModel.swift in Sources */,
 				672B5F0C2513D9530017FE31 /* String + Extension.swift in Sources */,
 				672B5F162513E1380017FE31 /* BaseViewController.swift in Sources */,
+				6770657E251DCC8600C62554 /* StaffCategoryCollectionViewCell.swift in Sources */,
 				67F7B64C251CE4E900AA7573 /* StaffCategoryViewModel.swift in Sources */,
 				67BFDE3F251B6C6B0087A4FD /* GetUnitSubCategoryResponseModel.swift in Sources */,
 				672B5F322513E6260017FE31 /* BaseNetworkManager.swift in Sources */,

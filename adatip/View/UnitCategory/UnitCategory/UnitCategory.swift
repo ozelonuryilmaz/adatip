@@ -12,7 +12,9 @@ class UnitCategory: BaseViewController {
     
     @IBOutlet weak var collectionViewSubCategory: UICollectionView!
     var subCategoryArray: [GetUnitSubCategoryResult] = []
-    let padding: CGFloat = 20.0
+    
+    var estimateWidth = 160.0
+    var cellMarginSize = 16.0
     
     var titleName = String()
     var unitCategoryId = Int()
@@ -26,14 +28,27 @@ class UnitCategory: BaseViewController {
         
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        self.setupGridViewForCollectionView()
+        DispatchQueue.main.async {
+            self.collectionViewSubCategory.reloadData()
+        }
+    }
+    
     private func setupViewComponents(){
         self.setupNavigationBar(titleName: titleName, subtitle: "(" + self.hospitalTitle + ")")
         
         initBarButtonNotification()
         
-        if let layout = collectionViewSubCategory.collectionViewLayout as? UICollectionViewFlowLayout {
-            layout.scrollDirection = .vertical
-        }
+        setupGridViewForCollectionView()
+    }
+    
+    private func setupGridViewForCollectionView(){
+        let flow = collectionViewSubCategory?.collectionViewLayout as! UICollectionViewFlowLayout
+        flow.minimumInteritemSpacing = CGFloat(self.cellMarginSize)
+        flow.minimumLineSpacing = CGFloat(self.cellMarginSize)
     }
     
     private func getUnitSubCategoryList(hospitalId: Int, unitCategoryId: Int){

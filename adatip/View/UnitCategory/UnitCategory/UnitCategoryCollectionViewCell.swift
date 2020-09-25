@@ -12,8 +12,6 @@ class UnitCategoryCollectionViewCell: UICollectionViewCell {
     
     static let reuseID = "unitCategoryCollectionViewCell"
     
-    @IBOutlet weak var constWidthTitle: NSLayoutConstraint!
-    
     @IBOutlet weak var lblTitle: UILabel!{
         didSet{
             lblTitle.textAlignment = .center
@@ -31,10 +29,8 @@ class UnitCategoryCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    func setSubCategoryList(subCategory: GetUnitSubCategoryResult, lblWidth: CGFloat){
+    func setSubCategoryList(subCategory: GetUnitSubCategoryResult){
         self.lblTitle.text = subCategory.subCategoryName
         self.imgUnit.kf.setImage(with: URL(string: subCategory.imageUrl?.encodedTexts() ?? ""))
-        
-        self.constWidthTitle.constant = lblWidth
     }
 }
