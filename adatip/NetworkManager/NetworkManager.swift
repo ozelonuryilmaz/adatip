@@ -14,14 +14,14 @@ class NetworkManager: NSObject {
     class func getHeader() -> [String : String] {
         
         let token = UserDefaults.standard.string(forKey: Constant.UserDefaults.TOKEN) ?? ""
-        let header : [String:String] = ["Authorization": "Bearer " + token, "accept": "application/json"]
+        let header : [String:String] = ["Authorization": "Bearer " + token, "Content-Type": "application/json"]
         
         return header
     }
     
     class func getHeaderWithoutToken() -> [String : String] {
         
-        let header : [String:String] = ["accept": "application/json"]
+        let header : [String:String] = ["Content-Type": "application/json"]
         
         return header
     }

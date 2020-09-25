@@ -15,10 +15,13 @@ class StaffCategory: BaseViewController {
     
     @IBOutlet weak var collectionViewDoctor: UICollectionView!
     
+    var timer: Timer? = nil
+    
     var estimateWidth = 160.0
     var cellMarginSize = 16.0
     
     var doctorArray: [GetDoctorResult] = []
+    var realDoctorArray: [GetDoctorResult] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -61,7 +64,9 @@ class StaffCategory: BaseViewController {
         tfSearcDoctor.borderStyle = .none
         tfSearcDoctor.textColor = UIColor.primaryColor
         tfSearcDoctor.font = UIFont.customFont(size: 14, customStyle: .SemiBold)
+        tfSearcDoctor.addTarget(self, action: #selector(textFieldChange(_:)), for: .editingChanged)
         
+        collectionViewDoctor.keyboardDismissMode = .onDrag
         collectionViewDoctor.register(StaffCategoryCollectionViewCell.nib(), forCellWithReuseIdentifier: StaffCategoryCollectionViewCell.reuseID)
         setupGridViewForCollectionView()
         
@@ -78,12 +83,42 @@ class StaffCategory: BaseViewController {
         self.showProgressView(self.view)
         StaffCategoryViewModel.getDoctorList(hospitalId: hospitalId, complation: { (doctorList) in
             self.doctorArray = doctorList
+            self.realDoctorArray = doctorList
             self.hideProgressView(self.view)
             self.collectionViewDoctor.reloadData()
         }) { (errorMessage) in
             self.hideProgressView(self.view)
             self.showAlert(title: nil, message: errorMessage)
         }
+    }
+    
+    @objc func textFieldChange(_ textField: UITextField){
+        let searchBarText = textField.text ?? ""
+        
+        if timer != nil{
+            timer?.invalidate()
+            timer = nil
+        }
+        
+        timer = Timer.scheduledTimer(withTimeInterval: 0.5, repeats: false, block: { (timer) in
+            self.doctorArray.removeAll()
+            
+            for item in self.realDoctorArray{
+                let fullName = item.fullName ?? ""
+                
+                if !fullName.isEmpty{
+                    if (fullName.lowercased().contains(searchBarText.lowercased())){
+                        self.doctorArray.append(item)
+                    }
+                }
+            }
+            
+            if searchBarText.isEmpty {
+                self.doctorArray = self.realDoctorArray
+            }
+            
+            self.collectionViewDoctor.reloadData()
+        })
     }
     
 }
