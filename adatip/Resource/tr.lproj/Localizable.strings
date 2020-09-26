@@ -21,3 +21,9 @@
 "e_appointment" = "E-Randevu";
 "e_lab" = "E-Laboratuvar";
 "search_doctor" = "Hekim Arayın";
+"professions" = "Uzmanlık";
+"language" = "Yabancı Dil";
+"date_of_birth" = "Doğum Tarihi";
+"education" = "Eğitim";
+"areas_of_expertise" = "Uzmanlık Alanları";
+"experience" = "Deneyim";

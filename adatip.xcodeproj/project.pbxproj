@@ -69,6 +69,7 @@
 		67707D9F25179CF500D97CFC /* GetHospitalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D9E25179CF500D97CFC /* GetHospitalInfo.swift */; };
 		67707DA125179D5A00D97CFC /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707DA025179D5A00D97CFC /* ValidationError.swift */; };
 		67707DA325179DA200D97CFC /* GetHospitalResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707DA225179DA200D97CFC /* GetHospitalResult.swift */; };
+		67A9983B251F42B500625661 /* StaffCategoryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A9983A251F42B500625661 /* StaffCategoryDetail.swift */; };
 		67BFDE29251B4F180087A4FD /* OurUnits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BFDE28251B4F180087A4FD /* OurUnits.swift */; };
 		67BFDE2D251B4F6C0087A4FD /* UnitCategoryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BFDE2C251B4F6C0087A4FD /* UnitCategoryDetail.swift */; };
 		67BFDE2F251B4FD40087A4FD /* OurUnitsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BFDE2E251B4FD40087A4FD /* OurUnitsViewModel.swift */; };
@@ -160,6 +161,7 @@
 		67707D9E25179CF500D97CFC /* GetHospitalInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetHospitalInfo.swift; sourceTree = "<group>"; };
 		67707DA025179D5A00D97CFC /* ValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationError.swift; sourceTree = "<group>"; };
 		67707DA225179DA200D97CFC /* GetHospitalResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetHospitalResult.swift; sourceTree = "<group>"; };
+		67A9983A251F42B500625661 /* StaffCategoryDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffCategoryDetail.swift; sourceTree = "<group>"; };
 		67BFDE28251B4F180087A4FD /* OurUnits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OurUnits.swift; sourceTree = "<group>"; };
 		67BFDE2C251B4F6C0087A4FD /* UnitCategoryDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitCategoryDetail.swift; sourceTree = "<group>"; };
 		67BFDE2E251B4FD40087A4FD /* OurUnitsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OurUnitsViewModel.swift; sourceTree = "<group>"; };
@@ -457,6 +459,7 @@
 			isa = PBXGroup;
 			children = (
 				67F7B656251CFA5900AA7573 /* Doctor */,
+				67A9983A251F42B500625661 /* StaffCategoryDetail.swift */,
 			);
 			path = StaffCategory;
 			sourceTree = "<group>";
@@ -730,6 +733,7 @@
 				67707D9F25179CF500D97CFC /* GetHospitalInfo.swift in Sources */,
 				672B5F372513E7E50017FE31 /* Splash.swift in Sources */,
 				67DECB55251A3D8C00F2920E /* GetAnnouncementDetailResult.swift in Sources */,
+				67A9983B251F42B500625661 /* StaffCategoryDetail.swift in Sources */,
 				67F7B651251CF75C00AA7573 /* GetDoctorResponseModel.swift in Sources */,
 				67150FF525189A11009079F3 /* Label + Extension.swift in Sources */,
 				672B5F142513E1270017FE31 /* Constant.swift in Sources */,

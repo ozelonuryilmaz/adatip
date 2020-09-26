@@ -26,6 +26,13 @@ extension StaffCategory: UICollectionViewDataSource, UICollectionViewDelegate {
         return cell
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        let doctor = self.doctorArray[indexPath.row]
+        
+        let staffCategoryDetail = StaffCategoryDetail.create(titleName: doctor.fullName ?? "", doctor: doctor)
+        self.navigationController?.pushViewController(staffCategoryDetail, animated: true)
+    }
+    
 }
 
 extension StaffCategory: UICollectionViewDelegateFlowLayout {
