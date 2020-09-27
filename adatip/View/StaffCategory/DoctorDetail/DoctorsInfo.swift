@@ -1,5 +1,5 @@
 //
-//  StaffCategoryDetail.swift
+//  DoctorsInfo.swift
 //  adatip
 //
 //  Created by Onur YILMAZ on 26.09.2020.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class StaffCategoryDetail: BaseViewController {
+class DoctorsInfo: BaseViewController {
     
     @IBOutlet weak var imgDoctor: UIImageView!
     @IBOutlet weak var lblFullName: UILabel!
@@ -40,21 +40,18 @@ class StaffCategoryDetail: BaseViewController {
     }
     
     private func setupViewComponents(){
-        self.setupNavigationBar(titleName: titleName, subtitle: "(" + self.hospitalTitle + ")")
-        
-        initBarButtonNotification()
 
         imgDoctor.contentMode = .scaleAspectFit
         imgDoctor.clipsToBounds = true
         imgDoctor.layer.cornerRadius = 25
         
         lblFullName.font = UIFont.customFont(size: 25, customStyle: .Bold)
-        lblFullName.textColor = UIColor.primaryColor
+        lblFullName.textColor = UIColor.secondaryColor
         lblFullName.numberOfLines = 0
         lblFullName.sizeToFit()
         
         lblProfession.font = UIFont.customFont(size: 18, customStyle: .Regular)
-        lblProfession.textColor = UIColor.customColorBlack
+        lblProfession.textColor = UIColor.secondaryColor
         lblProfession.numberOfLines = 0
         lblProfession.sizeToFit()
         
@@ -132,24 +129,11 @@ class StaffCategoryDetail: BaseViewController {
         lblEducation.text = "education".localizable()
         lblEducationDesc.attributedText = doctor?.detail?.education?.convertHtmlToAttributedStringWithCSS(font: self.lblProfession.font, csscolor: "black", lineheight: 5, csstextalign: "left")
         
-        lblCourses.text = "areas_of_expertise".localizable()
-        lblCoursesDesc.attributedText = doctor?.detail?.courses?.convertHtmlToAttributedStringWithCSS(font: self.lblProfession.font, csscolor: "black", lineheight: 5, csstextalign: "left")
+        lblCourses.text = "certifications".localizable()
+        lblCoursesDesc.attributedText = doctor?.detail?.certifications?.convertHtmlToAttributedStringWithCSS(font: self.lblProfession.font, csscolor: "black", lineheight: 5, csstextalign: "left")
         
         lblResume.text = "experience".localizable()
         lblResumeDesc.attributedText = doctor?.detail?.resume?.convertHtmlToAttributedStringWithCSS(font: self.lblProfession.font, csscolor: "black", lineheight: 5, csstextalign: "left")
     }
-    
-}
 
-extension StaffCategoryDetail{
-    static let reuseId = "staffCategoryDetail"
-    
-    static func create(titleName: String, doctor: GetDoctorResult?) -> UIViewController{
-        let staffCategory: UIStoryboard = UIStoryboard(name: "StaffCategory", bundle: .main)
-        let staffCategoryDetail = staffCategory.instantiateViewController(withIdentifier: reuseId) as! StaffCategoryDetail
-        staffCategoryDetail.titleName = titleName
-        staffCategoryDetail.doctor = doctor
-        
-        return staffCategoryDetail
-    }
 }

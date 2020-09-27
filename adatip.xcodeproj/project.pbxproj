@@ -70,6 +70,8 @@
 		67707DA125179D5A00D97CFC /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707DA025179D5A00D97CFC /* ValidationError.swift */; };
 		67707DA325179DA200D97CFC /* GetHospitalResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707DA225179DA200D97CFC /* GetHospitalResult.swift */; };
 		67A9983B251F42B500625661 /* StaffCategoryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A9983A251F42B500625661 /* StaffCategoryDetail.swift */; };
+		67A9983E251F875600625661 /* DoctorsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A9983D251F875600625661 /* DoctorsInfo.swift */; };
+		67A99840251F876D00625661 /* DoctorsHour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A9983F251F876D00625661 /* DoctorsHour.swift */; };
 		67BFDE29251B4F180087A4FD /* OurUnits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BFDE28251B4F180087A4FD /* OurUnits.swift */; };
 		67BFDE2D251B4F6C0087A4FD /* UnitCategoryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BFDE2C251B4F6C0087A4FD /* UnitCategoryDetail.swift */; };
 		67BFDE2F251B4FD40087A4FD /* OurUnitsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BFDE2E251B4FD40087A4FD /* OurUnitsViewModel.swift */; };
@@ -96,6 +98,7 @@
 		67F7B651251CF75C00AA7573 /* GetDoctorResponseModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F7B650251CF75C00AA7573 /* GetDoctorResponseModel.swift */; };
 		67F7B653251CF77400AA7573 /* GetDoctorResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F7B652251CF77400AA7573 /* GetDoctorResult.swift */; };
 		67F7B655251CF78800AA7573 /* GetDoctorResultDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F7B654251CF78800AA7573 /* GetDoctorResultDetail.swift */; };
+		67FAE1B825207DFC00BFF684 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FAE1B725207DFC00BFF684 /* Settings.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -162,6 +165,8 @@
 		67707DA025179D5A00D97CFC /* ValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationError.swift; sourceTree = "<group>"; };
 		67707DA225179DA200D97CFC /* GetHospitalResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetHospitalResult.swift; sourceTree = "<group>"; };
 		67A9983A251F42B500625661 /* StaffCategoryDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffCategoryDetail.swift; sourceTree = "<group>"; };
+		67A9983D251F875600625661 /* DoctorsInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorsInfo.swift; sourceTree = "<group>"; };
+		67A9983F251F876D00625661 /* DoctorsHour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorsHour.swift; sourceTree = "<group>"; };
 		67BFDE28251B4F180087A4FD /* OurUnits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OurUnits.swift; sourceTree = "<group>"; };
 		67BFDE2C251B4F6C0087A4FD /* UnitCategoryDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitCategoryDetail.swift; sourceTree = "<group>"; };
 		67BFDE2E251B4FD40087A4FD /* OurUnitsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OurUnitsViewModel.swift; sourceTree = "<group>"; };
@@ -191,6 +196,7 @@
 		67F7B650251CF75C00AA7573 /* GetDoctorResponseModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDoctorResponseModel.swift; sourceTree = "<group>"; };
 		67F7B652251CF77400AA7573 /* GetDoctorResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDoctorResult.swift; sourceTree = "<group>"; };
 		67F7B654251CF78800AA7573 /* GetDoctorResultDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDoctorResultDetail.swift; sourceTree = "<group>"; };
+		67FAE1B725207DFC00BFF684 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		C00D5A6EE72486C30D79D209 /* Pods_adatip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_adatip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD40C507733E51014629BE00 /* Pods-adatip.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-adatip.release.xcconfig"; path = "Target Support Files/Pods-adatip/Pods-adatip.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -451,6 +457,7 @@
 			isa = PBXGroup;
 			children = (
 				672B5F4C2513EC2B0017FE31 /* Profile.swift */,
+				67FAE1B725207DFC00BFF684 /* Settings.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -459,7 +466,7 @@
 			isa = PBXGroup;
 			children = (
 				67F7B656251CFA5900AA7573 /* Doctor */,
-				67A9983A251F42B500625661 /* StaffCategoryDetail.swift */,
+				67A9983C251F870500625661 /* DoctorDetail */,
 			);
 			path = StaffCategory;
 			sourceTree = "<group>";
@@ -522,6 +529,16 @@
 				67707D9E25179CF500D97CFC /* GetHospitalInfo.swift */,
 			);
 			path = Main;
+			sourceTree = "<group>";
+		};
+		67A9983C251F870500625661 /* DoctorDetail */ = {
+			isa = PBXGroup;
+			children = (
+				67A9983A251F42B500625661 /* StaffCategoryDetail.swift */,
+				67A9983D251F875600625661 /* DoctorsInfo.swift */,
+				67A9983F251F876D00625661 /* DoctorsHour.swift */,
+			);
+			path = DoctorDetail;
 			sourceTree = "<group>";
 		};
 		67BFDE27251B4ED40087A4FD /* OurUnits */ = {
@@ -738,6 +755,7 @@
 				67150FF525189A11009079F3 /* Label + Extension.swift in Sources */,
 				672B5F142513E1270017FE31 /* Constant.swift in Sources */,
 				67F7B653251CF77400AA7573 /* GetDoctorResult.swift in Sources */,
+				67A99840251F876D00625661 /* DoctorsHour.swift in Sources */,
 				67DECB58251A3F6300F2920E /* AnnouncementDetail.swift in Sources */,
 				67707D8A2517505B00D97CFC /* HospitalListViewModel.swift in Sources */,
 				6770657B251DCC4200C62554 /* StaffCategory + CollectionViewExtension.swift in Sources */,
@@ -783,10 +801,12 @@
 				67BFDE38251B671F0087A4FD /* OurUnitsCell.swift in Sources */,
 				672B5F122513E1140017FE31 /* Config.swift in Sources */,
 				672B5F1A2513E1E30017FE31 /* Font + Extension.swift in Sources */,
+				67FAE1B825207DFC00BFF684 /* Settings.swift in Sources */,
 				672B5F4D2513EC2B0017FE31 /* Profile.swift in Sources */,
 				67DECB5A251A439700F2920E /* AnnouncementDetailViewModel.swift in Sources */,
 				67707DA125179D5A00D97CFC /* ValidationError.swift in Sources */,
 				67BFDE2F251B4FD40087A4FD /* OurUnitsViewModel.swift in Sources */,
+				67A9983E251F875600625661 /* DoctorsInfo.swift in Sources */,
 				67F7B655251CF78800AA7573 /* GetDoctorResultDetail.swift in Sources */,
 				67F173A3251A21F40025AD8A /* GetAnnouncementsResponseModel.swift in Sources */,
 				67F173A7251A23490025AD8A /* HomeViewModel.swift in Sources */,
@@ -952,7 +972,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = adatip/ADATIP.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 3PLNUDG749;
 				INFOPLIST_FILE = adatip/Resource/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
@@ -974,7 +994,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = adatip/ADATIP.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 6;
 				DEVELOPMENT_TEAM = 3PLNUDG749;
 				INFOPLIST_FILE = adatip/Resource/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 10.0;

@@ -25,5 +25,9 @@
 "language" = "Yabancı Dil";
 "date_of_birth" = "Doğum Tarihi";
 "education" = "Eğitim";
-"areas_of_expertise" = "Uzmanlık Alanları";
+"certifications" = "Sertifikalar";
 "experience" = "Deneyim";
+"doctor_info" = "Hekim Bilgileri";
+"doctor_hour" = "Çalışma Saatleri";
+"settings" = "Ayarlar";
+"my_profile" = "Profilim";

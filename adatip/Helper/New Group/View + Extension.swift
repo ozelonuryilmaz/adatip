@@ -25,10 +25,10 @@ extension UIView {
         layer.cornerRadius = CGFloat(frame.width / 20)
 
         let color0 = UIColor(red:255.0/255, green:255.0/255, blue:255.0/255, alpha:0).cgColor
-        let color1 = UIColor(red:250.0/255, green:250.0/255, blue: 250.0/255, alpha:0.26).cgColor
-        let color2 = UIColor(red:240.0/255, green:240.0/255, blue: 240.0/255, alpha:0.52).cgColor
-        let color3 = UIColor(red:235.0/255, green:235.0/255, blue: 235.0/255, alpha:1).cgColor
-        let color4 = UIColor(red:230.0/255, green:237.0/255, blue:242.0/255, alpha:1).cgColor
+        let color1 = UIColor(red:250.0/255, green:250.0/255, blue: 250.0/255, alpha:0.25).cgColor
+        let color2 = UIColor(red:240.0/255, green:240.0/255, blue: 240.0/255, alpha:0.50).cgColor
+        let color3 = UIColor(red:230.0/255, green:237.0/255, blue: 242.0/255, alpha:0.75).cgColor
+        let color4 = UIColor(red:230.0/255, green:237.0/255, blue:242.0/255, alpha:0.90).cgColor
         let color5 = UIColor(red:230.0/255, green:237.0/255, blue:242.0/255, alpha:1).cgColor
         let color6 = UIColor(red:230.0/255, green:237.0/255, blue:242.0/255, alpha:1).cgColor
 

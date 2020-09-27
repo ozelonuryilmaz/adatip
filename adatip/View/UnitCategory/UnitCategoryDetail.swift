@@ -13,7 +13,6 @@ class UnitCategoryDetail: BaseViewController {
     @IBOutlet weak var imgUnitCategory: UIImageView!
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var lblDesc: UILabel!
-    @IBOutlet weak var constTitle: NSLayoutConstraint!
     
     @IBOutlet weak var viewDoctor: UIView!
     @IBOutlet weak var btnDoctor: UIButton!
@@ -75,12 +74,6 @@ class UnitCategoryDetail: BaseViewController {
         self.lblTitle.text = self.subCategoryName
         self.lblDesc.attributedText = self.unitDescription.convertHtmlToAttributedStringWithCSS(font: self.lblDesc.font, csscolor: "black", lineheight: 5, csstextalign: "left")
         
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
-        
-        self.constTitle.constant = CGFloat(self.lblTitle.calculateMaxLines * 40)
     }
     
     // MARK: *** Button Tap Action

@@ -108,9 +108,9 @@ class MainTabBarController: UITabBarController, UITabBarControllerDelegate {
         centerButton.adjustsImageWhenHighlighted = false
         
         centerButton.layer.shadowColor = UIColor(red: 0, green: 0, blue: 0, alpha: 0.5).cgColor
-        centerButton.layer.shadowOffset = CGSize(width: 0, height: 1)
-        centerButton.layer.shadowOpacity = 1.0
-        centerButton.layer.shadowRadius = 4.0
+        centerButton.layer.shadowOffset = CGSize(width: 0, height: 2)
+        centerButton.layer.shadowOpacity = 0.8
+        centerButton.layer.shadowRadius = 2.0
         centerButton.layer.masksToBounds = false
         
         self.tabBar.addSubview(centerButton)
