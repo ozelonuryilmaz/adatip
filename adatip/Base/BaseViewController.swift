@@ -83,13 +83,25 @@ class BaseViewController: UIViewController {
             self.navigationController!.navigationBar.tintColor = UIColor.secondaryColor
             self.navigationItem.backBarButtonItem = UIBarButtonItem(title: " ", style: .plain, target: nil, action: nil)
             //self.navigationItem.leftBarButtonItem = nil
-            
+
             if subtitle == nil {
                 updateNavigationBarTitle(titleName: titleName)
             }else {
                 updateNavigationBarTitle(withSubtitle: subtitle!, title: titleName)
             }
             
+        }
+    }
+    
+    func setupNavigationBar(){
+        
+        if self.navigationController != nil {
+            self.navigationController!.navigationBar.tintColor = UIColor.secondaryColor
+            self.navigationItem.backBarButtonItem = UIBarButtonItem(title: " ", style: .plain, target: nil, action: nil)
+            
+            self.navigationController?.navigationBar.setBackgroundImage(UIImage(), for: .default)
+            self.navigationController?.navigationBar.shadowImage = UIImage()
+            self.navigationController?.navigationBar.isTranslucent = true
         }
     }
     

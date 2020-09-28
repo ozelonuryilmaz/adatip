@@ -30,6 +30,7 @@ class Constant: NSObject {
         static let HOSPITAL_ID = "hospitalId"
         static let HOSPITALL_TITLE = "hospitalTitle"
         static let APP_OPENS_FOR_FIRST_TIME = "appOpensForFirstTime"
+        static let HAS_USER_LOGGED_IN = "hasUserLoggedIn"
     }
     
     struct NotificationKeys {

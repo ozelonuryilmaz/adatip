@@ -184,12 +184,21 @@ class Home: BaseViewController {
     }
     
     @IBAction func tapBtnAppointment(sender: AnyObject){
-        print("Appointment")
+        if UserDefaults.standard.bool(forKey: Constant.UserDefaults.HAS_USER_LOGGED_IN) == false {
+            let login = Login.create()
+            let loginNav = UINavigationController(rootViewController: login)
+            loginNav.modalPresentationStyle = .fullScreen
+            loginNav.modalTransitionStyle = .crossDissolve
+            self.present(loginNav, animated: true, completion: nil)
+        }else {
+            
+        }
     }
     
     // MARK: *** Tap Gesture Recognizer
+    
     @objc private func imgSlideshowTapped(sender: UITapGestureRecognizer) {
-        print("Tapped Banner Index: \(imgSlideshow.currentPage)")
+        //print("Tapped Banner Index: \(imgSlideshow.currentPage)")
         
         if banners[imgSlideshow.currentPage].hospitalId != nil {
             let announcementDetail = AnnouncementDetail.create(announcementId: banners[imgSlideshow.currentPage].id!,
@@ -231,7 +240,7 @@ class Home: BaseViewController {
     private func imageSlideShowPageChanged(_ index: Int){
         if !banners.isEmpty && banners.count > index{
             lblTitle.text = banners[index].title
-            lblShortDesc.attributedText = banners[index].shortDescription?.convertHtmlToAttributedStringWithCSS(font: lblShortDesc.font, csscolor: "white", lineheight: 4, csstextalign: "left")
+            lblShortDesc.attributedText = banners[index].shortDescription?.convertHtmlToAttributedStringWithCSS(font: lblShortDesc.font, csscolor: "white", lineheight: 5, csstextalign: "left")
             //lblShortDesc.attributedText = banners[index].shortDescription?.convertHtmlToAttributedString
             constraintTitle.constant = CGFloat(lblTitle.calculateMaxLines * 22)
         }
@@ -241,11 +250,6 @@ class Home: BaseViewController {
         self.bannerActivityIndicator.show()
         HomeViewModel.getAnnouncements(hospitalId: hospitalId, complation: { (announcement) in
             self.banners = announcement
-            if !self.banners.isEmpty{
-                for _ in 0..<5{
-                    self.banners.append(self.banners[0])
-                }
-            }
             self.bannerActivityIndicator.hide()
             self.imageSlideShowSetInputs()
             self.imageSlideShowPageChanged(self.imgSlideshow.currentPage)

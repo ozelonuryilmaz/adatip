@@ -82,7 +82,15 @@ class UnitCategoryDetail: BaseViewController {
     }
     
     @IBAction func tapBtnAppointment(sender: AnyObject){
-        print("Appointment")
+        if UserDefaults.standard.bool(forKey: Constant.UserDefaults.HAS_USER_LOGGED_IN) == false {
+            let login = Login.create()
+            let loginNav = UINavigationController(rootViewController: login)
+            loginNav.modalPresentationStyle = .fullScreen
+            loginNav.modalTransitionStyle = .crossDissolve
+            self.present(loginNav, animated: true, completion: nil)
+        }else {
+            
+        }
     }
     
 }

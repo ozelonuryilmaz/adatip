@@ -9,6 +9,9 @@
 import UIKit
 
 class Settings: BaseViewController {
+    
+    @IBOutlet weak var tableViewSettings: UITableView!
+    var isNotification: Bool = true
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,7 +22,24 @@ class Settings: BaseViewController {
     private func setupViewComponents(){
         self.setupNavigationBar(titleName: "settings")
         
+        tableViewSettings.register(SettingsCell.nib(), forCellReuseIdentifier: SettingsCell.reuseID)
+        view.addSubview(tableViewSettings)
         
+        tableViewSettings.reloadData()
+    }
+    
+    //MARK: *** Switch Action
+    
+    @IBAction func tapSwitchNotification(sender: UISwitch){
+        self.isNotification = sender.isOn
+        
+        if sender.isOn {
+            print(self.isNotification)
+            
+        }else{
+            print(self.isNotification)
+            
+        }
     }
 
 }
@@ -35,3 +55,5 @@ extension Settings{
         return settings
     }
 }
+
+
