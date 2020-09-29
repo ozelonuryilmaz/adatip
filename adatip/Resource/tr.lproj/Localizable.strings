@@ -32,6 +32,7 @@
 "settings" = "Ayarlar";
 "my_profile" = "Profilim";
 "login" = "Giriş Yap";
+"logout" = "Çıkış Yap";
 "register" = "Hesap Oluştur";
 "your_email" = "E-Posta Adresiniz";
 "your_password" = "Şifreniz";
@@ -50,7 +51,7 @@
 "your_information_will_be_used_to_create_an_appointment" = "Bilgileriniz randevu oluşturmak için kullanılacaktır.";
 "your_password_will_be_sent_to_your_email_address" = "Şifreniz e-posta adresinize gönderilecektir.";
 
-"user_details" = "Kullanıcı Detayları";
+"user_settings" = "Kullanıcı Ayarları";
 "allow_notifications" = "Bildirimlere İzin Ver";
 "account_details" = "Hesap Detayları";
 "my_personel_information" = "Kişisel Bilgilerim";

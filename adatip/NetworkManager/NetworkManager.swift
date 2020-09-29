@@ -31,17 +31,17 @@ class NetworkManager: NSObject {
     }
     
     //MARK: - Get Hospital List
-    class func getHospitalList(success:@escaping (_ response: GetHospitalsResponseModel) -> Void, failure:@escaping (_ error:Error, _ statusCode:Int, _ errorResponse: GetHospitalsResponseModel?) -> Void) -> Void {
+    class func getHospitalList(success:@escaping (_ response: ApiResponse<[GetHospitalResult]>) -> Void, failure:@escaping (_ error:Error, _ statusCode:Int, _ errorResponse: ApiResponse<[GetHospitalResult]>?) -> Void) -> Void {
         
         let url = Constant.Url.PAGE + "v1/hospital/list"
         
         BaseNetworkManager.get(url: url, parameters: nil, headers: getHeaderWithoutToken(), success: { (data) in
 
-            var theResponse : GetHospitalsResponseModel
+            var theResponse : ApiResponse<[GetHospitalResult]>
 
             do {
                 let decoder = JSONDecoder()
-                theResponse = try decoder.decode(GetHospitalsResponseModel.self, from: data!)
+                theResponse = try decoder.decode(ApiResponse<[GetHospitalResult]>.self, from: data!)
                 success(theResponse)
             } catch let error {
                 printAndShowError(url: url, error: error, statusCode: -1)
@@ -50,11 +50,11 @@ class NetworkManager: NSObject {
 
         }) { (Error, StatusCode, ErrorData) in
             
-            var theErrorResponse : GetHospitalsResponseModel
+            var theErrorResponse : ApiResponse<[GetHospitalResult]>
             
             do {
                 let decoder = JSONDecoder()
-                theErrorResponse = try decoder.decode(GetHospitalsResponseModel.self, from: ErrorData!)
+                theErrorResponse = try decoder.decode(ApiResponse<[GetHospitalResult]>.self, from: ErrorData!)
                 printAndShowError(url: url, error: Error, statusCode: StatusCode)
                 failure(Error, StatusCode, theErrorResponse)
             } catch let error {
@@ -66,17 +66,17 @@ class NetworkManager: NSObject {
     }
     
     //MARK: - Get Banner
-    class func getAnnouncements(hospitalId: Int, success:@escaping (_ response: GetAnnouncementsResponseModel) -> Void, failure:@escaping (_ error:Error, _ statusCode:Int, _ errorResponse: GetAnnouncementsResponseModel?) -> Void) -> Void {
+    class func getAnnouncements(hospitalId: Int, success:@escaping (_ response: ApiResponse<[GetAnnouncementResult]>) -> Void, failure:@escaping (_ error:Error, _ statusCode:Int, _ errorResponse: ApiResponse<[GetAnnouncementResult]>?) -> Void) -> Void {
         
         let url = Constant.Url.PAGE + "v1/announcement/list/\(hospitalId)"
         
         BaseNetworkManager.get(url: url, parameters: nil, headers: getHeaderWithoutToken(), success: { (data) in
 
-            var theResponse : GetAnnouncementsResponseModel
+            var theResponse : ApiResponse<[GetAnnouncementResult]>
 
             do {
                 let decoder = JSONDecoder()
-                theResponse = try decoder.decode(GetAnnouncementsResponseModel.self, from: data!)
+                theResponse = try decoder.decode(ApiResponse<[GetAnnouncementResult]>.self, from: data!)
                 success(theResponse)
             } catch let error {
                 printAndShowError(url: url, error: error, statusCode: -1)
@@ -85,11 +85,11 @@ class NetworkManager: NSObject {
 
         }) { (Error, StatusCode, ErrorData) in
             
-            var theErrorResponse : GetAnnouncementsResponseModel
+            var theErrorResponse : ApiResponse<[GetAnnouncementResult]>
             
             do {
                 let decoder = JSONDecoder()
-                theErrorResponse = try decoder.decode(GetAnnouncementsResponseModel.self, from: ErrorData!)
+                theErrorResponse = try decoder.decode(ApiResponse<[GetAnnouncementResult]>.self, from: ErrorData!)
                 printAndShowError(url: url, error: Error, statusCode: StatusCode)
                 failure(Error, StatusCode, theErrorResponse)
             } catch let error {
@@ -101,17 +101,17 @@ class NetworkManager: NSObject {
     }
     
     //MARK: - Get Banner
-    class func getAnnouncementDetail(announcementId: Int, success:@escaping (_ response: GetAnnouncementDetailResponseModel) -> Void, failure:@escaping (_ error:Error, _ statusCode:Int, _ errorResponse: GetAnnouncementDetailResponseModel?) -> Void) -> Void {
+    class func getAnnouncementDetail(announcementId: Int, success:@escaping (_ response: ApiResponse<GetAnnouncementDetailResult>) -> Void, failure:@escaping (_ error:Error, _ statusCode:Int, _ errorResponse: ApiResponse<GetAnnouncementDetailResult>?) -> Void) -> Void {
         
         let url = Constant.Url.PAGE + "v1/announcement/\(announcementId)/details"
         
         BaseNetworkManager.get(url: url, parameters: nil, headers: getHeaderWithoutToken(), success: { (data) in
 
-            var theResponse : GetAnnouncementDetailResponseModel
+            var theResponse : ApiResponse<GetAnnouncementDetailResult>
 
             do {
                 let decoder = JSONDecoder()
-                theResponse = try decoder.decode(GetAnnouncementDetailResponseModel.self, from: data!)
+                theResponse = try decoder.decode(ApiResponse<GetAnnouncementDetailResult>.self, from: data!)
                 success(theResponse)
             } catch let error {
                 printAndShowError(url: url, error: error, statusCode: -1)
@@ -120,11 +120,11 @@ class NetworkManager: NSObject {
 
         }) { (Error, StatusCode, ErrorData) in
             
-            var theErrorResponse : GetAnnouncementDetailResponseModel
+            var theErrorResponse : ApiResponse<GetAnnouncementDetailResult>
             
             do {
                 let decoder = JSONDecoder()
-                theErrorResponse = try decoder.decode(GetAnnouncementDetailResponseModel.self, from: ErrorData!)
+                theErrorResponse = try decoder.decode(ApiResponse<GetAnnouncementDetailResult>.self, from: ErrorData!)
                 printAndShowError(url: url, error: Error, statusCode: StatusCode)
                 failure(Error, StatusCode, theErrorResponse)
             } catch let error {
@@ -136,17 +136,17 @@ class NetworkManager: NSObject {
     }
     
     //MARK: - Get Our Units (OurUnits)
-    class func getUnitCategoryList(hospitalId: Int, success:@escaping (_ response: GetUnitCategoryResponseModel) -> Void, failure:@escaping (_ error:Error, _ statusCode:Int, _ errorResponse: GetUnitCategoryResponseModel?) -> Void) -> Void {
+    class func getUnitCategoryList(hospitalId: Int, success:@escaping (_ response: ApiResponse<[GetUnitCategoryResult]>) -> Void, failure:@escaping (_ error:Error, _ statusCode:Int, _ errorResponse: ApiResponse<[GetUnitCategoryResult]>?) -> Void) -> Void {
         
         let url = Constant.Url.PAGE + "v1/unit-category/list/\(hospitalId)"
         
         BaseNetworkManager.get(url: url, parameters: nil, headers: getHeaderWithoutToken(), success: { (data) in
 
-            var theResponse : GetUnitCategoryResponseModel
+            var theResponse : ApiResponse<[GetUnitCategoryResult]>
 
             do {
                 let decoder = JSONDecoder()
-                theResponse = try decoder.decode(GetUnitCategoryResponseModel.self, from: data!)
+                theResponse = try decoder.decode(ApiResponse<[GetUnitCategoryResult]>.self, from: data!)
                 success(theResponse)
             } catch let error {
                 printAndShowError(url: url, error: error, statusCode: -1)
@@ -155,11 +155,11 @@ class NetworkManager: NSObject {
 
         }) { (Error, StatusCode, ErrorData) in
             
-            var theErrorResponse : GetUnitCategoryResponseModel
+            var theErrorResponse : ApiResponse<[GetUnitCategoryResult]>
             
             do {
                 let decoder = JSONDecoder()
-                theErrorResponse = try decoder.decode(GetUnitCategoryResponseModel.self, from: ErrorData!)
+                theErrorResponse = try decoder.decode(ApiResponse<[GetUnitCategoryResult]>.self, from: ErrorData!)
                 printAndShowError(url: url, error: Error, statusCode: StatusCode)
                 failure(Error, StatusCode, theErrorResponse)
             } catch let error {
@@ -171,17 +171,17 @@ class NetworkManager: NSObject {
     }
     
     //MARK: - Get Unit Sub Categories (UnitCategory)
-    class func getUnitSubCategoryList(hospitalId: Int, unitCategoryId: Int, success:@escaping (_ response: GetUnitSubCategoryResponseModel) -> Void, failure:@escaping (_ error:Error, _ statusCode:Int, _ errorResponse: GetUnitSubCategoryResponseModel?) -> Void) -> Void {
+    class func getUnitSubCategoryList(hospitalId: Int, unitCategoryId: Int, success:@escaping (_ response: ApiResponse<[GetUnitSubCategoryResult]>) -> Void, failure:@escaping (_ error:Error, _ statusCode:Int, _ errorResponse: ApiResponse<[GetUnitSubCategoryResult]>?) -> Void) -> Void {
         
         let url = Constant.Url.PAGE + "v1/unit-category/list/\(hospitalId)/\(unitCategoryId)/subCategories"
         
         BaseNetworkManager.get(url: url, parameters: nil, headers: getHeaderWithoutToken(), success: { (data) in
 
-            var theResponse : GetUnitSubCategoryResponseModel
+            var theResponse : ApiResponse<[GetUnitSubCategoryResult]>
 
             do {
                 let decoder = JSONDecoder()
-                theResponse = try decoder.decode(GetUnitSubCategoryResponseModel.self, from: data!)
+                theResponse = try decoder.decode(ApiResponse<[GetUnitSubCategoryResult]>.self, from: data!)
                 success(theResponse)
             } catch let error {
                 printAndShowError(url: url, error: error, statusCode: -1)
@@ -190,11 +190,11 @@ class NetworkManager: NSObject {
 
         }) { (Error, StatusCode, ErrorData) in
             
-            var theErrorResponse : GetUnitSubCategoryResponseModel
+            var theErrorResponse : ApiResponse<[GetUnitSubCategoryResult]>
             
             do {
                 let decoder = JSONDecoder()
-                theErrorResponse = try decoder.decode(GetUnitSubCategoryResponseModel.self, from: ErrorData!)
+                theErrorResponse = try decoder.decode(ApiResponse<[GetUnitSubCategoryResult]>.self, from: ErrorData!)
                 printAndShowError(url: url, error: Error, statusCode: StatusCode)
                 failure(Error, StatusCode, theErrorResponse)
             } catch let error {
@@ -206,17 +206,17 @@ class NetworkManager: NSObject {
     }
     
     //MARK: - Get Doctors (StaffCategory)
-    class func getDoctorList(hospitalId: Int, success:@escaping (_ response: GetDoctorResponseModel) -> Void, failure:@escaping (_ error:Error, _ statusCode:Int, _ errorResponse: GetDoctorResponseModel?) -> Void) -> Void {
+    class func getDoctorList(hospitalId: Int, success:@escaping (_ response: ApiResponse<[GetDoctorResult]>) -> Void, failure:@escaping (_ error:Error, _ statusCode:Int, _ errorResponse: ApiResponse<[GetDoctorResult]>?) -> Void) -> Void {
         
         let url = Constant.Url.PAGE + "v1/doctor/list/\(hospitalId)"
         
         BaseNetworkManager.get(url: url, parameters: nil, headers: getHeaderWithoutToken(), success: { (data) in
 
-            var theResponse : GetDoctorResponseModel
+            var theResponse : ApiResponse<[GetDoctorResult]>
 
             do {
                 let decoder = JSONDecoder()
-                theResponse = try decoder.decode(GetDoctorResponseModel.self, from: data!)
+                theResponse = try decoder.decode(ApiResponse<[GetDoctorResult]>.self, from: data!)
                 success(theResponse)
             } catch let error {
                 printAndShowError(url: url, error: error, statusCode: -1)
@@ -225,11 +225,94 @@ class NetworkManager: NSObject {
 
         }) { (Error, StatusCode, ErrorData) in
             
-            var theErrorResponse : GetDoctorResponseModel
+            var theErrorResponse : ApiResponse<[GetDoctorResult]>
             
             do {
                 let decoder = JSONDecoder()
-                theErrorResponse = try decoder.decode(GetDoctorResponseModel.self, from: ErrorData!)
+                theErrorResponse = try decoder.decode(ApiResponse<[GetDoctorResult]>.self, from: ErrorData!)
+                printAndShowError(url: url, error: Error, statusCode: StatusCode)
+                failure(Error, StatusCode, theErrorResponse)
+            } catch let error {
+                printAndShowError(url: url, error: error, statusCode: StatusCode)
+                failure(error, StatusCode, nil)
+            }
+            
+        }
+    }
+    
+    //MARK: - Register
+    class func register(deviceTokenId: String?, firstName: String, lastName: String, email: String, confirmEmail: String, birthYear: String, fatherName: String, password: String, confirmPassword: String, success:@escaping (_ response: ApiResponse<GetRegisterResult>) -> Void, failure:@escaping (_ error:Error, _ statusCode:Int, _ errorResponse: ApiResponse<GetRegisterResult>?) -> Void) -> Void {
+        
+        let url = Constant.Url.PAGE + "v1/customer/register"
+        
+        let parametre = ["deviceTokenId": deviceTokenId as AnyObject,
+                         "firstName": firstName as AnyObject,
+                         "lastName": lastName as AnyObject,
+                         "email": email as AnyObject,
+                         "confirmEmail": confirmEmail as AnyObject,
+                         "birthYear": birthYear as AnyObject,
+                         "fatherName": fatherName as AnyObject,
+                         "password": password as AnyObject,
+                         "confirmPassword": confirmPassword as AnyObject]
+        
+        BaseNetworkManager.post(url: url, parameters: parametre, headers: getHeaderWithoutToken(), success: { (data) in
+
+            var theResponse : ApiResponse<GetRegisterResult>
+
+            do {
+                let decoder = JSONDecoder()
+                theResponse = try decoder.decode(ApiResponse<GetRegisterResult>.self, from: data!)
+                success(theResponse)
+            } catch let error {
+                printAndShowError(url: url, error: error, statusCode: -1)
+                failure(error, -1, nil)
+            }
+
+        }) { (Error, StatusCode, ErrorData) in
+            
+            var theErrorResponse : ApiResponse<GetRegisterResult>
+            
+            do {
+                let decoder = JSONDecoder()
+                theErrorResponse = try decoder.decode(ApiResponse<GetRegisterResult>.self, from: ErrorData!)
+                printAndShowError(url: url, error: Error, statusCode: StatusCode)
+                failure(Error, StatusCode, theErrorResponse)
+            } catch let error {
+                printAndShowError(url: url, error: error, statusCode: StatusCode)
+                failure(error, StatusCode, nil)
+            }
+            
+        }
+    }
+    
+    //MARK: - Sign In
+    class func signIn(email: String, password: String, success:@escaping (_ response: ApiResponse<GetSignInResult>) -> Void, failure:@escaping (_ error:Error, _ statusCode:Int, _ errorResponse: ApiResponse<GetSignInResult>?) -> Void) -> Void {
+        
+        let url = Constant.Url.PAGE + "v1/authentication/sign-in"
+        
+        let parametre = ["email": email as AnyObject,
+                         "password": password as AnyObject]
+        
+        BaseNetworkManager.post(url: url, parameters: parametre, headers: getHeaderWithoutToken(), success: { (data) in
+
+            var theResponse : ApiResponse<GetSignInResult>
+
+            do {
+                let decoder = JSONDecoder()
+                theResponse = try decoder.decode(ApiResponse<GetSignInResult>.self, from: data!)
+                success(theResponse)
+            } catch let error {
+                printAndShowError(url: url, error: error, statusCode: -1)
+                failure(error, -1, nil)
+            }
+
+        }) { (Error, StatusCode, ErrorData) in
+            
+            var theErrorResponse : ApiResponse<GetSignInResult>
+            
+            do {
+                let decoder = JSONDecoder()
+                theErrorResponse = try decoder.decode(ApiResponse<GetSignInResult>.self, from: ErrorData!)
                 printAndShowError(url: url, error: Error, statusCode: StatusCode)
                 failure(Error, StatusCode, theErrorResponse)
             } catch let error {

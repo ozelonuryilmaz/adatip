@@ -38,13 +38,34 @@
                                             <constraint firstItem="j7g-kF-oiq" firstAttribute="centerY" secondItem="UjG-ZT-Awu" secondAttribute="centerY" id="tUc-sr-nxg"/>
                                         </constraints>
                                     </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="68S-f3-lkq">
+                                        <rect key="frame" x="114" y="27" width="284" height="28"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="28" id="L2Q-U6-y49"/>
+                                        </constraints>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Sqw-xu-qj7">
+                                        <rect key="frame" x="114" y="57" width="284" height="20.5"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                                 <constraints>
                                     <constraint firstItem="UjG-ZT-Awu" firstAttribute="leading" secondItem="oVQ-v9-rvO" secondAttribute="leading" constant="22" id="5mV-Vj-cNT"/>
                                     <constraint firstAttribute="bottom" secondItem="UjG-ZT-Awu" secondAttribute="bottom" constant="17.5" id="6je-RI-N9q"/>
+                                    <constraint firstItem="Sqw-xu-qj7" firstAttribute="top" secondItem="68S-f3-lkq" secondAttribute="bottom" constant="2" id="Bln-CV-W2g"/>
                                     <constraint firstItem="UjG-ZT-Awu" firstAttribute="top" secondItem="oVQ-v9-rvO" secondAttribute="top" constant="17.5" id="IQC-RP-Svi"/>
+                                    <constraint firstAttribute="trailing" secondItem="Sqw-xu-qj7" secondAttribute="trailing" constant="16" id="JMY-Mt-95b"/>
                                     <constraint firstAttribute="height" constant="105" id="LmH-0d-zQk"/>
+                                    <constraint firstItem="Sqw-xu-qj7" firstAttribute="leading" secondItem="UjG-ZT-Awu" secondAttribute="trailing" constant="22" id="Tm7-Sc-dAW"/>
+                                    <constraint firstItem="68S-f3-lkq" firstAttribute="leading" secondItem="UjG-ZT-Awu" secondAttribute="trailing" constant="22" id="X83-j9-HwB"/>
+                                    <constraint firstAttribute="trailing" secondItem="68S-f3-lkq" secondAttribute="trailing" constant="16" id="kOs-Ou-C8t"/>
+                                    <constraint firstItem="68S-f3-lkq" firstAttribute="top" secondItem="oVQ-v9-rvO" secondAttribute="top" constant="27" id="lcn-Iy-hGl"/>
                                 </constraints>
                                 <userDefinedRuntimeAttributes>
                                     <userDefinedRuntimeAttribute type="number" keyPath="bottomLeftRadius">
@@ -71,6 +92,8 @@
                         <viewLayoutGuide key="safeArea" id="IO0-iq-Ob4"/>
                     </view>
                     <connections>
+                        <outlet property="lblFullName" destination="68S-f3-lkq" id="40z-nq-M5Y"/>
+                        <outlet property="lblPhoneNumber" destination="Sqw-xu-qj7" id="3Sp-bF-bjU"/>
                         <outlet property="viewMyProfileIcon" destination="UjG-ZT-Awu" id="Q2f-Al-O8M"/>
                         <outlet property="viewProfile" destination="oVQ-v9-rvO" id="jw2-qn-9zx"/>
                     </connections>

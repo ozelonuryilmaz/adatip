@@ -89,9 +89,8 @@ class Login: BaseViewController {
     @IBAction func tapBtnLogin(sender: AnyObject){
         let email = tfEmail.text ?? ""
         let password = tfPassword.text ?? ""
-        print("Login: email:\(email) password:\(password)")
         
-        self.dismiss(animated: true, completion: nil)
+        self.signIn(email: email, password: password)
     }
     
     @IBAction func tapBtnRegister(sender: AnyObject){
@@ -108,6 +107,21 @@ class Login: BaseViewController {
     
     @IBAction func tapBtnClose(sender: UIBarButtonItem){
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    private func signIn(email: String, password: String){
+        self.showProgressView()
+        AuthenticationViewModel.signIn(email: email, password: password, complation: { (data) in
+            Helper.signIn(email: email,
+                          fullName: data.fullName ?? "",
+                          accessToken: data.token?.accessToken ?? "",
+                          refreshToken: data.token?.refreshToken ?? "")
+            self.hideProgressView()
+            self.dismiss(animated: true, completion: nil)
+        }) { (errorMessage) in
+            self.hideProgressView()
+            self.showAlert(title: nil, message: errorMessage)
+        }
     }
     
 }

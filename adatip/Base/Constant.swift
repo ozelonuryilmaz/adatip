@@ -31,6 +31,10 @@ class Constant: NSObject {
         static let HOSPITALL_TITLE = "hospitalTitle"
         static let APP_OPENS_FOR_FIRST_TIME = "appOpensForFirstTime"
         static let HAS_USER_LOGGED_IN = "hasUserLoggedIn"
+        static let EMAIL = "email"
+        static let FULL_NAME = "fullName"
+        static let ACCESS_TOKEN = "accessToken"
+        static let REFRESH_TOKEN = "refreshToken"
     }
     
     struct NotificationKeys {

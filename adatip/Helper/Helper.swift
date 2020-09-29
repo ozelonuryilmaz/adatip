@@ -34,5 +34,21 @@ class Helper: NSObject {
         
     }
     
+    class func signIn(email: String, fullName: String, accessToken: String, refreshToken: String){
+        UserDefaults.standard.set(true, forKey: Constant.UserDefaults.HAS_USER_LOGGED_IN)
+        UserDefaults.standard.set(email, forKey: Constant.UserDefaults.EMAIL)
+        UserDefaults.standard.set(fullName, forKey: Constant.UserDefaults.FULL_NAME)
+        UserDefaults.standard.set(accessToken, forKey: Constant.UserDefaults.ACCESS_TOKEN)
+        UserDefaults.standard.set(refreshToken, forKey: Constant.UserDefaults.REFRESH_TOKEN)
+    }
+    
+    class func signOut(){
+        UserDefaults.standard.set(false, forKey: Constant.UserDefaults.HAS_USER_LOGGED_IN)
+        UserDefaults.standard.removeObject(forKey: Constant.UserDefaults.EMAIL)
+        UserDefaults.standard.removeObject(forKey: Constant.UserDefaults.FULL_NAME)
+        UserDefaults.standard.removeObject(forKey: Constant.UserDefaults.ACCESS_TOKEN)
+        UserDefaults.standard.removeObject(forKey: Constant.UserDefaults.REFRESH_TOKEN)
+    }
+    
     
 }

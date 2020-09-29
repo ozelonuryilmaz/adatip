@@ -20,12 +20,12 @@ extension Settings: UITableViewDataSource, UITableViewDelegate {
             return 1
         case 1:
             if UserDefaults.standard.bool(forKey: Constant.UserDefaults.HAS_USER_LOGGED_IN) == false {
-                return 3 //0
+                return 0
             }else {
                 return 3
             }
         case 2:
-            return 3
+            return 4
         default:
             return 0
         }
@@ -38,14 +38,19 @@ extension Settings: UITableViewDataSource, UITableViewDelegate {
             return UITableViewCell()
         }
         
-        switch indexPath.section {
-        case 0:
+        if indexPath.section == 0{
             let switchNotification = UISwitch()
             switchNotification.isOn = self.isNotification
             switchNotification.tag = indexPath.row
             switchNotification.addTarget(self, action: #selector(self.tapSwitchNotification(sender:)), for: .valueChanged)
-            
             cell.accessoryView = switchNotification
+        }else {
+            cell.accessoryView = nil
+            cell.accessoryType = .disclosureIndicator
+        }
+        
+        switch indexPath.section {
+        case 0:
             cell.lblContent.font = UIFont.customFont(size: 14, customStyle: .SemiBold)
             cell.lblContent.textColor = UIColor.secondaryColor
             cell.lblContent.text = "allow_notifications".localizable()
@@ -76,6 +81,13 @@ extension Settings: UITableViewDataSource, UITableViewDelegate {
                 cell.lblContent.text = "feedback".localizable()
             case 2:
                 cell.lblContent.text = "contact".localizable()
+            case 3:
+                if UserDefaults.standard.bool(forKey: Constant.UserDefaults.HAS_USER_LOGGED_IN) == false {
+                    cell.lblContent.text = "login".localizable()
+                }else {
+                    cell.lblContent.text = "logout".localizable()
+                }
+                
             default:
                 cell.lblContent.text = ""
             }
@@ -91,51 +103,76 @@ extension Settings: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
         if section == 0{
             return 0
+        }else if section == 1 &&  UserDefaults.standard.bool(forKey: Constant.UserDefaults.HAS_USER_LOGGED_IN) == false{
+            return 0
+        }else {
+            return 56
         }
-        
-        return 45
     }
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         
         if section == 0 {
             return nil
+        }else if section == 1 &&  UserDefaults.standard.bool(forKey: Constant.UserDefaults.HAS_USER_LOGGED_IN) == false{
+            return nil
+        }else {
+            
+            let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 56))
+            headerView.backgroundColor = UIColor.white
+            
+            let headerLabel = UILabel(frame: CGRect(x: 16, y: 0, width: tableView.frame.size.width - 32, height: 56))
+            headerLabel.font = UIFont.customFont(size: 15, customStyle: .SemiBold)
+            headerLabel.textColor = UIColor.secondaryColor.withAlphaComponent(0.6)
+            headerView.addSubview(headerLabel)
+            
+            switch section {
+            case 0:
+                headerLabel.text = ""
+            case 1:
+                headerLabel.text = "account_details".localizable()
+            case 2:
+                headerLabel.text = "user_settings".localizable()
+            default:
+                headerLabel.text = ""
+            }
+            
+            return headerView
         }
-        
-        let headerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 45))
-        headerView.backgroundColor = UIColor.white
-        
-        let headerLabel = UILabel(frame: CGRect(x: 16, y: 0, width: tableView.frame.size.width - 32, height: 45))
-        headerLabel.font = UIFont.customFont(size: 15, customStyle: .SemiBold)
-        headerLabel.textColor = UIColor.secondaryColor.withAlphaComponent(0.6)
-        headerView.addSubview(headerLabel)
-        
-        switch section {
-        case 0:
-            headerLabel.text = ""
-        case 1:
-            headerLabel.text = "account_details".localizable()
-        case 2:
-            headerLabel.text = "user_details".localizable()
-        default:
-            headerLabel.text = ""
-        }
-        
-        
-        
-        return headerView
         
     }
     
     func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        if section == 1 && UserDefaults.standard.bool(forKey: Constant.UserDefaults.HAS_USER_LOGGED_IN) == false{
+            return 0
+        }
+        
         return 45
     }
     
     func tableView(_ tableView: UITableView, viewForFooterInSection section: Int) -> UIView? {
+        if section == 1 && UserDefaults.standard.bool(forKey: Constant.UserDefaults.HAS_USER_LOGGED_IN) == false{
+            return nil
+        }
+        
         let footerView = UIView(frame: CGRect(x: 0, y: 0, width: tableView.frame.size.width, height: 45))
         footerView.backgroundColor = UIColor.clear
         
         return footerView
+    }
+    
+    func tableView(_ tableView: UITableView, didHighlightRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath), indexPath.section != 0{
+            cell.backgroundColor = .customColorLightGrey
+        }
+    }
+    
+    func tableView(_ tableView: UITableView, didUnhighlightRowAt indexPath: IndexPath) {
+        if let cell = tableView.cellForRow(at: indexPath), indexPath.section != 0{
+            Timer.scheduledTimer(withTimeInterval: 0.1, repeats: false) { (timer) in
+                cell.backgroundColor = .clear
+            }
+        }
     }
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
@@ -144,13 +181,13 @@ extension Settings: UITableViewDataSource, UITableViewDelegate {
         case 1:
             switch indexPath.row {
             case 0:
-                print("Kişisel Bilgilerim")
+                self.personalInformation()
                 
             case 1:
-                print("Şifre Güncelleme")
+                self.updatePassword()
                 
             case 2:
-                print("Eposta Adresi Güncelleme")
+                self.updateEmailAddress()
                 
             default:
                 break
@@ -158,13 +195,21 @@ extension Settings: UITableViewDataSource, UITableViewDelegate {
         case 2:
             switch indexPath.row {
             case 0:
-                print("Bizi Değerlendirin")
+                self.evaluateUs()
                 
             case 1:
-                print("Geri Bildirim")
+                self.feedBack()
                 
             case 2:
-                print("İletişim")
+                self.contact()
+            
+            case 3:
+                if UserDefaults.standard.bool(forKey: Constant.UserDefaults.HAS_USER_LOGGED_IN) == false {
+                    self.signIn()
+                }else {
+                    self.signOut()
+                }
+                
                 
             default:
                 break

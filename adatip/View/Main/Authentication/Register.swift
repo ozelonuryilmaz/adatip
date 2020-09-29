@@ -159,10 +159,48 @@ class Register: BaseViewController {
     
     @IBAction func tapBtnSave(sender: AnyObject){
         
+        let fullName = self.tfNameAndFirstName.text ?? ""
+        let phoneNumber = self.tfPhoneNumber.text ?? ""
+        let email = self.tfEmail.text ?? ""
+        let identifier = self.tfIdentifier.text ?? ""
+        let yearOfBirth = self.tfBirth.text ?? ""
+        let fatherName = self.tfFather.text ?? ""
+        let password = self.tfPassword.text ?? ""
+        
+        register(deviceTokenId: identifier, firstName: fullName, lastName: phoneNumber, email: email, confirmEmail: email, birthYear: yearOfBirth, fatherName: fatherName, password: password, confirmPassword: password)
     }
     
     @IBAction func tapBtnLogin(sender: AnyObject){
         self.navigationController?.popViewController(animated: true)
+    }
+    
+    private func register(deviceTokenId: String?, firstName: String, lastName: String, email: String, confirmEmail: String, birthYear: String, fatherName: String, password: String, confirmPassword: String){
+        
+        self.showProgressView()
+        AuthenticationViewModel.register(deviceTokenId: deviceTokenId, firstName: firstName, lastName: lastName, email: email, confirmEmail: confirmEmail, birthYear: birthYear, fatherName: fatherName, password: password, confirmPassword: confirmPassword, complation: { (data) in
+            
+            self.signIn(email: email, password: password)
+            
+        }) { (errorMessage) in
+            self.hideProgressView()
+            self.showAlert(title: nil, message: errorMessage)
+        }
+    }
+    
+    private func signIn(email: String, password: String){
+        AuthenticationViewModel.signIn(email: email, password: password, complation: { (data) in
+            Helper.signIn(email: email,
+                          fullName: data.fullName ?? "",
+                          accessToken: data.token?.accessToken ?? "",
+                          refreshToken: data.token?.refreshToken ?? "")
+            
+            self.hideProgressView()
+            self.dismiss(animated: true, completion: nil)
+            
+        }) { (errorMessage) in
+            self.hideProgressView()
+            self.showAlert(title: nil, message: errorMessage)
+        }
     }
 
 }

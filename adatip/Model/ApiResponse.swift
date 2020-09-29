@@ -1,21 +1,21 @@
 //
-//  GetDoctorResponseModel.swift
+//  ApiResponse.swift
 //  adatip
 //
-//  Created by Onur YILMAZ on 24.09.2020.
+//  Created by Onur YILMAZ on 29.09.2020.
 //  Copyright © 2020 Onur YILMAZ. All rights reserved.
 //
 
 import Foundation
 
-struct GetDoctorResponseModel: Codable {
+struct ApiResponse<T : Codable>: Codable {
     let version: String?
     let statusCode: Int?
     let message: String?
     let isError: Bool?
     let responseException: ResponseException?
     
-    let result: [GetDoctorResult]?
+    let result: T?
     
     enum CodingKeys: String, CodingKey {
         case version = "version"
