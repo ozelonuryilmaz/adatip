@@ -24,6 +24,10 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 
 
+## IISightSDK
+
+11Sight LLC: Copyright 2017 11Sight LLC. All Rights Reserved. Use of this software is subject to the terms and conditions of the 11Sight terms and conditions located at https://11sight.com/wp-content/uploads/2016/08/11Sight-Terms-of-Service.pdf.
+
 ## IQKeyboardManagerSwift
 
 MIT License

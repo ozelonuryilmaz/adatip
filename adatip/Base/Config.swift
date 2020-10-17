@@ -12,6 +12,8 @@ class Config: NSObject {
     
     static let applicationDomain = "http://adatip.btkurumsal.xyz/"
     static let developmentDomain = "http://adatip.btkurumsal.xyz/"
+    static let iiSightApplicationDomain = "sdk.11sight.com"
+    static let iiSightDevelopmentDomain = "sdktest.11sight.com"
     
     static let applicationTabBarCount = 5 // You can customize tabbar names from Localizable. Strings under the Resources
     

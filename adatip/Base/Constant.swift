@@ -15,12 +15,18 @@ class Constant: NSObject {
         static let development = Config.developmentDomain
         static let production = Config.applicationDomain
         
+        static let developmentIISight = Config.iiSightApplicationDomain
+        static let productionIISight = Config.iiSightDevelopmentDomain
+        
         static let ACTIVE = development
+        static let ACTIVEIISIGHT = developmentIISight
     }
     
     struct Url {
         static let PAGE = Constant.Domains.ACTIVE
         static let API = Constant.Domains.ACTIVE + "api/"
+        
+        static let IISIGHT = Constant.Domains.ACTIVEIISIGHT
     }
     
     struct UserDefaults {

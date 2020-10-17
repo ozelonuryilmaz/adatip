@@ -25,18 +25,22 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>Albümünüze erişebilmemiz için izninze ihtiyacımız var.</string>
 	<key>NSCameraUsageDescription</key>
-	<string>Fotoğraf çekebilmeniz ve uygulama içerisinde kullanabilmeniz için izninize ihtiyacımız var.</string>
+	<string>Uygulama içerisinde kameranızı kullanabilmeniz için izninize ihtiyacımız var.</string>
 	<key>NSContactsUsageDescription</key>
 	<string>$(PRODUCT_NAME) contact use</string>
 	<key>NSLocationAlwaysUsageDescription</key>
 	<string>Konumunuzu kullanabilmemiz için izninize ihtiyacımız var.</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Konumunuzu kullanabilmemiz için izninize ihtiyacımız var.</string>
+	<key>NSMicrophoneUsageDescription</key>
+	<string>Uygulama içerisinde mikrofonunuzu kullanabilmeniz için izninize ihtiyacımız var.</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>Albümünüzdeki fotoğrafları kullanabilmemiz için izninze ihtiyacımız var.</string>
+	<string>Albümünüze erişebilmemiz için izninze ihtiyacımız var.</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Albümünüzdeki fotoğrafları kullanabilmemiz için izninze ihtiyacımız var.</string>
+	<string>Albümünüze erişebilmemiz için izninze ihtiyacımız var.</string>
 	<key>UIAppFonts</key>
 	<array>
 		<string>OpenSans-Bold.ttf</string>
@@ -69,6 +73,14 @@
 			</array>
 		</dict>
 	</dict>
+	<key>UIBackgroundModes</key>
+	<array>
+		<string>audio</string>
+		<string>fetch</string>
+		<string>processing</string>
+		<string>remote-notification</string>
+		<string>voip</string>
+	</array>
 	<key>UILaunchStoryboardName</key>
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>

@@ -7,8 +7,11 @@
 //
 
 import UIKit
+import IISightSDK
 
-class Login: BaseViewController {
+class Login: BaseViewController, IISightSDKLoginDelegate {
+    
+    
 
     @IBOutlet weak var bgEmailView: UIView!
     @IBOutlet weak var bgPasswordView: UIView!
@@ -26,6 +29,8 @@ class Login: BaseViewController {
         
         setupViewComponents()
         
+        
+        self.login()
     }
     
 
@@ -116,12 +121,28 @@ class Login: BaseViewController {
                           fullName: data.fullName ?? "",
                           accessToken: data.token?.accessToken ?? "",
                           refreshToken: data.token?.refreshToken ?? "")
+            
+            
+            
             self.hideProgressView()
             self.dismiss(animated: true, completion: nil)
         }) { (errorMessage) in
             self.hideProgressView()
             self.showAlert(title: nil, message: errorMessage)
         }
+    }
+    
+    func login() {
+        IISightSDKManager.shared().loginDelegate = self
+        IISightSDKManager.shared().login_user(withEmail: "berkan@btkurumsal.com.tr", password: "berkan123")
+    }
+    
+    func loginSuccessful() {
+        self.showAlert(title: "11Sight", message: "berkan@btkurumsal.com.tr Başarılı Giriş")
+    }
+    
+    func loginFailedWithErrorMessage(_ errorMessage: String?) {
+        self.showAlert(title: "11Sight", message: "berkan@btkurumsal.com.tr BAŞARISIZ Giriş")
     }
     
 }

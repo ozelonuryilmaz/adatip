@@ -8,21 +8,34 @@
 
 import UIKit
 import IQKeyboardManagerSwift
+import IISightSDK
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
-
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
+    
     var window: UIWindow?
-
+    
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         
         // MARK: *** IQKeyboardManager
         IQKeyboardManager.shared.enable = true
         
+        // MARK: *** IISightSDK
+        let center = UNUserNotificationCenter.current()
+        center.delegate = self
+        center.requestAuthorization(options: [.sound, .alert, .badge], completionHandler: { granted, error in
+            if error == nil {
+                DispatchQueue.main.async {
+                    UIApplication.shared.registerForRemoteNotifications()
+                }
+            }
+        })
+        IISightSDKManager.shared().start(withPartnerUrl: Constant.Url.IISIGHT)
+        
         return true
     }
-
+    
     // MARK: UISceneSession Lifecycle
     @available(iOS 13.0, *)
     func application(_ application: UIApplication, configurationForConnecting connectingSceneSession: UISceneSession, options: UIScene.ConnectionOptions) -> UISceneConfiguration {
@@ -36,7 +49,32 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-
-
+    
+    // MARK: *** IISightSDK
+    func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
+        // _ == belongsToSDK
+        if response is UNTextInputNotificationResponse {
+            let reply = response as? UNTextInputNotificationResponse
+            _ = IISightSDKManager.shared().localNotificationBelongs(toIISight: response.actionIdentifier, content: reply?.userText)
+        } else {
+            _ = IISightSDKManager.shared().localNotificationBelongs(toIISight: response.actionIdentifier, content: nil)
+        }
+        completionHandler()
+    }
+    
+    // MARK: *** IISightSDK
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+        let belongsToSDK = IISightSDKManager.shared().localNotificationBelongs(toIISight: notification.request.content.categoryIdentifier, content: nil)
+        
+        if belongsToSDK {
+            print("11sight notification")
+        }else {
+            print("App notification")
+        }
+        
+        completionHandler(UNNotificationPresentationOptions.alert)
+    }
+    
 }
 

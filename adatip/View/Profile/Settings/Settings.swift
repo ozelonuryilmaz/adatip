@@ -7,8 +7,9 @@
 //
 
 import UIKit
+import IISightSDK
 
-class Settings: BaseViewController {
+class Settings: BaseViewController, IISightSDKLogoutDelegate {
     
     @IBOutlet weak var tableViewSettings: UITableView!
     var isNotification: Bool = true
@@ -71,6 +72,9 @@ class Settings: BaseViewController {
     
     func signOut(){
         Helper.signOut()
+        
+        logout()
+        
         tableViewSettings.reloadData()
     }
     
@@ -84,6 +88,30 @@ class Settings: BaseViewController {
     
     func contact(){
         print("contact")
+        
+        makeCall()
+    }
+    
+    func logout() {
+        IISightSDKManager.shared().logoutDelegate = self
+        IISightSDKManager.shared().logout_user()
+    }
+
+    func logoutSuccessful() {
+        self.showAlert(title: "11Sight", message: "ursantr2@gmail.com Başarılı ÇIKIŞ")
+    }
+
+    func logoutFailedWithErrorMessage(_ errorMessage: String?) {
+        self.showAlert(title: "11Sight", message: "ursantr2@gmail.com BAŞARISIZ ÇIKIŞ")
+    }
+    
+    func makeCall() {
+        /*
+            *   Available callTypes = [.Video, .Audio, Chat]
+            */
+        //let berkan = "o2J8ZfVbSehjtiNvP07W6C2gKfD62tYI06vtktH4agSsixc3pQ"
+        let ursan = "ESAGCC0IHXDqxAm28wv3bHfMddvbyUnQnNkv0oA5q48NpUOoKa"
+        IISightSDKManager.shared().startOutgoingCall(ursan, trackerId: nil, callType: IISightCallType.Video)
     }
 
 }

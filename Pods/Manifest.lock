@@ -1,5 +1,6 @@
 PODS:
   - Alamofire (4.9.1)
+  - IISightSDK (5.1.5)
   - ImageSlideshow (1.9.1):
     - ImageSlideshow/Core (= 1.9.1)
   - ImageSlideshow/Core (1.9.1)
@@ -10,6 +11,7 @@ PODS:
 
 DEPENDENCIES:
   - Alamofire (~> 4.7)
+  - IISightSDK
   - ImageSlideshow (~> 1.9.0)
   - IQKeyboardManagerSwift
   - Kingfisher (~> 5.0)
@@ -17,16 +19,18 @@ DEPENDENCIES:
 SPEC REPOS:
   trunk:
     - Alamofire
+    - IISightSDK
     - ImageSlideshow
     - IQKeyboardManagerSwift
     - Kingfisher
 
 SPEC CHECKSUMS:
   Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  IISightSDK: 897fb85f3740ba19b62fc7d2a59063b85143b407
   ImageSlideshow: 67184be896a28472bd3b906c33ce4e0734aa3d22
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   Kingfisher: 1f60394409c6b916ce31474bcf73fdde6f3b9a7b
 
-PODFILE CHECKSUM: 40be96ff55a760e0a6767bf7c380125e33cf659f
+PODFILE CHECKSUM: c55febfa2b75850d514ed7b431a8c3cd89324be3
 
 COCOAPODS: 1.9.3
