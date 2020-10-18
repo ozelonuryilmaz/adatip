@@ -29,8 +29,6 @@ class Login: BaseViewController, IISightSDKLoginDelegate {
         
         setupViewComponents()
         
-        
-        self.login()
     }
     
 
@@ -86,6 +84,8 @@ class Login: BaseViewController, IISightSDKLoginDelegate {
         btnRegister.titleLabel?.font = UIFont.customFont(size: 22, customStyle: .Bold)
         btnRegister.addTarget(self, action: #selector(tapBtnRegister(sender:)), for: .touchUpInside)
         
+        IISightSDKManager.shared().loginDelegate = self
+        
     }
     
     
@@ -122,10 +122,10 @@ class Login: BaseViewController, IISightSDKLoginDelegate {
                           accessToken: data.token?.accessToken ?? "",
                           refreshToken: data.token?.refreshToken ?? "")
             
+            IISightSDKManager.shared().login_user(withEmail: "ursantr2@gmail.com", password: "123456Onur")
             
-            
-            self.hideProgressView()
-            self.dismiss(animated: true, completion: nil)
+            //self.hideProgressView()
+            //self.dismiss(animated: true, completion: nil)
         }) { (errorMessage) in
             self.hideProgressView()
             self.showAlert(title: nil, message: errorMessage)
@@ -133,16 +133,20 @@ class Login: BaseViewController, IISightSDKLoginDelegate {
     }
     
     func login() {
-        IISightSDKManager.shared().loginDelegate = self
-        IISightSDKManager.shared().login_user(withEmail: "berkan@btkurumsal.com.tr", password: "berkan123")
+        
+        
     }
     
     func loginSuccessful() {
-        self.showAlert(title: "11Sight", message: "berkan@btkurumsal.com.tr Başarılı Giriş")
+        print("Successful login")
+        self.hideProgressView()
+        self.dismiss(animated: true, completion: nil)
     }
     
     func loginFailedWithErrorMessage(_ errorMessage: String?) {
-        self.showAlert(title: "11Sight", message: "berkan@btkurumsal.com.tr BAŞARISIZ Giriş")
+        print("Login failed. errorMessage: \(errorMessage ?? "")")
+        self.hideProgressView()
+        self.dismiss(animated: true, completion: nil)
     }
     
 }

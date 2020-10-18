@@ -31,7 +31,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
                 }
             }
         })
-        IISightSDKManager.shared().start(withPartnerUrl: Constant.Url.IISIGHT)
+        
+        do{
+            //Product: "sdk.11sight.com"
+            //Develop: "sdktest.11sight.com"
+            IISightSDKManager.shared().start(withPartnerUrl: "sdktest.11sight.com")
+        }catch{
+            print("error 11Sight Start")
+        }
         
         return true
     }

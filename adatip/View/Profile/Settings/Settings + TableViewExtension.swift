@@ -80,7 +80,8 @@ extension Settings: UITableViewDataSource, UITableViewDelegate {
             case 1:
                 cell.lblContent.text = "feedback".localizable()
             case 2:
-                cell.lblContent.text = "contact".localizable()
+                //cell.lblContent.text = "contact".localizable()
+                cell.lblContent.text = "Berkan Bey'i Ara"
             case 3:
                 if UserDefaults.standard.bool(forKey: Constant.UserDefaults.HAS_USER_LOGGED_IN) == false {
                     cell.lblContent.text = "login".localizable()

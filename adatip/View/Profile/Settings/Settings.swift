@@ -98,11 +98,11 @@ class Settings: BaseViewController, IISightSDKLogoutDelegate {
     }
 
     func logoutSuccessful() {
-        self.showAlert(title: "11Sight", message: "ursantr2@gmail.com Başarılı ÇIKIŞ")
+        print("Successful sign out")
     }
 
     func logoutFailedWithErrorMessage(_ errorMessage: String?) {
-        self.showAlert(title: "11Sight", message: "ursantr2@gmail.com BAŞARISIZ ÇIKIŞ")
+        print("Sign out failed. errorMessage: \(errorMessage ?? "")")
     }
     
     func makeCall() {
@@ -110,7 +110,8 @@ class Settings: BaseViewController, IISightSDKLogoutDelegate {
             *   Available callTypes = [.Video, .Audio, Chat]
             */
         //let berkan = "o2J8ZfVbSehjtiNvP07W6C2gKfD62tYI06vtktH4agSsixc3pQ"
-        let ursan = "ESAGCC0IHXDqxAm28wv3bHfMddvbyUnQnNkv0oA5q48NpUOoKa"
+        let ursan = "vNp3WkmV65wCpSvscNDs5eOkVljIEu5ZUPD5R7S1ez8twllo1X"
+        //let ursan2 = "ESAGCC0IHXDqxAm28wv3bHfMddvbyUnQnNkv0oA5q48NpUOoKa"
         IISightSDKManager.shared().startOutgoingCall(ursan, trackerId: nil, callType: IISightCallType.Video)
     }
 
