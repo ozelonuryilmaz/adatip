@@ -9,6 +9,7 @@
 import UIKit
 import IQKeyboardManagerSwift
 import IISightSDK
+//import PushKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -33,16 +34,20 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             }
         }
         
-        do{
-            //Product: "sdk.11sight.com"
-            //Develop: "sdktest.11sight.com"
-            IISightSDKManager.shared().start(withPartnerUrl: "sdktest.11sight.com")
-        }catch{
-            print("error 11Sight Start")
-        }
+        //self.voipRegistration()
+        
+        IISightSDKManager.shared().start(withPartnerUrl: "sdktest.11sight.com")
         
         return true
     }
+    
+    //Get device token
+        func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data)
+        {
+            let tokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
+            
+            print("The token: \(tokenString)")
+        }
     
     // MARK: UISceneSession Lifecycle
     @available(iOS 13.0, *)
@@ -57,7 +62,17 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-    
+    /*
+    // Register for VoIP notifications
+        func voipRegistration() {
+            
+            // Create a push registry object
+            let mainQueue = DispatchQueue.main
+            let voipRegistry: PKPushRegistry = PKPushRegistry(queue: mainQueue)
+            voipRegistry.delegate = self
+            voipRegistry.desiredPushTypes = [PKPushType.voIP]
+        }
+    */
 }
 
 // MARK: *** IISightSDK and Notification Delegate
@@ -88,4 +103,24 @@ extension AppDelegate: UNUserNotificationCenterDelegate{
         completionHandler()
     }
 }
-
+/*
+//MARK: - PKPushRegistryDelegate
+extension AppDelegate : PKPushRegistryDelegate {
+    
+    // Handle updated push credentials
+    func pushRegistry(_ registry: PKPushRegistry, didUpdate credentials: PKPushCredentials, for type: PKPushType) {
+        print(credentials.token)
+        let deviceToken = credentials.token.map { String(format: "%02x", $0) }.joined()
+        print("pushRegistry -> deviceToken :\(deviceToken)")
+    }
+        
+    func pushRegistry(_ registry: PKPushRegistry, didInvalidatePushTokenFor type: PKPushType) {
+        print("pushRegistry:didInvalidatePushTokenForType:")
+    }
+    
+    // Handle incoming pushes
+    func pushRegistry(_ registry: PKPushRegistry, didReceiveIncomingPushWith payload: PKPushPayload, for type: PKPushType, completion: @escaping () -> Void) {
+         print(payload.dictionaryPayload)
+    }
+}
+*/
