@@ -9,7 +9,6 @@
 import UIKit
 import IQKeyboardManagerSwift
 import IISightSDK
-//import PushKit
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -33,9 +32,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 }
             }
         }
-        
-        //self.voipRegistration()
-        
         IISightSDKManager.shared().start(withPartnerUrl: "sdktest.11sight.com")
         
         return true
@@ -62,17 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // If any sessions were discarded while the application was not running, this will be called shortly after application:didFinishLaunchingWithOptions.
         // Use this method to release any resources that were specific to the discarded scenes, as they will not return.
     }
-    /*
-    // Register for VoIP notifications
-        func voipRegistration() {
-            
-            // Create a push registry object
-            let mainQueue = DispatchQueue.main
-            let voipRegistry: PKPushRegistry = PKPushRegistry(queue: mainQueue)
-            voipRegistry.delegate = self
-            voipRegistry.desiredPushTypes = [PKPushType.voIP]
-        }
-    */
+    
 }
 
 // MARK: *** IISightSDK and Notification Delegate
@@ -103,7 +89,26 @@ extension AppDelegate: UNUserNotificationCenterDelegate{
         completionHandler()
     }
 }
+
+
+
+
+
 /*
+ //import PushKit
+ /*
+ // Register for VoIP notifications
+     func voipRegistration() {
+         
+         // Create a push registry object
+         let mainQueue = DispatchQueue.main
+         let voipRegistry: PKPushRegistry = PKPushRegistry(queue: mainQueue)
+         voipRegistry.delegate = self
+         voipRegistry.desiredPushTypes = [PKPushType.voIP]
+     }
+ */
+ 
+ 
 //MARK: - PKPushRegistryDelegate
 extension AppDelegate : PKPushRegistryDelegate {
     

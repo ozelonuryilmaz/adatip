@@ -10,11 +10,28 @@ import UIKit
 import ImageSlideshow
 
 class Home: BaseViewController {
-
+    
     @IBOutlet weak var imgSlideshow: ImageSlideshow!
     @IBOutlet weak var bannerActivityIndicator: UIActivityIndicatorView!
     private var imageSourcesForBanner = Array <InputSource>()
     var banners : [GetAnnouncementResult] = []
+    
+    var units: [[String:String]] = [["image": "deleteFood", "name": "Beslenme"],
+                                         ["image": "deletePage", "name": "Beyin ve Sinir"],
+                                         ["image": "deletePeople", "name": "Çocuk Sağlığı"],
+                                         ["image": "deleteSign", "name": "Dahiliye"],
+                                         ["image": "deleteFood", "name": "Beslenme"],
+                                         ["image": "deletePage", "name": "Beyin ve Sinir"],
+                                         ["image": "deletePeople", "name": "Çocuk Sağlığı"],
+                                         ["image": "deleteSign", "name": "Dahiliye"],
+                                         ["image": "deleteFood", "name": "Beslenme"],
+                                         ["image": "deletePage", "name": "Beyin ve Sinir"],
+                                         ["image": "deletePeople", "name": "Çocuk Sağlığı"],
+                                         ["image": "deleteSign", "name": "Dahiliye"],
+                                         ["image": "deleteFood", "name": "Beslenme"],
+                                         ["image": "deletePage", "name": "Beyin ve Sinir"],
+                                         ["image": "deletePeople", "name": "Çocuk Sağlığı"],
+                                         ["image": "deleteSign", "name": "Dahiliye"],]
     
     @IBOutlet weak var viewDesc: UIView!
     @IBOutlet weak var lblTitle: UILabel!
@@ -250,6 +267,13 @@ class Home: BaseViewController {
         self.bannerActivityIndicator.show()
         HomeViewModel.getAnnouncements(hospitalId: hospitalId, complation: { (announcement) in
             self.banners = announcement
+            
+            if !self.banners.isEmpty{
+                for _ in 0...15{
+                    self.banners.append(self.banners[0])
+                }
+            }
+            
             self.bannerActivityIndicator.hide()
             self.imageSlideShowSetInputs()
             self.imageSlideShowPageChanged(self.imgSlideshow.currentPage)

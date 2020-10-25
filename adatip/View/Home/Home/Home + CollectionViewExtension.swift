@@ -10,14 +10,18 @@ import UIKit
 
 
 extension Home: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 15
+        return units.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeCollectionViewCell.reuseID, for: indexPath) as! HomeCollectionViewCell
         
-        cell.lblUnit.text = "U: \(indexPath.row)"
+        let item = units[indexPath.row]
+        
+        cell.imgUnit.image = UIImage(named: item["image"]!)
+        cell.lblUnit.text = item["name"]
         return cell
     }
     
@@ -38,6 +42,9 @@ extension Home: UICollectionViewDelegate, UICollectionViewDataSource, UICollecti
         selectedIndexPath = IndexPath(item: selectedIndex, section: 0)
         menuCollection.selectItem(at: selectedIndexPath, animated: true, scrollPosition: .centeredVertically)
         refreshTableViewContent()*/
+        
+        let unitDetail = UnitDetail.create(unitTitle: units[indexPath.row]["name"] ?? "")
+        self.navigationController?.pushViewController(unitDetail, animated: true)
     }
     
     
