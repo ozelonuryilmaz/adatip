@@ -11,8 +11,6 @@ import IISightSDK
 
 class Login: BaseViewController, IISightSDKLoginDelegate {
     
-    
-
     @IBOutlet weak var bgEmailView: UIView!
     @IBOutlet weak var bgPasswordView: UIView!
     

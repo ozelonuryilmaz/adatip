@@ -73,5 +73,25 @@ extension String {
         
         return ""
     }
+    
+    
+    func formatTo(formatValue: String = "dd-MM-yyyy", desiredFormat: String = "dd MMMM") -> String{
+        if self.isEmpty {
+            return ""
+        }
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = formatValue
+        dateFormatter.locale = Locale(identifier: "tr")
 
+        let check = dateFormatter.date(from: self)!
+
+        dateFormatter.dateFormat = desiredFormat
+        
+        return dateFormatter.string(from: check)
+    }
+
+    func size(font: UIFont) -> CGSize {
+        return (self as NSString).size(withAttributes: [NSAttributedString.Key.font: font])
+    }
 }

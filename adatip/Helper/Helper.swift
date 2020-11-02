@@ -34,6 +34,28 @@ class Helper: NSObject {
         
     }
     
+    class func getFirstThirtyDay()-> [String]{
+        
+        var dates: [String] = []
+        var date = Date()
+        
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "dd-MM-yyyy"
+        
+        for _ in 0...29 {
+            dates.append(dateFormatter.string(from: date))
+            date = date.addingTimeInterval(86400)
+        }
+        /*
+        for item in dates {
+            dateFormatter.dateFormat = "dd MMMM yyyy"
+            let dateObj = dateFormatter.date(from: item)!
+            print(dateFormatter.string(from: dateObj))
+        }*/
+        
+        return dates
+    }
+    
     class func signIn(email: String, fullName: String, accessToken: String, refreshToken: String){
         UserDefaults.standard.set(true, forKey: Constant.UserDefaults.HAS_USER_LOGGED_IN)
         UserDefaults.standard.set(email, forKey: Constant.UserDefaults.EMAIL)

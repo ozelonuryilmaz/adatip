@@ -59,6 +59,7 @@
 		672B5F552513EC8F0017FE31 /* StaffCategory.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 672B5F542513EC8E0017FE31 /* StaffCategory.storyboard */; };
 		672B5F572513EC9A0017FE31 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 672B5F562513EC9A0017FE31 /* Profile.storyboard */; };
 		672B5F592513F0170017FE31 /* HospitalList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672B5F582513F0170017FE31 /* HospitalList.swift */; };
+		67380711255098BE0050EB02 /* DoctorHourDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67380710255098BE0050EB02 /* DoctorHourDateCell.swift */; };
 		675C6A602521AD1C00E97C8E /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675C6A5F2521AD1C00E97C8E /* Login.swift */; };
 		675C6A622521AD4600E97C8E /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675C6A612521AD4600E97C8E /* Register.swift */; };
 		675C6A642521AD9700E97C8E /* ForgotMyPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675C6A632521AD9700E97C8E /* ForgotMyPassword.swift */; };
@@ -161,6 +162,7 @@
 		672B5F542513EC8E0017FE31 /* StaffCategory.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = StaffCategory.storyboard; sourceTree = "<group>"; };
 		672B5F562513EC9A0017FE31 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		672B5F582513F0170017FE31 /* HospitalList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalList.swift; sourceTree = "<group>"; };
+		67380710255098BE0050EB02 /* DoctorHourDateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorHourDateCell.swift; sourceTree = "<group>"; };
 		675C6A5F2521AD1C00E97C8E /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		675C6A612521AD4600E97C8E /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		675C6A632521AD9700E97C8E /* ForgotMyPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotMyPassword.swift; sourceTree = "<group>"; };
@@ -587,6 +589,7 @@
 				67A9983A251F42B500625661 /* StaffCategoryDetail.swift */,
 				67A9983D251F875600625661 /* DoctorsInfo.swift */,
 				67A9983F251F876D00625661 /* DoctorsHour.swift */,
+				67380710255098BE0050EB02 /* DoctorHourDateCell.swift */,
 			);
 			path = DoctorDetail;
 			sourceTree = "<group>";
@@ -831,6 +834,7 @@
 				6761D1842519E24F00E8FC01 /* Home + CollectionViewExtension.swift in Sources */,
 				67BFDE41251B6C870087A4FD /* GetUnitSubCategoryResult.swift in Sources */,
 				672B5F442513EBE60017FE31 /* Home.swift in Sources */,
+				67380711255098BE0050EB02 /* DoctorHourDateCell.swift in Sources */,
 				67707D962517685100D97CFC /* KingfisherSource.swift in Sources */,
 				6718975C25230EC30034E866 /* AuthenticationViewModel.swift in Sources */,
 				672B5F4B2513EC1B0017FE31 /* StaffCategory.swift in Sources */,
