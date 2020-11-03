@@ -22,28 +22,26 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         
         // MARK: *** IISightSDK
-        let center = UNUserNotificationCenter.current()
-        center.delegate = self
-        center.requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
-            if error == nil {
-                DispatchQueue.main.async {
-                    //DID REQUEST THE NOTIFICATION
-                    UIApplication.shared.registerForRemoteNotifications()
-                }
-            }
-        }
         IISightSDKManager.shared().start(withPartnerUrl: "sdktest.11sight.com")
+        
+        registerForNotification()
         
         return true
     }
     
-    //Get device token
-        func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data)
-        {
-            let tokenString = deviceToken.reduce("", {$0 + String(format: "%02X", $1)})
-            
-            print("The token: \(tokenString)")
+    public func registerForNotification() {
+        if #available(iOS 10.0, *) {
+            let center = UNUserNotificationCenter.current()
+            center.delegate = self
+            center.requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
+                if (error == nil) {
+                    DispatchQueue.main.async {
+                        UIApplication.shared.registerForRemoteNotifications()
+                    }
+                }
+            }
         }
+    }
     
     // MARK: UISceneSession Lifecycle
     @available(iOS 13.0, *)
@@ -79,17 +77,48 @@ extension AppDelegate: UNUserNotificationCenterDelegate{
     
     //This is for the user tapping on the notification
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
-        // _ == belongsToSDK
-        if response is UNTextInputNotificationResponse {
-            let reply = response as? UNTextInputNotificationResponse
-            _ = IISightSDKManager.shared().localNotificationBelongs(toIISight: response.actionIdentifier, content: reply?.userText)
+        if let textResponse = response as? UNTextInputNotificationResponse {
+            let reply = textResponse.userText
+            _ = IISightSDKManager.shared().localNotificationBelongs(toIISight: response.notification.request.identifier, content: reply)
+            // Send reply message
         } else {
-            _ = IISightSDKManager.shared().localNotificationBelongs(toIISight: response.actionIdentifier, content: nil)
+            let belongsTOSDK = IISightSDKManager.shared().localNotificationBelongs(toIISight: response.notification.request.identifier, content: nil)
+            if !belongsTOSDK && response.notification.request.identifier == "user_notification" {
+                NotificationCenter.default.post(name: NSNotification.Name("HandleNotification"), object: nil, userInfo: ["action" : "user_notification"])
+            }
         }
         completionHandler()
     }
 }
 
+
+extension AppDelegate {
+    
+    func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
+        _ = IISightSDKManager.shared().localNotificationBelongs(toIISight: notification.category!, content: nil)
+    }
+    
+    func application(_ application: UIApplication, handleActionWithIdentifier identifier: String?, for notification: UILocalNotification, completionHandler: @escaping () -> Void) {
+        
+        _ = IISightSDKManager.shared().localNotificationBelongs(toIISight: notification.category!, content: nil)
+        completionHandler()
+    }
+    
+    //Get device token
+    func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+        IISightSDKManager.shared().setApnsNormalToken(deviceToken.base64EncodedString());
+    }
+    
+    func application(_ application: UIApplication, didFailToRegisterForRemoteNotificationsWithError error: Error) {
+        print("Failed to register for notifications: \(error.localizedDescription)")
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable : Any], fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        //print(userInfo)
+        _ = IISightSDKManager.shared().remoteNotificationBelongs(toIISight: userInfo)
+        completionHandler(UIBackgroundFetchResult.newData)
+    }
+}
 
 
 
@@ -98,34 +127,34 @@ extension AppDelegate: UNUserNotificationCenterDelegate{
  //import PushKit
  /*
  // Register for VoIP notifications
-     func voipRegistration() {
-         
-         // Create a push registry object
-         let mainQueue = DispatchQueue.main
-         let voipRegistry: PKPushRegistry = PKPushRegistry(queue: mainQueue)
-         voipRegistry.delegate = self
-         voipRegistry.desiredPushTypes = [PKPushType.voIP]
-     }
+ func voipRegistration() {
+ 
+ // Create a push registry object
+ let mainQueue = DispatchQueue.main
+ let voipRegistry: PKPushRegistry = PKPushRegistry(queue: mainQueue)
+ voipRegistry.delegate = self
+ voipRegistry.desiredPushTypes = [PKPushType.voIP]
+ }
  */
  
  
-//MARK: - PKPushRegistryDelegate
-extension AppDelegate : PKPushRegistryDelegate {
-    
-    // Handle updated push credentials
-    func pushRegistry(_ registry: PKPushRegistry, didUpdate credentials: PKPushCredentials, for type: PKPushType) {
-        print(credentials.token)
-        let deviceToken = credentials.token.map { String(format: "%02x", $0) }.joined()
-        print("pushRegistry -> deviceToken :\(deviceToken)")
-    }
-        
-    func pushRegistry(_ registry: PKPushRegistry, didInvalidatePushTokenFor type: PKPushType) {
-        print("pushRegistry:didInvalidatePushTokenForType:")
-    }
-    
-    // Handle incoming pushes
-    func pushRegistry(_ registry: PKPushRegistry, didReceiveIncomingPushWith payload: PKPushPayload, for type: PKPushType, completion: @escaping () -> Void) {
-         print(payload.dictionaryPayload)
-    }
-}
-*/
+ //MARK: - PKPushRegistryDelegate
+ extension AppDelegate : PKPushRegistryDelegate {
+ 
+ // Handle updated push credentials
+ func pushRegistry(_ registry: PKPushRegistry, didUpdate credentials: PKPushCredentials, for type: PKPushType) {
+ print(credentials.token)
+ let deviceToken = credentials.token.map { String(format: "%02x", $0) }.joined()
+ print("pushRegistry -> deviceToken :\(deviceToken)")
+ }
+ 
+ func pushRegistry(_ registry: PKPushRegistry, didInvalidatePushTokenFor type: PKPushType) {
+ print("pushRegistry:didInvalidatePushTokenForType:")
+ }
+ 
+ // Handle incoming pushes
+ func pushRegistry(_ registry: PKPushRegistry, didReceiveIncomingPushWith payload: PKPushPayload, for type: PKPushType, completion: @escaping () -> Void) {
+ print(payload.dictionaryPayload)
+ }
+ }
+ */

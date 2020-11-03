@@ -35,23 +35,19 @@ class Helper: NSObject {
     }
     
     class func getFirstThirtyDay()-> [String]{
-        
         var dates: [String] = []
-        var date = Date()
+        var date = Date().addingTimeInterval(25200) //17.00
         
         let dateFormatter = DateFormatter()
         dateFormatter.dateFormat = "dd-MM-yyyy"
         
-        for _ in 0...29 {
-            dates.append(dateFormatter.string(from: date))
+        for _ in 0...30 {
+            if date.dayNumberOfWeek() != 1{
+                dates.append(dateFormatter.string(from: date))
+            }
+            
             date = date.addingTimeInterval(86400)
         }
-        /*
-        for item in dates {
-            dateFormatter.dateFormat = "dd MMMM yyyy"
-            let dateObj = dateFormatter.date(from: item)!
-            print(dateFormatter.string(from: dateObj))
-        }*/
         
         return dates
     }
