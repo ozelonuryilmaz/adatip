@@ -7,9 +7,9 @@
 //
 
 import UIKit
-import IISightSDK
+//import IISightSDK
 
-class Settings: BaseViewController, IISightSDKLogoutDelegate {
+class Settings: BaseViewController/*, IISightSDKLogoutDelegate*/ {
     
     @IBOutlet weak var tableViewSettings: UITableView!
     var isNotification: Bool = true
@@ -72,9 +72,7 @@ class Settings: BaseViewController, IISightSDKLogoutDelegate {
     
     func signOut(){
         Helper.signOut()
-        
-        logout()
-        
+        //logout()
         tableViewSettings.reloadData()
     }
     
@@ -88,10 +86,9 @@ class Settings: BaseViewController, IISightSDKLogoutDelegate {
     
     func contact(){
         print("contact")
-        
-        makeCall()
+        //makeCall()
     }
-    
+    /*
     func logout() {
         IISightSDKManager.shared().logoutDelegate = self
         IISightSDKManager.shared().logout_user()
@@ -113,7 +110,7 @@ class Settings: BaseViewController, IISightSDKLogoutDelegate {
         let ursan = "vNp3WkmV65wCpSvscNDs5eOkVljIEu5ZUPD5R7S1ez8twllo1X"
         //let ursan2 = "ESAGCC0IHXDqxAm28wv3bHfMddvbyUnQnNkv0oA5q48NpUOoKa"
         IISightSDKManager.shared().startOutgoingCall(ursan, trackerId: nil, callType: IISightCallType.Video)
-    }
+    }*/
 
 }
 

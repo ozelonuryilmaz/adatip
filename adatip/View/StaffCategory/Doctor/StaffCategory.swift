@@ -15,6 +15,8 @@ class StaffCategory: BaseViewController {
     
     @IBOutlet weak var collectionViewDoctor: UICollectionView!
     
+    var unitSubCategoryId: Int? = nil
+    
     var timer: Timer? = nil
     
     var estimateWidth = 160.0
@@ -31,7 +33,7 @@ class StaffCategory: BaseViewController {
         //when the hospital changed.
         NotificationCenter.default.addObserver(self, selector: #selector(changeHospital), name: NSNotification.Name(rawValue: Constant.NotificationKeys.CHANGE_HOSPITAL), object: nil)
         
-        getDoctorList(hospitalId: self.hospitalId)
+        getDoctorList(hospitalId: self.hospitalId, unitSubCategoryId: self.unitSubCategoryId)
     }
     
     override func viewDidLayoutSubviews() {
@@ -46,7 +48,7 @@ class StaffCategory: BaseViewController {
     @objc private func changeHospital() {
         updateNavigationBarTitle(title: "our_employees", subtitle: "(" + self.hospitalTitle + ")")
         
-        getDoctorList(hospitalId: self.hospitalId)
+        getDoctorList(hospitalId: self.hospitalId, unitSubCategoryId: self.unitSubCategoryId)
     }
     
     private func setupViewComponents(){
@@ -78,10 +80,10 @@ class StaffCategory: BaseViewController {
         flow.minimumLineSpacing = CGFloat(self.cellMarginSize)
     }
     
-    private func getDoctorList(hospitalId: Int){
+    private func getDoctorList(hospitalId: Int, unitSubCategoryId: Int?){
         
         self.showProgressView(self.view)
-        StaffCategoryViewModel.getDoctorList(hospitalId: hospitalId, complation: { (doctorList) in
+        StaffCategoryViewModel.getDoctorList(hospitalId: hospitalId, unitSubCategoryId: unitSubCategoryId, complation: { (doctorList) in
             self.doctorArray = doctorList
             self.realDoctorArray = doctorList
             self.hideProgressView(self.view)
@@ -121,4 +123,17 @@ class StaffCategory: BaseViewController {
         })
     }
     
+}
+
+
+extension StaffCategory{
+    static let reuseId = "staffCategory"
+    
+    static func create(unitSubCategoryId: Int? = nil) -> UIViewController{
+        let staffCategorySB: UIStoryboard = UIStoryboard(name: "StaffCategory", bundle: .main)
+        let staffCategory = staffCategorySB.instantiateViewController(withIdentifier: reuseId) as! StaffCategory
+        staffCategory.unitSubCategoryId = unitSubCategoryId
+        
+        return staffCategory
+    }
 }

@@ -1,4 +1,4 @@
-platform :ios, '11.0'
+#platform :ios, '12.0'
 
 target 'adatip' do
   use_frameworks!
@@ -8,6 +8,7 @@ target 'adatip' do
   pod 'IQKeyboardManagerSwift'
   pod 'Kingfisher', '~> 5.0'
   pod 'ImageSlideshow', '~> 1.9.0'
-  pod 'IISightSDK'
+  pod 'BulletinBoard'
+  #pod 'IISightSDK', '~> 5.2.1'
 
 end

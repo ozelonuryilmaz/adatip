@@ -13,7 +13,7 @@ class NetworkManager: NSObject {
     // MARK: *** Helpers
     class func getHeader() -> [String : String] {
         
-        let token = UserDefaults.standard.string(forKey: Constant.UserDefaults.TOKEN) ?? ""
+        let token = UserDefaults.standard.string(forKey: Constant.UserDefaults.ACCESS_TOKEN) ?? ""
         let header : [String:String] = ["Authorization": "Bearer " + token, "Content-Type": "application/json"]
         
         return header
@@ -206,9 +206,13 @@ class NetworkManager: NSObject {
     }
     
     //MARK: - Get Doctors (StaffCategory)
-    class func getDoctorList(hospitalId: Int, success:@escaping (_ response: ApiResponse<[GetDoctorResult]>) -> Void, failure:@escaping (_ error:Error, _ statusCode:Int, _ errorResponse: ApiResponse<[GetDoctorResult]>?) -> Void) -> Void {
+    class func getDoctorList(hospitalId: Int, unitSubCategoryId: Int?, success:@escaping (_ response: ApiResponse<[GetDoctorResult]>) -> Void, failure:@escaping (_ error:Error, _ statusCode:Int, _ errorResponse: ApiResponse<[GetDoctorResult]>?) -> Void) -> Void {
         
-        let url = Constant.Url.PAGE + "v1/doctor/list/\(hospitalId)"
+        var url = Constant.Url.PAGE + "v1/doctor/list/\(hospitalId)"
+        
+        if unitSubCategoryId != nil {
+            url = Constant.Url.PAGE + "v1/doctor/list/\(hospitalId)/\(unitSubCategoryId!)"
+        }
         
         BaseNetworkManager.get(url: url, parameters: nil, headers: getHeaderWithoutToken(), success: { (data) in
 
@@ -313,6 +317,117 @@ class NetworkManager: NSObject {
             do {
                 let decoder = JSONDecoder()
                 theErrorResponse = try decoder.decode(ApiResponse<GetSignInResult>.self, from: ErrorData!)
+                printAndShowError(url: url, error: Error, statusCode: StatusCode)
+                failure(Error, StatusCode, theErrorResponse)
+            } catch let error {
+                printAndShowError(url: url, error: error, statusCode: StatusCode)
+                failure(error, StatusCode, nil)
+            }
+            
+        }
+    }
+    
+    
+    //MARK: - Doctor Availability Times
+    class func getAvailabilityTimes(appointmentDate: String, hospitalId: Int, doctorId: Int, success:@escaping (_ response: ApiResponse<[GetAvailabilityTimes]>) -> Void, failure:@escaping (_ error:Error, _ statusCode:Int, _ errorResponse: ApiResponse<[GetAvailabilityTimes]>?) -> Void) -> Void {
+        
+        let url = Constant.Url.PAGE + "v1/appointment/availability-times/\(appointmentDate)/\(hospitalId)/\(doctorId)"
+        
+        BaseNetworkManager.get(url: url, parameters: nil, headers: getHeader(), success: { (data) in
+
+            var theResponse : ApiResponse<[GetAvailabilityTimes]>
+
+            do {
+                let decoder = JSONDecoder()
+                theResponse = try decoder.decode(ApiResponse<[GetAvailabilityTimes]>.self, from: data!)
+                success(theResponse)
+            } catch let error {
+                printAndShowError(url: url, error: error, statusCode: -1)
+                failure(error, -1, nil)
+            }
+
+        }) { (Error, StatusCode, ErrorData) in
+            
+            var theErrorResponse : ApiResponse<[GetAvailabilityTimes]>
+            
+            do {
+                let decoder = JSONDecoder()
+                theErrorResponse = try decoder.decode(ApiResponse<[GetAvailabilityTimes]>.self, from: ErrorData!)
+                printAndShowError(url: url, error: Error, statusCode: StatusCode)
+                failure(Error, StatusCode, theErrorResponse)
+            } catch let error {
+                printAndShowError(url: url, error: error, statusCode: StatusCode)
+                failure(error, StatusCode, nil)
+            }
+            
+        }
+    }
+    
+    //MARK: - Doctor Availability Times
+    class func createAppointment(hospitalId: Int, doctorId: Int, appointmentDate: String, appointmentTime: String, success:@escaping (_ response: SuccessResponse) -> Void, failure:@escaping (_ error:Error, _ statusCode:Int, _ errorResponse: SuccessResponse?) -> Void) -> Void {
+        
+        let url = Constant.Url.PAGE + "v1/customer/appointment/create"
+        
+        let parametre = ["hospitalId": hospitalId as AnyObject,
+                         "doctorId": doctorId as AnyObject,
+                         "appointmentDate": appointmentDate as AnyObject,
+                         "appointmentTime": appointmentTime as AnyObject]
+        
+        BaseNetworkManager.post(url: url, parameters: parametre, headers: getHeader(), success: { (data) in
+
+            var theResponse : SuccessResponse
+
+            do {
+                let decoder = JSONDecoder()
+                theResponse = try decoder.decode(SuccessResponse.self, from: data!)
+                success(theResponse)
+            } catch let error {
+                printAndShowError(url: url, error: error, statusCode: -1)
+                failure(error, -1, nil)
+            }
+
+        }) { (Error, StatusCode, ErrorData) in
+            
+            var theErrorResponse : SuccessResponse
+            
+            do {
+                let decoder = JSONDecoder()
+                theErrorResponse = try decoder.decode(SuccessResponse.self, from: ErrorData!)
+                printAndShowError(url: url, error: Error, statusCode: StatusCode)
+                failure(Error, StatusCode, theErrorResponse)
+            } catch let error {
+                printAndShowError(url: url, error: error, statusCode: StatusCode)
+                failure(error, StatusCode, nil)
+            }
+            
+        }
+    }
+    
+    //MARK: - Doctor Availability Times
+    class func getAppointmentList(hospitalId: Int, success:@escaping (_ response: ApiResponse<[GetAppointmentResult]>) -> Void, failure:@escaping (_ error:Error, _ statusCode:Int, _ errorResponse: ApiResponse<[GetAppointmentResult]>?) -> Void) -> Void {
+        
+        let url = Constant.Url.PAGE + "v1/customer/appointment/list?hospitalId=\(hospitalId)"
+        
+        BaseNetworkManager.get(url: url, parameters: nil, headers: getHeader(), success: { (data) in
+
+            var theResponse : ApiResponse<[GetAppointmentResult]>
+
+            do {
+                let decoder = JSONDecoder()
+                theResponse = try decoder.decode(ApiResponse<[GetAppointmentResult]>.self, from: data!)
+                success(theResponse)
+            } catch let error {
+                printAndShowError(url: url, error: error, statusCode: -1)
+                failure(error, -1, nil)
+            }
+
+        }) { (Error, StatusCode, ErrorData) in
+            
+            var theErrorResponse : ApiResponse<[GetAppointmentResult]>
+            
+            do {
+                let decoder = JSONDecoder()
+                theErrorResponse = try decoder.decode(ApiResponse<[GetAppointmentResult]>.self, from: ErrorData!)
                 printAndShowError(url: url, error: Error, statusCode: StatusCode)
                 failure(Error, StatusCode, theErrorResponse)
             } catch let error {

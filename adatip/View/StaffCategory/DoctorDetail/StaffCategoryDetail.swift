@@ -22,6 +22,7 @@ class StaffCategoryDetail: BaseViewController {
         super.viewDidLoad()
 
         setupViewComponents()
+        
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -30,7 +31,8 @@ class StaffCategoryDetail: BaseViewController {
             doctorsInfo!.titleName = self.titleName
             doctorsInfo!.doctor = self.doctor
         }else if segue.identifier == "doktorsHourViewSegue" {
-            
+            let doctorsHour = segue.destination as? DoctorsHour
+            doctorsHour!.doctor = self.doctor
         }
     }
     

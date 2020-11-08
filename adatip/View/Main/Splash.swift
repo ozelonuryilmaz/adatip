@@ -13,7 +13,7 @@ class Splash: BaseViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("SplashVM -> \(SplashViewModel.shared.nums)")
+        print("Splash VM -> \(SplashViewModel.shared.nums)")
     }
     
     override func viewDidAppear(_ animated: Bool) {

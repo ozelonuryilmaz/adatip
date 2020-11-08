@@ -21,10 +21,10 @@ class BaseNetworkManager: NSObject {
                 let parameterJSON = parameter as NSDictionary
                 print("Parameters:\n \(parameterJSON)")
             }else { print("Parameters: nil") }
-//            if let JSON = response.result.value {
-//                let responseJSON = JSON as! NSDictionary
-//                print("result: \(responseJSON)")
-//            }else { print("result: nil") }
+            if let JSON = response.result.value {
+                let responseJSON = JSON as! NSDictionary
+                print("result: \(responseJSON)")
+            }else { print("result: nil") }
             
             switch response.result {
                 

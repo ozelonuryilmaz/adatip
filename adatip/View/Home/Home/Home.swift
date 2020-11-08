@@ -201,6 +201,9 @@ class Home: BaseViewController {
     }
     
     @IBAction func tapBtnAppointment(sender: AnyObject){
+        self.tabBarController?.selectedIndex = 1
+        
+        /*
         if UserDefaults.standard.bool(forKey: Constant.UserDefaults.HAS_USER_LOGGED_IN) == false {
             let login = Login.create()
             let loginNav = UINavigationController(rootViewController: login)
@@ -209,7 +212,7 @@ class Home: BaseViewController {
             self.present(loginNav, animated: true, completion: nil)
         }else {
             
-        }
+        }*/ 
     }
     
     // MARK: *** Tap Gesture Recognizer

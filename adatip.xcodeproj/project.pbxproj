@@ -21,6 +21,7 @@
 		671897652523116F0034E866 /* ApiResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 671897642523116F0034E866 /* ApiResponse.swift */; };
 		6724BE8725231906000AA03F /* GetSignInResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6724BE8625231906000AA03F /* GetSignInResult.swift */; };
 		6724BE8925231959000AA03F /* GetAccessToken.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6724BE8825231959000AA03F /* GetAccessToken.swift */; };
+		6727390E2555F964009866B8 /* OnlinePayment.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6727390D2555F964009866B8 /* OnlinePayment.swift */; };
 		672B5EE02513D4540017FE31 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672B5EDF2513D4540017FE31 /* AppDelegate.swift */; };
 		672B5EE22513D4540017FE31 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672B5EE12513D4540017FE31 /* SceneDelegate.swift */; };
 		672B5EE72513D4540017FE31 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 672B5EE52513D4540017FE31 /* Main.storyboard */; };
@@ -60,7 +61,6 @@
 		672B5F572513EC9A0017FE31 /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 672B5F562513EC9A0017FE31 /* Profile.storyboard */; };
 		672B5F592513F0170017FE31 /* HospitalList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 672B5F582513F0170017FE31 /* HospitalList.swift */; };
 		67380711255098BE0050EB02 /* DoctorHourDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67380710255098BE0050EB02 /* DoctorHourDateCell.swift */; };
-		675985AB2551C99B00B67CCA /* Date + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675985AA2551C99B00B67CCA /* Date + Extension.swift */; };
 		675C6A602521AD1C00E97C8E /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675C6A5F2521AD1C00E97C8E /* Login.swift */; };
 		675C6A622521AD4600E97C8E /* Register.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675C6A612521AD4600E97C8E /* Register.swift */; };
 		675C6A642521AD9700E97C8E /* ForgotMyPassword.swift in Sources */ = {isa = PBXBuildFile; fileRef = 675C6A632521AD9700E97C8E /* ForgotMyPassword.swift */; };
@@ -83,9 +83,14 @@
 		67707D9F25179CF500D97CFC /* GetHospitalInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707D9E25179CF500D97CFC /* GetHospitalInfo.swift */; };
 		67707DA125179D5A00D97CFC /* ValidationError.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707DA025179D5A00D97CFC /* ValidationError.swift */; };
 		67707DA325179DA200D97CFC /* GetHospitalResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67707DA225179DA200D97CFC /* GetHospitalResult.swift */; };
+		679092392552D33500575767 /* Date + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 679092382552D33500575767 /* Date + Extension.swift */; };
+		67931C792555B036003550A0 /* GetAvailabilityTimes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67931C782555B036003550A0 /* GetAvailabilityTimes.swift */; };
+		67931C7C2555B0AA003550A0 /* DoctorViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67931C7B2555B0AA003550A0 /* DoctorViewModel.swift */; };
 		67A9983B251F42B500625661 /* StaffCategoryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A9983A251F42B500625661 /* StaffCategoryDetail.swift */; };
 		67A9983E251F875600625661 /* DoctorsInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A9983D251F875600625661 /* DoctorsInfo.swift */; };
 		67A99840251F876D00625661 /* DoctorsHour.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67A9983F251F876D00625661 /* DoctorsHour.swift */; };
+		67BA3A2E25549315000CDDFC /* DoctorsHourCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BA3A2C25549315000CDDFC /* DoctorsHourCell.swift */; };
+		67BA3A2F25549315000CDDFC /* DoctorsHourCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67BA3A2D25549315000CDDFC /* DoctorsHourCell.xib */; };
 		67BFDE29251B4F180087A4FD /* OurUnits.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BFDE28251B4F180087A4FD /* OurUnits.swift */; };
 		67BFDE2D251B4F6C0087A4FD /* UnitCategoryDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BFDE2C251B4F6C0087A4FD /* UnitCategoryDetail.swift */; };
 		67BFDE2F251B4FD40087A4FD /* OurUnitsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BFDE2E251B4FD40087A4FD /* OurUnitsViewModel.swift */; };
@@ -97,6 +102,8 @@
 		67BFDE41251B6C870087A4FD /* GetUnitSubCategoryResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BFDE40251B6C870087A4FD /* GetUnitSubCategoryResult.swift */; };
 		67BFDE43251B79730087A4FD /* UnitCategory + CollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BFDE42251B79730087A4FD /* UnitCategory + CollectionViewExtension.swift */; };
 		67BFDE45251B79A10087A4FD /* UnitCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67BFDE44251B79A10087A4FD /* UnitCategoryCollectionViewCell.swift */; };
+		67C6BCE72556936700E992E1 /* SuccessResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C6BCE62556936700E992E1 /* SuccessResponse.swift */; };
+		67C6BCEA2556945700E992E1 /* OnlinePaymentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67C6BCE92556945700E992E1 /* OnlinePaymentViewModel.swift */; };
 		67DECB55251A3D8C00F2920E /* GetAnnouncementDetailResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DECB54251A3D8C00F2920E /* GetAnnouncementDetailResult.swift */; };
 		67DECB58251A3F6300F2920E /* AnnouncementDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DECB57251A3F6300F2920E /* AnnouncementDetail.swift */; };
 		67DECB5A251A439700F2920E /* AnnouncementDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67DECB59251A439700F2920E /* AnnouncementDetailViewModel.swift */; };
@@ -107,6 +114,10 @@
 		67F7B64C251CE4E900AA7573 /* StaffCategoryViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F7B64B251CE4E900AA7573 /* StaffCategoryViewModel.swift */; };
 		67F7B653251CF77400AA7573 /* GetDoctorResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F7B652251CF77400AA7573 /* GetDoctorResult.swift */; };
 		67F7B655251CF78800AA7573 /* GetDoctorResultDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F7B654251CF78800AA7573 /* GetDoctorResultDetail.swift */; };
+		67F83A642557E23F00E6F36D /* ProfileCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F83A622557E23F00E6F36D /* ProfileCell.swift */; };
+		67F83A652557E23F00E6F36D /* ProfileCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 67F83A632557E23F00E6F36D /* ProfileCell.xib */; };
+		67F83A722557F93B00E6F36D /* GetAppointmentResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F83A712557F93B00E6F36D /* GetAppointmentResult.swift */; };
+		67F83A7D2557FB5100E6F36D /* ProfileViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67F83A7C2557FB5100E6F36D /* ProfileViewModel.swift */; };
 		67FAE1B825207DFC00BFF684 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67FAE1B725207DFC00BFF684 /* Settings.swift */; };
 /* End PBXBuildFile section */
 
@@ -125,6 +136,7 @@
 		671897642523116F0034E866 /* ApiResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiResponse.swift; sourceTree = "<group>"; };
 		6724BE8625231906000AA03F /* GetSignInResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetSignInResult.swift; sourceTree = "<group>"; };
 		6724BE8825231959000AA03F /* GetAccessToken.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAccessToken.swift; sourceTree = "<group>"; };
+		6727390D2555F964009866B8 /* OnlinePayment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlinePayment.swift; sourceTree = "<group>"; };
 		672B5EDC2513D4540017FE31 /* ADATIP.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ADATIP.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		672B5EDF2513D4540017FE31 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		672B5EE12513D4540017FE31 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -164,8 +176,6 @@
 		672B5F562513EC9A0017FE31 /* Profile.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
 		672B5F582513F0170017FE31 /* HospitalList.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HospitalList.swift; sourceTree = "<group>"; };
 		67380710255098BE0050EB02 /* DoctorHourDateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorHourDateCell.swift; sourceTree = "<group>"; };
-		675985AA2551C99B00B67CCA /* Date + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date + Extension.swift"; sourceTree = "<group>"; };
-		675985AD2551CA9B00B67CCA /* ADATIPRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = ADATIPRelease.entitlements; sourceTree = "<group>"; };
 		675C6A5F2521AD1C00E97C8E /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
 		675C6A612521AD4600E97C8E /* Register.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Register.swift; sourceTree = "<group>"; };
 		675C6A632521AD9700E97C8E /* ForgotMyPassword.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotMyPassword.swift; sourceTree = "<group>"; };
@@ -188,9 +198,14 @@
 		67707D9E25179CF500D97CFC /* GetHospitalInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetHospitalInfo.swift; sourceTree = "<group>"; };
 		67707DA025179D5A00D97CFC /* ValidationError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ValidationError.swift; sourceTree = "<group>"; };
 		67707DA225179DA200D97CFC /* GetHospitalResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetHospitalResult.swift; sourceTree = "<group>"; };
+		679092382552D33500575767 /* Date + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date + Extension.swift"; sourceTree = "<group>"; };
+		67931C782555B036003550A0 /* GetAvailabilityTimes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAvailabilityTimes.swift; sourceTree = "<group>"; };
+		67931C7B2555B0AA003550A0 /* DoctorViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorViewModel.swift; sourceTree = "<group>"; };
 		67A9983A251F42B500625661 /* StaffCategoryDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffCategoryDetail.swift; sourceTree = "<group>"; };
 		67A9983D251F875600625661 /* DoctorsInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorsInfo.swift; sourceTree = "<group>"; };
 		67A9983F251F876D00625661 /* DoctorsHour.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorsHour.swift; sourceTree = "<group>"; };
+		67BA3A2C25549315000CDDFC /* DoctorsHourCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DoctorsHourCell.swift; sourceTree = "<group>"; };
+		67BA3A2D25549315000CDDFC /* DoctorsHourCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DoctorsHourCell.xib; sourceTree = "<group>"; };
 		67BFDE28251B4F180087A4FD /* OurUnits.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OurUnits.swift; sourceTree = "<group>"; };
 		67BFDE2C251B4F6C0087A4FD /* UnitCategoryDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitCategoryDetail.swift; sourceTree = "<group>"; };
 		67BFDE2E251B4FD40087A4FD /* OurUnitsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OurUnitsViewModel.swift; sourceTree = "<group>"; };
@@ -202,6 +217,8 @@
 		67BFDE40251B6C870087A4FD /* GetUnitSubCategoryResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetUnitSubCategoryResult.swift; sourceTree = "<group>"; };
 		67BFDE42251B79730087A4FD /* UnitCategory + CollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UnitCategory + CollectionViewExtension.swift"; sourceTree = "<group>"; };
 		67BFDE44251B79A10087A4FD /* UnitCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnitCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
+		67C6BCE62556936700E992E1 /* SuccessResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SuccessResponse.swift; sourceTree = "<group>"; };
+		67C6BCE92556945700E992E1 /* OnlinePaymentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnlinePaymentViewModel.swift; sourceTree = "<group>"; };
 		67DECB54251A3D8C00F2920E /* GetAnnouncementDetailResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAnnouncementDetailResult.swift; sourceTree = "<group>"; };
 		67DECB57251A3F6300F2920E /* AnnouncementDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementDetail.swift; sourceTree = "<group>"; };
 		67DECB59251A439700F2920E /* AnnouncementDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnnouncementDetailViewModel.swift; sourceTree = "<group>"; };
@@ -215,6 +232,10 @@
 		67F7B64B251CE4E900AA7573 /* StaffCategoryViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffCategoryViewModel.swift; sourceTree = "<group>"; };
 		67F7B652251CF77400AA7573 /* GetDoctorResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDoctorResult.swift; sourceTree = "<group>"; };
 		67F7B654251CF78800AA7573 /* GetDoctorResultDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetDoctorResultDetail.swift; sourceTree = "<group>"; };
+		67F83A622557E23F00E6F36D /* ProfileCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileCell.swift; sourceTree = "<group>"; };
+		67F83A632557E23F00E6F36D /* ProfileCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProfileCell.xib; sourceTree = "<group>"; };
+		67F83A712557F93B00E6F36D /* GetAppointmentResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GetAppointmentResult.swift; sourceTree = "<group>"; };
+		67F83A7C2557FB5100E6F36D /* ProfileViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewModel.swift; sourceTree = "<group>"; };
 		67FAE1B725207DFC00BFF684 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
 		C00D5A6EE72486C30D79D209 /* Pods_adatip.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_adatip.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FD40C507733E51014629BE00 /* Pods-adatip.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-adatip.release.xcconfig"; path = "Target Support Files/Pods-adatip/Pods-adatip.release.xcconfig"; sourceTree = "<group>"; };
@@ -252,7 +273,7 @@
 				670FD70F251638480069AA8A /* View + Extension.swift */,
 				672B5F2F2513E5650017FE31 /* ViewController + Extension.swift */,
 				67150FF82518ADE4009079F3 /* BezierPath + Extension.swift */,
-				675985AA2551C99B00B67CCA /* Date + Extension.swift */,
+				679092382552D33500575767 /* Date + Extension.swift */,
 			);
 			name = Extensions;
 			path = "New Group";
@@ -290,7 +311,6 @@
 		672B5EDE2513D4540017FE31 /* adatip */ = {
 			isa = PBXGroup;
 			children = (
-				675985AD2551CA9B00B67CCA /* ADATIPRelease.entitlements */,
 				67F173A8251A2AFC0025AD8A /* ADATIP.entitlements */,
 				672B5EF32513D6660017FE31 /* Base */,
 				672B5EF52513D67A0017FE31 /* Helper */,
@@ -342,10 +362,12 @@
 				671897642523116F0034E866 /* ApiResponse.swift */,
 				67707D9C25177C3100D97CFC /* ResponseException.swift */,
 				67707DA025179D5A00D97CFC /* ValidationError.swift */,
+				67C6BCE62556936700E992E1 /* SuccessResponse.swift */,
 				67707D972517775800D97CFC /* Main */,
 				67F7B64F251CF6FB00AA7573 /* Home */,
 				67F7B64E251CF6DF00AA7573 /* UnitCategory */,
 				67F7B64D251CF6CF00AA7573 /* StaffCategory */,
+				67F83A6E2557F47E00E6F36D /* Profile */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -468,7 +490,9 @@
 		672B5F3B2513EB750017FE31 /* StaffCategory */ = {
 			isa = PBXGroup;
 			children = (
+				67931C7B2555B0AA003550A0 /* DoctorViewModel.swift */,
 				67F7B64B251CE4E900AA7573 /* StaffCategoryViewModel.swift */,
+				67C6BCE92556945700E992E1 /* OnlinePaymentViewModel.swift */,
 			);
 			path = StaffCategory;
 			sourceTree = "<group>";
@@ -476,6 +500,7 @@
 		672B5F3C2513EB810017FE31 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				67F83A7C2557FB5100E6F36D /* ProfileViewModel.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -493,8 +518,8 @@
 		672B5F3E2513EB9C0017FE31 /* Profile */ = {
 			isa = PBXGroup;
 			children = (
+				67F83A612557E21D00E6F36D /* Profile */,
 				675C6A652522052F00E97C8E /* Settings */,
-				672B5F4C2513EC2B0017FE31 /* Profile.swift */,
 			);
 			path = Profile;
 			sourceTree = "<group>";
@@ -504,6 +529,7 @@
 			children = (
 				67F7B656251CFA5900AA7573 /* Doctor */,
 				67A9983C251F870500625661 /* DoctorDetail */,
+				6727390D2555F964009866B8 /* OnlinePayment.swift */,
 			);
 			path = StaffCategory;
 			sourceTree = "<group>";
@@ -593,10 +619,20 @@
 			children = (
 				67A9983A251F42B500625661 /* StaffCategoryDetail.swift */,
 				67A9983D251F875600625661 /* DoctorsInfo.swift */,
-				67A9983F251F876D00625661 /* DoctorsHour.swift */,
-				67380710255098BE0050EB02 /* DoctorHourDateCell.swift */,
+				67BA3A2B255492CC000CDDFC /* DoctorsHour */,
 			);
 			path = DoctorDetail;
+			sourceTree = "<group>";
+		};
+		67BA3A2B255492CC000CDDFC /* DoctorsHour */ = {
+			isa = PBXGroup;
+			children = (
+				67A9983F251F876D00625661 /* DoctorsHour.swift */,
+				67380710255098BE0050EB02 /* DoctorHourDateCell.swift */,
+				67BA3A2C25549315000CDDFC /* DoctorsHourCell.swift */,
+				67BA3A2D25549315000CDDFC /* DoctorsHourCell.xib */,
+			);
+			path = DoctorsHour;
 			sourceTree = "<group>";
 		};
 		67BFDE27251B4ED40087A4FD /* OurUnits */ = {
@@ -625,6 +661,7 @@
 			children = (
 				67F7B652251CF77400AA7573 /* GetDoctorResult.swift */,
 				67F7B654251CF78800AA7573 /* GetDoctorResultDetail.swift */,
+				67931C782555B036003550A0 /* GetAvailabilityTimes.swift */,
 			);
 			path = StaffCategory;
 			sourceTree = "<group>";
@@ -656,6 +693,24 @@
 				6770657D251DCC8600C62554 /* StaffCategoryCollectionViewCell.xib */,
 			);
 			path = Doctor;
+			sourceTree = "<group>";
+		};
+		67F83A612557E21D00E6F36D /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				672B5F4C2513EC2B0017FE31 /* Profile.swift */,
+				67F83A622557E23F00E6F36D /* ProfileCell.swift */,
+				67F83A632557E23F00E6F36D /* ProfileCell.xib */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		67F83A6E2557F47E00E6F36D /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				67F83A712557F93B00E6F36D /* GetAppointmentResult.swift */,
+			);
+			path = Profile;
 			sourceTree = "<group>";
 		};
 		B38EF2844D6F2DD1261AF7BD /* Frameworks */ = {
@@ -726,6 +781,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67BA3A2F25549315000CDDFC /* DoctorsHourCell.xib in Resources */,
 				672B5F262513E28B0017FE31 /* OpenSans-BoldItalic.ttf in Resources */,
 				67707D922517530500D97CFC /* HospitalListCell.xib in Resources */,
 				672B5F572513EC9A0017FE31 /* Profile.storyboard in Resources */,
@@ -749,6 +805,7 @@
 				672B5F2E2513E2A90017FE31 /* OpenSans-SemiBoldItalic.ttf in Resources */,
 				675C6A6B2522065900E97C8E /* SettingsCell.xib in Resources */,
 				672B5F282513E2910017FE31 /* OpenSans-ExtraBoldItalic.ttf in Resources */,
+				67F83A652557E23F00E6F36D /* ProfileCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -809,6 +866,7 @@
 				675C6A6A2522065900E97C8E /* SettingsCell.swift in Sources */,
 				67150FF525189A11009079F3 /* Label + Extension.swift in Sources */,
 				672B5F142513E1270017FE31 /* Constant.swift in Sources */,
+				67C6BCE72556936700E992E1 /* SuccessResponse.swift in Sources */,
 				67F7B653251CF77400AA7573 /* GetDoctorResult.swift in Sources */,
 				671897652523116F0034E866 /* ApiResponse.swift in Sources */,
 				67A99840251F876D00625661 /* DoctorsHour.swift in Sources */,
@@ -828,6 +886,7 @@
 				67BFDE35251B66D90087A4FD /* OurUnits + TableViewExtension.swift in Sources */,
 				675C6A602521AD1C00E97C8E /* Login.swift in Sources */,
 				672B5EE02513D4540017FE31 /* AppDelegate.swift in Sources */,
+				67F83A7D2557FB5100E6F36D /* ProfileViewModel.swift in Sources */,
 				67707DA325179DA200D97CFC /* GetHospitalResult.swift in Sources */,
 				67F7B64A251CE4BE00AA7573 /* AppointmentViewModel.swift in Sources */,
 				670FD70E251637580069AA8A /* MainTabBarController.swift in Sources */,
@@ -835,7 +894,8 @@
 				672B5F102513DA720017FE31 /* Helper.swift in Sources */,
 				670FD70A251636910069AA8A /* Image + Extension.swift in Sources */,
 				67BFDE2D251B4F6C0087A4FD /* UnitCategoryDetail.swift in Sources */,
-				675985AB2551C99B00B67CCA /* Date + Extension.swift in Sources */,
+				679092392552D33500575767 /* Date + Extension.swift in Sources */,
+				67C6BCEA2556945700E992E1 /* OnlinePaymentViewModel.swift in Sources */,
 				67150FF92518ADE4009079F3 /* BezierPath + Extension.swift in Sources */,
 				6761D1842519E24F00E8FC01 /* Home + CollectionViewExtension.swift in Sources */,
 				67BFDE41251B6C870087A4FD /* GetUnitSubCategoryResult.swift in Sources */,
@@ -844,6 +904,7 @@
 				67707D962517685100D97CFC /* KingfisherSource.swift in Sources */,
 				6718975C25230EC30034E866 /* AuthenticationViewModel.swift in Sources */,
 				672B5F4B2513EC1B0017FE31 /* StaffCategory.swift in Sources */,
+				67931C792555B036003550A0 /* GetAvailabilityTimes.swift in Sources */,
 				67707D9D25177C3100D97CFC /* ResponseException.swift in Sources */,
 				672B5F0C2513D9530017FE31 /* String + Extension.swift in Sources */,
 				672B5F162513E1380017FE31 /* BaseViewController.swift in Sources */,
@@ -863,10 +924,13 @@
 				67707D912517530500D97CFC /* HospitalListCell.swift in Sources */,
 				67BFDE38251B671F0087A4FD /* OurUnitsCell.swift in Sources */,
 				672B5F122513E1140017FE31 /* Config.swift in Sources */,
+				67931C7C2555B0AA003550A0 /* DoctorViewModel.swift in Sources */,
 				672B5F1A2513E1E30017FE31 /* Font + Extension.swift in Sources */,
 				67FAE1B825207DFC00BFF684 /* Settings.swift in Sources */,
 				672B5F4D2513EC2B0017FE31 /* Profile.swift in Sources */,
+				67F83A642557E23F00E6F36D /* ProfileCell.swift in Sources */,
 				67189763252310870034E866 /* GetUserRoles.swift in Sources */,
+				67BA3A2E25549315000CDDFC /* DoctorsHourCell.swift in Sources */,
 				67DECB5A251A439700F2920E /* AnnouncementDetailViewModel.swift in Sources */,
 				67707DA125179D5A00D97CFC /* ValidationError.swift in Sources */,
 				67BFDE2F251B4FD40087A4FD /* OurUnitsViewModel.swift in Sources */,
@@ -877,7 +941,9 @@
 				67BFDE3D251B6C120087A4FD /* GetUnitCategoryResult.swift in Sources */,
 				672B5F592513F0170017FE31 /* HospitalList.swift in Sources */,
 				672B5F492513EC0C0017FE31 /* Appointment.swift in Sources */,
+				67F83A722557F93B00E6F36D /* GetAppointmentResult.swift in Sources */,
 				672B5F182513E1C50017FE31 /* Color + Extension.swift in Sources */,
+				6727390E2555F964009866B8 /* OnlinePayment.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -963,7 +1029,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1019,7 +1085,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 13.6;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;
@@ -1039,7 +1105,7 @@
 				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = 3PLNUDG749;
 				INFOPLIST_FILE = adatip/Resource/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1056,12 +1122,12 @@
 			baseConfigurationReference = FD40C507733E51014629BE00 /* Pods-adatip.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = adatip/ADATIPRelease.entitlements;
+				CODE_SIGN_ENTITLEMENTS = adatip/ADATIP.entitlements;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 12;
 				DEVELOPMENT_TEAM = 3PLNUDG749;
 				INFOPLIST_FILE = adatip/Resource/Info.plist;
-				IPHONEOS_DEPLOYMENT_TARGET = 11.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

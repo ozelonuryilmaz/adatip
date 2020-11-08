@@ -10,9 +10,9 @@ import UIKit
 
 class StaffCategoryViewModel: BaseViewModel {
     
-    class func getDoctorList(hospitalId: Int, complation: @escaping(_ ourUnitList: [GetDoctorResult]) -> Void, failure: @escaping(_ message: String) -> Void) -> Void {
+    class func getDoctorList(hospitalId: Int, unitSubCategoryId: Int?, complation: @escaping(_ ourUnitList: [GetDoctorResult]) -> Void, failure: @escaping(_ message: String) -> Void) -> Void {
         
-        NetworkManager.getDoctorList(hospitalId: hospitalId, success: { (ourUnit) in
+        NetworkManager.getDoctorList(hospitalId: hospitalId, unitSubCategoryId: unitSubCategoryId, success: { (ourUnit) in
             
             if let error = ourUnit.isError, error == true{
                 failure(ourUnit.message ?? "an_unexpected_error_occurred".localizable())

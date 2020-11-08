@@ -86,7 +86,7 @@ extension UIColor {
     }
     
     class var customColorGreen: UIColor {
-        return UIColor.init(hexString: "#27B085")
+        return UIColor.init(hexString: "#12C627")
     }
     
     class var customColorOrange: UIColor {

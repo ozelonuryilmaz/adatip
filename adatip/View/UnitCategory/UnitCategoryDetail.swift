@@ -23,6 +23,7 @@ class UnitCategoryDetail: BaseViewController {
     var imageUrl = String()
     var subCategoryName = String()
     var unitDescription = String()
+    var unitSubCategoryId = Int()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -82,6 +83,10 @@ class UnitCategoryDetail: BaseViewController {
     }
     
     @IBAction func tapBtnAppointment(sender: AnyObject){
+        
+        let staffCategory = StaffCategory.create(unitSubCategoryId: unitSubCategoryId)
+        self.navigationController?.pushViewController(staffCategory, animated: true)
+        /*
         if UserDefaults.standard.bool(forKey: Constant.UserDefaults.HAS_USER_LOGGED_IN) == false {
             let login = Login.create()
             let loginNav = UINavigationController(rootViewController: login)
@@ -90,7 +95,7 @@ class UnitCategoryDetail: BaseViewController {
             self.present(loginNav, animated: true, completion: nil)
         }else {
             
-        }
+        }*/
     }
     
 }
@@ -98,13 +103,14 @@ class UnitCategoryDetail: BaseViewController {
 extension UnitCategoryDetail{
     static let reuseId = "unitCategoryDetail"
     
-    static func create(titleName: String, imageUrl: String, subCategoryName: String, unitDescription: String) -> UIViewController{
+    static func create(titleName: String, imageUrl: String, subCategoryName: String, unitDescription: String, unitSubCategoryId: Int) -> UIViewController{
         let unitCategoryStoryBoard: UIStoryboard = UIStoryboard(name: "UnitCategory", bundle: .main)
         let unitCategoryDetail = unitCategoryStoryBoard.instantiateViewController(withIdentifier: reuseId) as! UnitCategoryDetail
         unitCategoryDetail.titleName = titleName
         unitCategoryDetail.imageUrl = imageUrl
         unitCategoryDetail.subCategoryName = subCategoryName
         unitCategoryDetail.unitDescription = unitDescription
+        unitCategoryDetail.unitSubCategoryId = unitSubCategoryId
         
         return unitCategoryDetail
     }

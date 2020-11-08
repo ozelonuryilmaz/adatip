@@ -7,9 +7,9 @@
 //
 
 import UIKit
-import IISightSDK
+//import IISightSDK
 
-class Login: BaseViewController, IISightSDKLoginDelegate {
+class Login: BaseViewController/*, IISightSDKLoginDelegate*/ {
     
     @IBOutlet weak var bgEmailView: UIView!
     @IBOutlet weak var bgPasswordView: UIView!
@@ -29,7 +29,6 @@ class Login: BaseViewController, IISightSDKLoginDelegate {
         
     }
     
-
     private func setupViewComponents(){
         self.setupNavigationBar()
         
@@ -82,7 +81,7 @@ class Login: BaseViewController, IISightSDKLoginDelegate {
         btnRegister.titleLabel?.font = UIFont.customFont(size: 22, customStyle: .Bold)
         btnRegister.addTarget(self, action: #selector(tapBtnRegister(sender:)), for: .touchUpInside)
         
-        IISightSDKManager.shared().loginDelegate = self
+        //IISightSDKManager.shared().loginDelegate = self
         
     }
     
@@ -120,33 +119,35 @@ class Login: BaseViewController, IISightSDKLoginDelegate {
                           accessToken: data.token?.accessToken ?? "",
                           refreshToken: data.token?.refreshToken ?? "")
             
-            IISightSDKManager.shared().login_user(withEmail: "ursantr2@gmail.com", password: "123456Onur")
             
-            //self.hideProgressView()
-            //self.dismiss(animated: true, completion: nil)
+            //IISightSDKManager.shared().login_user(withEmail: "ursantr2@gmail.com", password: "123456Onur")
+            self.hideProgressView()
+            self.dismiss(animated: true, completion: nil)
+            
+            
+            
         }) { (errorMessage) in
             self.hideProgressView()
             self.showAlert(title: nil, message: errorMessage)
         }
     }
-    
-    func login() {
-        
-        
-    }
-    
+    /*
     func loginSuccessful() {
         print("Successful login")
-        self.hideProgressView()
-        self.dismiss(animated: true, completion: nil)
+        
+        hideProgressView()
+        dismiss(animated: true, completion: nil)
     }
     
     func loginFailedWithErrorMessage(_ errorMessage: String?) {
-        print("Login failed. errorMessage: \(errorMessage ?? "")")
-        self.hideProgressView()
-        self.dismiss(animated: true, completion: nil)
+        print("Login failed. 11Sight error message: \(errorMessage ?? "")")
+        
+        Helper.signOut()
+        hideProgressView()
+        showAlert(title: "login_failed".localizable(), message: errorMessage ?? "")
+        //self.dismiss(animated: true, completion: nil)
     }
-    
+    */
 }
 
 extension Login{

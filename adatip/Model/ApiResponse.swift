@@ -13,7 +13,7 @@ struct ApiResponse<T : Codable>: Codable {
     let statusCode: Int?
     let message: String?
     let isError: Bool?
-    let responseException: ResponseException?
+    //let responseException: ResponseException?
     
     let result: T?
     
@@ -22,7 +22,7 @@ struct ApiResponse<T : Codable>: Codable {
         case statusCode = "statusCode"
         case message = "message"
         case isError = "isError"
-        case responseException = "responseException"
+        //case responseException = "responseException"
         
         case result = "result"
     }

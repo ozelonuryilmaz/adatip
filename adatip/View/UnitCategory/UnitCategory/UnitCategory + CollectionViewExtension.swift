@@ -34,7 +34,8 @@ extension UnitCategory: UICollectionViewDelegate, UICollectionViewDataSource {
         let unitCategoryDetail = UnitCategoryDetail.create(titleName: self.titleName,
                                                            imageUrl: subCategory.imageUrl?.encodedTexts() ?? "",
                                                            subCategoryName: subCategory.subCategoryName ?? "",
-                                                           unitDescription: subCategory.unitDescription ?? "")
+                                                           unitDescription: subCategory.unitDescription ?? "",
+                                                           unitSubCategoryId: subCategory.id!)
         self.navigationController?.pushViewController(unitCategoryDetail, animated: true)
         
     }

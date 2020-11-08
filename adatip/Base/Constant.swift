@@ -26,7 +26,6 @@ class Constant: NSObject {
     struct UserDefaults {
         
         static let APP_LOGGED_IN_BEFORE = "appLoggedInBefore"
-        static let TOKEN = "token"
         static let HOSPITAL_ID = "hospitalId"
         static let HOSPITALL_TITLE = "hospitalTitle"
         static let APP_OPENS_FOR_FIRST_TIME = "appOpensForFirstTime"

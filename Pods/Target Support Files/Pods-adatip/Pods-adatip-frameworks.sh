@@ -198,14 +198,14 @@ fi
 
 if [[ "$CONFIGURATION" == "Debug" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
-  install_framework "${PODS_ROOT}/IISightSDK/IISightSDK/IISightSDK.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/BulletinBoard/BLTNBoard.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework"
 fi
 if [[ "$CONFIGURATION" == "Release" ]]; then
   install_framework "${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework"
-  install_framework "${PODS_ROOT}/IISightSDK/IISightSDK/IISightSDK.framework"
+  install_framework "${BUILT_PRODUCTS_DIR}/BulletinBoard/BLTNBoard.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/ImageSlideshow/ImageSlideshow.framework"
   install_framework "${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework"

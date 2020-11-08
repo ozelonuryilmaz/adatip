@@ -8,7 +8,7 @@
 
 import UIKit
 import IQKeyboardManagerSwift
-import IISightSDK
+//import IISightSDK
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -22,26 +22,23 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         IQKeyboardManager.shared.enable = true
         
         // MARK: *** IISightSDK
-        IISightSDKManager.shared().start(withPartnerUrl: "sdktest.11sight.com")
-        
-        registerForNotification()
+        //IISightSDKManager.shared().start(withPartnerUrl: "sdktest.11sight.com")
+        //registerForNotification()
         
         return true
     }
-    
+    /*
     public func registerForNotification() {
-        if #available(iOS 10.0, *) {
-            let center = UNUserNotificationCenter.current()
-            center.delegate = self
-            center.requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
-                if (error == nil) {
-                    DispatchQueue.main.async {
-                        UIApplication.shared.registerForRemoteNotifications()
-                    }
+        let center = UNUserNotificationCenter.current()
+        center.delegate = self
+        center.requestAuthorization(options: [.alert, .badge, .sound]) { (granted, error) in
+            if (error == nil) {
+                DispatchQueue.main.async {
+                    UIApplication.shared.registerForRemoteNotifications()
                 }
             }
         }
-    }
+    }*/
     
     // MARK: UISceneSession Lifecycle
     @available(iOS 13.0, *)
@@ -58,8 +55,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
     
 }
-
-// MARK: *** IISightSDK and Notification Delegate
+/*
+// MARK: *** Notification Delegate
 extension AppDelegate: UNUserNotificationCenterDelegate{
     
     func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
@@ -90,8 +87,8 @@ extension AppDelegate: UNUserNotificationCenterDelegate{
         completionHandler()
     }
 }
-
-
+*/
+/*
 extension AppDelegate {
     
     func application(_ application: UIApplication, didReceive notification: UILocalNotification) {
@@ -118,7 +115,7 @@ extension AppDelegate {
         _ = IISightSDKManager.shared().remoteNotificationBelongs(toIISight: userInfo)
         completionHandler(UIBackgroundFetchResult.newData)
     }
-}
+}*/
 
 
 
