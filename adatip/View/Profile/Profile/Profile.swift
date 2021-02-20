@@ -123,11 +123,12 @@ class Profile: BaseViewController {
     @objc func switchViews(sender: UISegmentedControl){
         if sender.selectedSegmentIndex == 0 {
             self.appointmentList = self.myAppointments
-            self.appoitmentTableView.reloadData()
-            self.appoitmentTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
         }else {
             self.appointmentList = self.myPastAppointments
-            self.appoitmentTableView.reloadData()
+        }
+        self.appoitmentTableView.reloadData()
+        
+        if !self.appointmentList.isEmpty{
             self.appoitmentTableView.scrollToRow(at: IndexPath(row: 0, section: 0), at: .top, animated: true)
         }
     }

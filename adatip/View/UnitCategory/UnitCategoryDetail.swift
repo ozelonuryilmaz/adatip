@@ -31,6 +31,18 @@ class UnitCategoryDetail: BaseViewController {
         setupViewComponents()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let userRole = UserDefaults.standard.string(forKey: Constant.UserDefaults.USER_ROLE), userRole == "doctor"{
+            viewDoctor.isHidden = true
+            viewAppointment.isHidden = true
+        }else {
+            viewDoctor.isHidden = false
+            viewAppointment.isHidden = false
+        }
+    }
+    
     private func setupViewComponents(){
         self.setupNavigationBar(titleName: titleName, subtitle: "(" + self.hospitalTitle + ")")
         

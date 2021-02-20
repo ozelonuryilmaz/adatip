@@ -24,7 +24,13 @@ class HomeCollectionViewCell: UICollectionViewCell {
         }
     }
     
-    @IBOutlet weak var imgUnit: UIImageView!
+    @IBOutlet weak var imgUnit: UIImageView!{
+        didSet{
+            imgUnit.contentMode = .scaleAspectFill
+            imgUnit.clipsToBounds = true
+            imgUnit.layer.cornerRadius = 15//imgUnit.frame.size.height / 2
+        }
+    }
     
     @IBOutlet weak var lblUnit: UILabel!{
         didSet{

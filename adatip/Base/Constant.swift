@@ -34,6 +34,7 @@ class Constant: NSObject {
         static let FULL_NAME = "fullName"
         static let ACCESS_TOKEN = "accessToken"
         static let REFRESH_TOKEN = "refreshToken"
+        static let USER_ROLE = "userRole"
     }
     
     struct NotificationKeys {
@@ -42,6 +43,7 @@ class Constant: NSObject {
         static let CHANGE_HOSPITAL = "changeHospital"
         static let CHANGE_HOSPITAL_INFO = "changeHospitalInfo"
         static let CHANGE_HOSPITAL_POP_VC = "changeHospitalPopVC"
+        static let USER_ROLE = "userRole"
     }
 
 }

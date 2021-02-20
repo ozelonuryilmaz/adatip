@@ -9,22 +9,30 @@
 import UIKit
 
 class Splash: BaseViewController {
+    
+    @IBOutlet var indicatorView: UIActivityIndicatorView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        print("Splash VM -> \(SplashViewModel.shared.nums)")
+        
+        
+        //print("Splash VM -> \(SplashViewModel.shared.nums)")
     }
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
         
-        Thread.sleep(forTimeInterval: 2)
-        
-        openApp()
+        if UserDefaults.standard.object(forKey: Constant.UserDefaults.HOSPITAL_ID) == nil {
+            createGuest(UIDevice.current.identifierForVendor?.uuidString ?? "")
+        }else {
+            openApp()
+        }
     }
     
     private func openApp(){
+        
+        Thread.sleep(forTimeInterval: 1)
         
         if UserDefaults.standard.object(forKey: Constant.UserDefaults.HOSPITAL_ID) == nil {
             
@@ -46,6 +54,17 @@ class Splash: BaseViewController {
             
         }
         
+    }
+    
+    private func createGuest(_ deviceTokenId: String){
+        
+        indicatorView.startAnimating()
+        SplashViewModel.createGuest(deviceTokenId: deviceTokenId, complation: { (hospitalList) in
+            
+            self.openApp()
+        }) { (errorMessage) in
+            self.openApp()
+        }
     }
     
 }

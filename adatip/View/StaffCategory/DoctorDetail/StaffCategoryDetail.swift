@@ -25,6 +25,16 @@ class StaffCategoryDetail: BaseViewController {
         
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let userRole = UserDefaults.standard.string(forKey: Constant.UserDefaults.USER_ROLE), userRole == "doctor"{
+            segmentedControl.isHidden = true
+        }else {
+            segmentedControl.isHidden = false
+        }
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "doktorsInfoViewSegue" {
             let doctorsInfo = segue.destination as? DoctorsInfo

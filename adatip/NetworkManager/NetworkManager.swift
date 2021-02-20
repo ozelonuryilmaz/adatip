@@ -441,5 +441,42 @@ class NetworkManager: NSObject {
             
         }
     }*/
+    /*
+    //MARK: - createGuest
+    class func createGuest(deviceTokenId: String, success:@escaping (_ response: SuccessResponse) -> Void, failure:@escaping (_ error:Error, _ statusCode:Int, _ errorResponse: ErrorResponse?) -> Void) -> Void {
+        
+        let url = Constant.Url.PAGE + "v1/customer/create-guest"
+        
+        let parametre = ["deviceTokenId": deviceTokenId as AnyObject]
+        
+        BaseNetworkManager.post(url: url, parameters: parametre, headers: getHeader(), success: { (data) in
+
+            var theResponse : SuccessResponse
+
+            do {
+                let decoder = JSONDecoder()
+                theResponse = try decoder.decode(SuccessResponse.self, from: data!)
+                success(theResponse)
+            } catch let error {
+                printAndShowError(url: url, error: error, statusCode: -1)
+                failure(error, -1, nil)
+            }
+
+        }) { (Error, StatusCode, ErrorData) in
+            
+            var theErrorResponse : ErrorResponse
+            
+            do {
+                let decoder = JSONDecoder()
+                theErrorResponse = try decoder.decode(ErrorResponse.self, from: ErrorData!)
+                printAndShowError(url: url, error: Error, statusCode: StatusCode)
+                failure(Error, StatusCode, theErrorResponse)
+            } catch let error {
+                printAndShowError(url: url, error: error, statusCode: StatusCode)
+                failure(error, StatusCode, nil)
+            }
+            
+        }
+    }*/
 
 }

@@ -12,16 +12,16 @@ import UIKit
 extension Home: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return units.count
+        return ourUnitArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: HomeCollectionViewCell.reuseID, for: indexPath) as! HomeCollectionViewCell
         
-        let item = units[indexPath.row]
+        let item = ourUnitArray[indexPath.row]
         
-        cell.imgUnit.image = UIImage(named: item["image"]!)
-        cell.lblUnit.text = item["name"]
+        cell.imgUnit.kf.setImage(with: URL(string: item.imageUrl?.encodedTexts() ?? ""))
+        cell.lblUnit.text = item.categoryName
         return cell
     }
     
@@ -43,8 +43,11 @@ extension Home: UICollectionViewDelegate, UICollectionViewDataSource, UICollecti
         menuCollection.selectItem(at: selectedIndexPath, animated: true, scrollPosition: .centeredVertically)
         refreshTableViewContent()*/
         
-        let unitDetail = UnitDetail.create(unitTitle: units[indexPath.row]["name"] ?? "")
-        self.navigationController?.pushViewController(unitDetail, animated: true)
+        let ourUnit = self.ourUnitArray[indexPath.row]
+        
+        let unitCategory = UnitCategory.create(titleName: ourUnit.categoryName ?? "",
+                                               unitCategoryId: ourUnit.unitCategoryId!)
+        self.navigationController?.pushViewController(unitCategory, animated: true)
     }
     
     

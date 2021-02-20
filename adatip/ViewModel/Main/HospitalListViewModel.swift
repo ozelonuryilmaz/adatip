@@ -27,7 +27,7 @@ class HospitalListViewModel: BaseViewModel {
             }
             
         } failure: { (error, statusCode, errorResponse) in
-            failure(errorResponse?.exceptionMessage ?? "an_unexpected_error_occurred".localizable())
+            failure(errorResponse?.responseException?.message ?? "an_unexpected_error_occurred".localizable())
         }
         
         /*

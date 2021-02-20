@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Khm-bU-Yoo">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Khm-bU-Yoo">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="collection view cell content view" minToolsVersion="11.0"/>
@@ -87,9 +87,16 @@
                                             </view>
                                             <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cNo-Bc-qYh" customClass="RoundedCornerView" customModule="ADATIP" customModuleProvider="target">
                                                 <rect key="frame" x="0.0" y="242" width="414" height="170"/>
+                                                <subviews>
+                                                    <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="0B0-tW-Kd1">
+                                                        <rect key="frame" x="197" y="75" width="20" height="20"/>
+                                                    </activityIndicatorView>
+                                                </subviews>
                                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                 <constraints>
+                                                    <constraint firstItem="0B0-tW-Kd1" firstAttribute="centerX" secondItem="cNo-Bc-qYh" secondAttribute="centerX" id="AFG-Sf-MX6"/>
                                                     <constraint firstAttribute="height" constant="170" id="nZV-Xl-9LV"/>
+                                                    <constraint firstItem="0B0-tW-Kd1" firstAttribute="centerY" secondItem="cNo-Bc-qYh" secondAttribute="centerY" id="ndl-d3-mKe"/>
                                                 </constraints>
                                                 <userDefinedRuntimeAttributes>
                                                     <userDefinedRuntimeAttribute type="number" keyPath="bottomLeftRadius">
@@ -130,21 +137,21 @@
                                                                     <rect key="frame" x="10" y="8" width="70" height="70"/>
                                                                     <subviews>
                                                                         <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="architectonic" translatesAutoresizingMaskIntoConstraints="NO" id="5Hf-4f-cCz">
-                                                                            <rect key="frame" x="15" y="15" width="40" height="40"/>
+                                                                            <rect key="frame" x="0.0" y="0.0" width="70" height="70"/>
                                                                             <constraints>
-                                                                                <constraint firstAttribute="height" constant="40" id="NWh-Eu-rT3"/>
-                                                                                <constraint firstAttribute="width" constant="40" id="uD5-tm-AGH"/>
+                                                                                <constraint firstAttribute="height" constant="70" id="EoW-ku-8Ga"/>
+                                                                                <constraint firstAttribute="width" constant="70" id="xdm-cl-LV7"/>
                                                                             </constraints>
                                                                         </imageView>
                                                                     </subviews>
                                                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                                                     <constraints>
-                                                                        <constraint firstItem="5Hf-4f-cCz" firstAttribute="leading" secondItem="UkZ-Zc-KJz" secondAttribute="leading" constant="15" id="6Og-c3-p7L"/>
-                                                                        <constraint firstItem="5Hf-4f-cCz" firstAttribute="top" secondItem="UkZ-Zc-KJz" secondAttribute="top" constant="15" id="GvR-BR-lwT"/>
+                                                                        <constraint firstItem="5Hf-4f-cCz" firstAttribute="leading" secondItem="UkZ-Zc-KJz" secondAttribute="leading" id="6Og-c3-p7L"/>
+                                                                        <constraint firstItem="5Hf-4f-cCz" firstAttribute="top" secondItem="UkZ-Zc-KJz" secondAttribute="top" id="GvR-BR-lwT"/>
                                                                         <constraint firstAttribute="width" constant="70" id="YYP-Du-RoI"/>
-                                                                        <constraint firstAttribute="trailing" secondItem="5Hf-4f-cCz" secondAttribute="trailing" constant="15" id="kIp-6P-NTa"/>
+                                                                        <constraint firstAttribute="trailing" secondItem="5Hf-4f-cCz" secondAttribute="trailing" id="kIp-6P-NTa"/>
                                                                         <constraint firstAttribute="height" constant="70" id="ntB-lE-qxO"/>
-                                                                        <constraint firstAttribute="bottom" secondItem="5Hf-4f-cCz" secondAttribute="bottom" constant="15" id="vAL-Z5-JQu"/>
+                                                                        <constraint firstAttribute="bottom" secondItem="5Hf-4f-cCz" secondAttribute="bottom" id="vAL-Z5-JQu"/>
                                                                     </constraints>
                                                                 </view>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="-" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rGW-9Z-ceg">
@@ -420,6 +427,7 @@
                         <outlet property="bannerActivityIndicator" destination="NH3-Z0-KAm" id="UPo-dU-8Vv"/>
                         <outlet property="btnAppointment" destination="Vci-re-l3H" id="Nyc-PP-Lpw"/>
                         <outlet property="btnDoctor" destination="XBO-JO-L71" id="EgJ-05-trT"/>
+                        <outlet property="collectionActivityIndicator" destination="0B0-tW-Kd1" id="V5R-RW-A5J"/>
                         <outlet property="collectionViewUnits" destination="sEi-93-Te3" id="MtO-3r-35h"/>
                         <outlet property="constraintTitle" destination="tFU-4O-mKh" id="MXW-Gk-Ck4"/>
                         <outlet property="imgSlideshow" destination="tkn-fH-0vz" id="lKK-F2-KAs"/>

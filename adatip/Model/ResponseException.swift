@@ -10,11 +10,9 @@ import Foundation
 
 struct ResponseException: Codable {
     
-    let exceptionMessage: String?
-    let validationErrors: [ValidationError]?
+    let message: String?
     
     enum CodingKeys: String, CodingKey {
-        case exceptionMessage = "exceptionMessage"
-        case validationErrors = "validationErrors"
+        case message = "message"
     }
 }

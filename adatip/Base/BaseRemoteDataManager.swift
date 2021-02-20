@@ -18,7 +18,7 @@ class BaseRemoteDataManager: NSObject {
                                     type: T.Type?,
                                     success:@escaping (_ response: T) -> Void,
                                     failure:@escaping (_ error:Error, _ statusCode:Int,
-                                                       _ errorResponse: ResponseException?) -> Void) -> Void {
+                                                       _ errorResponse: ErrorResponse?) -> Void) -> Void {
         
         AF.request(url, method: method, parameters: parameters, encoding: encoding, headers: headers)
             .validate(statusCode: 200..<300)
@@ -62,7 +62,7 @@ class BaseRemoteDataManager: NSObject {
                     
                     do {
                         let decoder = JSONDecoder()
-                        let theErrorResponse = try decoder.decode(ResponseException.self, from: errorData)
+                        let theErrorResponse = try decoder.decode(ErrorResponse.self, from: errorData)
                         failure(error, statusCode, theErrorResponse)
                         
                     } catch let error {

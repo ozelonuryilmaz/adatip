@@ -1,26 +1,24 @@
 //
-//  ApiResponse.swift
+//  ErrorResponse.swift
 //  adatip
 //
-//  Created by Onur YILMAZ on 29.09.2020.
+//  Created by Onur Yılmaz on 5.12.2020.
 //  Copyright © 2020 Onur YILMAZ. All rights reserved.
 //
 
 import Foundation
 
-struct ApiResponse<T : Codable>: Codable {
+struct ErrorResponse: Codable {
     let version: String?
     let statusCode: Int?
-    let message: String?
     let isError: Bool?
-    let result: T?
+    let responseException: ResponseException?
     
     enum CodingKeys: String, CodingKey {
         case version = "version"
         case statusCode = "statusCode"
-        case message = "message"
         case isError = "isError"
-        case result = "result"
+        case responseException = "responseException"
     }
     
 }

@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17156" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17506" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="BYZ-38-t0r">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17125"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="17505"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -23,16 +23,24 @@
                                     <constraint firstAttribute="width" secondItem="KL0-Qa-aCC" secondAttribute="height" multiplier="21:8" id="BoA-eE-kRD"/>
                                 </constraints>
                             </imageView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="medium" translatesAutoresizingMaskIntoConstraints="NO" id="kyS-NI-Oj9">
+                                <rect key="frame" x="197" y="528" width="20" height="20"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="Db1-jb-INj"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="kyS-NI-Oj9" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="3Pf-v0-SyK"/>
                             <constraint firstItem="Db1-jb-INj" firstAttribute="trailing" secondItem="KL0-Qa-aCC" secondAttribute="trailing" constant="39" id="4zy-Xr-yNd"/>
                             <constraint firstItem="KL0-Qa-aCC" firstAttribute="leading" secondItem="Db1-jb-INj" secondAttribute="leading" constant="39" id="5VA-xs-Hqz"/>
+                            <constraint firstItem="kyS-NI-Oj9" firstAttribute="top" secondItem="KL0-Qa-aCC" secondAttribute="bottom" constant="16" id="6GN-rr-bdr"/>
                             <constraint firstItem="KL0-Qa-aCC" firstAttribute="centerY" secondItem="8bC-Xf-vdC" secondAttribute="centerY" id="fYC-DJ-HcN"/>
                             <constraint firstItem="KL0-Qa-aCC" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="wWL-JB-8EA"/>
                         </constraints>
                     </view>
+                    <connections>
+                        <outlet property="indicatorView" destination="kyS-NI-Oj9" id="y9B-zk-l0T"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>

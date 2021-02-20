@@ -191,8 +191,9 @@ class Register: BaseViewController {
         AuthenticationViewModel.signIn(email: email, password: password, complation: { (data) in
             Helper.signIn(email: email,
                           fullName: data.fullName ?? "",
-                          accessToken: data.token?.accessToken ?? "",
-                          refreshToken: data.token?.refreshToken ?? "")
+                          accessToken: data.accessToken ?? "",
+                          refreshToken: data.accessToken ?? "",
+                          role: data.role?.lowercased() ?? "registered")
             
             self.hideProgressView()
             self.dismiss(animated: true, completion: nil)

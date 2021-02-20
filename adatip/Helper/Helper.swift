@@ -72,12 +72,13 @@ class Helper: NSObject {
         print("***ERROR***\nurl = \(url)\nstatusCode = \(statusCode)\nlocalized = \(error.localizedDescription)\nerror = \(error)\n")
     }
     
-    class func signIn(email: String, fullName: String, accessToken: String, refreshToken: String){
+    class func signIn(email: String, fullName: String, accessToken: String, refreshToken: String, role: String){
         UserDefaults.standard.set(true, forKey: Constant.UserDefaults.HAS_USER_LOGGED_IN)
         UserDefaults.standard.set(email, forKey: Constant.UserDefaults.EMAIL)
         UserDefaults.standard.set(fullName, forKey: Constant.UserDefaults.FULL_NAME)
         UserDefaults.standard.set(accessToken, forKey: Constant.UserDefaults.ACCESS_TOKEN)
         UserDefaults.standard.set(refreshToken, forKey: Constant.UserDefaults.REFRESH_TOKEN)
+        UserDefaults.standard.set(role, forKey: Constant.UserDefaults.USER_ROLE)
     }
     
     class func signOut(){

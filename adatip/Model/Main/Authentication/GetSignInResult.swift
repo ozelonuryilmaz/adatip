@@ -16,8 +16,10 @@ struct GetSignInResult: Codable {
     let lastName: String?
     let fullName: String?
     let email: String?
-    let token: GetAccessToken?
-    let roles : [GetUserRoles]?
+    let created: String?
+    let updated: String?
+    let accessToken: String?
+    let role : String?
     
     enum CodingKeys: String, CodingKey {
         case customerId = "customerId"
@@ -26,8 +28,10 @@ struct GetSignInResult: Codable {
         case firstName = "firstName"
         case lastName = "lastName"
         case fullName = "fullName"
+        case created = "created"
+        case updated = "updated"
         case email = "email"
-        case token = "token"
-        case roles = "roles"
+        case accessToken = "accessToken"
+        case role = "role"
     }
 }

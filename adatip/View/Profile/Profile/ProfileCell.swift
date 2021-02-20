@@ -68,7 +68,7 @@ class ProfileCell: UITableViewCell {
     
     func setAppointment(appointment: GetAppointmentResult){
         lblCustomerName.text = appointment.customer
-        lblDate.text = "\(appointment.appointmentDate?.formatTo(formatValue: "MM.dd.yyyy", desiredFormat: "dd MMMM yyyy") ?? "") \(appointment.appointmentTime ?? "")"
+        lblDate.text = "\(appointment.appointmentDate?.formatTo(formatValue: "dd.MM.yyyy", desiredFormat: "dd MMMM yyyy") ?? "") \(appointment.appointmentTime ?? "")"
         lblDoctorName.text = appointment.doctor
         lblDoctorsUnit.text = appointment.unit
         lblAppointment.text = "Randevu"

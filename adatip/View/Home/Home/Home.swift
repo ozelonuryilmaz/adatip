@@ -15,24 +15,9 @@ class Home: BaseViewController {
     @IBOutlet weak var bannerActivityIndicator: UIActivityIndicatorView!
     private var imageSourcesForBanner = Array <InputSource>()
     var banners : [GetAnnouncementResult] = []
+    var ourUnitArray: [GetUnitCategoryResult] = []
     
-    var units: [[String:String]] = [["image": "deleteFood", "name": "Beslenme"],
-                                         ["image": "deletePage", "name": "Beyin ve Sinir"],
-                                         ["image": "deletePeople", "name": "Çocuk Sağlığı"],
-                                         ["image": "deleteSign", "name": "Dahiliye"],
-                                         ["image": "deleteFood", "name": "Beslenme"],
-                                         ["image": "deletePage", "name": "Beyin ve Sinir"],
-                                         ["image": "deletePeople", "name": "Çocuk Sağlığı"],
-                                         ["image": "deleteSign", "name": "Dahiliye"],
-                                         ["image": "deleteFood", "name": "Beslenme"],
-                                         ["image": "deletePage", "name": "Beyin ve Sinir"],
-                                         ["image": "deletePeople", "name": "Çocuk Sağlığı"],
-                                         ["image": "deleteSign", "name": "Dahiliye"],
-                                         ["image": "deleteFood", "name": "Beslenme"],
-                                         ["image": "deletePage", "name": "Beyin ve Sinir"],
-                                         ["image": "deletePeople", "name": "Çocuk Sağlığı"],
-                                         ["image": "deleteSign", "name": "Dahiliye"],]
-    
+    @IBOutlet weak var collectionActivityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var viewDesc: UIView!
     @IBOutlet weak var lblTitle: UILabel!
     @IBOutlet weak var constraintTitle: NSLayoutConstraint!
@@ -61,14 +46,28 @@ class Home: BaseViewController {
         
         setupViewComponents()
         getBanners(hospitalId: self.hospitalId)
+        getUnitCategoryList(hospitalId: self.hospitalId)
         
         //when the hospital changed.
         NotificationCenter.default.addObserver(self, selector: #selector(changeHospital), name: NSNotification.Name(rawValue: Constant.NotificationKeys.CHANGE_HOSPITAL), object: nil)
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        if let userRole = UserDefaults.standard.string(forKey: Constant.UserDefaults.USER_ROLE), userRole == "doctor"{
+            viewDoctor.isHidden = true
+            viewAppointment.isHidden = true
+        }else {
+            viewDoctor.isHidden = false
+            viewAppointment.isHidden = false
+        }
+    }
+    
     @objc private func changeHospital() {
         updateNavigationBarTitle(title: "adatip", subtitle: "(" + self.hospitalTitle + ")")
         getBanners(hospitalId: self.hospitalId)
+        getUnitCategoryList(hospitalId: self.hospitalId)
     }
     
     private func setupViewComponents(){
@@ -190,8 +189,7 @@ class Home: BaseViewController {
         lblOnlineServices.textColor = UIColor.secondaryColor
         
         collectionViewUnits.contentInset = UIEdgeInsets(top: 0, left: 20, bottom: 0, right: 20)
-        collectionViewUnits.reloadData()
-        
+        collectionViewUnits.isHidden = true
     }
     
     // MARK: *** Button Tap Action
@@ -282,6 +280,20 @@ class Home: BaseViewController {
             self.imageSlideShowPageChanged(self.imgSlideshow.currentPage)
         }) { (errorMessage) in
             self.bannerActivityIndicator.hide()
+            self.showAlert(title: nil, message: errorMessage)
+        }
+    }
+    
+    private func getUnitCategoryList(hospitalId: Int){
+        
+        self.collectionActivityIndicator.startAnimating()
+        OurUnitsViewModel.getUnitCategoryList(hospitalId: hospitalId, complation: { (ourUnitList) in
+            self.ourUnitArray = ourUnitList
+            self.collectionActivityIndicator.stopAnimating()
+            self.collectionViewUnits.isHidden = false
+            self.collectionViewUnits.reloadData()
+        }) { (errorMessage) in
+            self.collectionActivityIndicator.stopAnimating()
             self.showAlert(title: nil, message: errorMessage)
         }
     }
