@@ -12,7 +12,15 @@ class OnlinePaymentViewModel: BaseViewModel {
     
     class func createAppointment(__hospitalId: Int, __doctorId: Int, appointmentDate: String, appointmentTime: String, complation: @escaping(_ succes: Bool) -> Void, failure: @escaping(_ message: String) -> Void) -> Void {
         
-        NetworkManager.createAppointment(hospitalId: __hospitalId, doctorId: __doctorId, appointmentDate: appointmentDate, appointmentTime: appointmentTime, success: { (appointment) in
+        let url = Constant.Url.PAGE + "v1/customer/appointment/create"
+        let model = SuccessResponse.self
+        
+        let parametre = ["hospitalId": __hospitalId as AnyObject,
+                         "doctorId": __doctorId as AnyObject,
+                         "appointmentDate": appointmentDate as AnyObject,
+                         "appointmentTime": appointmentTime as AnyObject]
+        
+        BaseRemoteDataManager.request(url, method: .post, parameters: parametre, headers: Helper.getHeader(), type: model) { (appointment) in
             
             if let error = appointment.isError, error == true{
                 failure(appointment.message ?? "an_unexpected_error_occurred".localizable())
@@ -20,9 +28,11 @@ class OnlinePaymentViewModel: BaseViewModel {
                 complation(true)
             }
             
-        }) { (error, statusCode, errorResponse) in
-            failure(errorResponse?.message ?? "an_unexpected_error_occurred".localizable())
+        } failure: { (error, statusCode, errorResponse) in
+            
+            failure(errorResponse?.exceptionMessage ?? "an_unexpected_error_occurred".localizable())
         }
+        
     }
 
 }

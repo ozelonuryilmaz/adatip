@@ -12,7 +12,10 @@ class HomeViewModel: BaseViewModel {
     
     class func getAnnouncements(hospitalId: Int, complation: @escaping(_ announcementList: [GetAnnouncementResult]) -> Void, failure: @escaping(_ message: String) -> Void) -> Void {
         
-        NetworkManager.getAnnouncements(hospitalId: hospitalId, success: { (announcement) in
+        let url = Constant.Url.PAGE + "v1/announcement/list/\(hospitalId)"
+        let model = ApiResponse<[GetAnnouncementResult]>.self
+        
+        BaseRemoteDataManager.request(url, method: .get, parameters: nil, headers: Helper.getHeaderWithoutToken(), type: model) { (announcement) in
             
             if let error = announcement.isError, error == true{
                 failure(announcement.message ?? "an_unexpected_error_occurred".localizable())
@@ -22,9 +25,10 @@ class HomeViewModel: BaseViewModel {
                 complation(data)
             }
             
-        }) { (error, statusCode, errorResponse) in
-            failure(errorResponse?.message ?? "an_unexpected_error_occurred".localizable())
+        } failure: { (error, statusCode, errorResponse) in
+            failure(errorResponse?.exceptionMessage ?? "an_unexpected_error_occurred".localizable())
         }
+        
     }
 
 }

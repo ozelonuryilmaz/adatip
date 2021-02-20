@@ -29,7 +29,7 @@ class NetworkManager: NSObject {
     class func printAndShowError(url: String, error: Error, statusCode: Int) {
         print("***ERROR***\nurl = \(url)\nstatusCode = \(statusCode)\nlocalized = \(error.localizedDescription)\nerror = \(error)\n")
     }
-    
+    /*
     //MARK: - Get Hospital List
     class func getHospitalList(success:@escaping (_ response: ApiResponse<[GetHospitalResult]>) -> Void, failure:@escaping (_ error:Error, _ statusCode:Int, _ errorResponse: ApiResponse<[GetHospitalResult]>?) -> Void) -> Void {
         
@@ -63,8 +63,9 @@ class NetworkManager: NSObject {
             }
             
         }
-    }
+    }*/
     
+    /*
     //MARK: - Get Banner
     class func getAnnouncements(hospitalId: Int, success:@escaping (_ response: ApiResponse<[GetAnnouncementResult]>) -> Void, failure:@escaping (_ error:Error, _ statusCode:Int, _ errorResponse: ApiResponse<[GetAnnouncementResult]>?) -> Void) -> Void {
         
@@ -98,8 +99,8 @@ class NetworkManager: NSObject {
             }
             
         }
-    }
-    
+    }*/
+    /*
     //MARK: - Get Banner
     class func getAnnouncementDetail(announcementId: Int, success:@escaping (_ response: ApiResponse<GetAnnouncementDetailResult>) -> Void, failure:@escaping (_ error:Error, _ statusCode:Int, _ errorResponse: ApiResponse<GetAnnouncementDetailResult>?) -> Void) -> Void {
         
@@ -134,7 +135,8 @@ class NetworkManager: NSObject {
             
         }
     }
-    
+    */
+    /*
     //MARK: - Get Our Units (OurUnits)
     class func getUnitCategoryList(hospitalId: Int, success:@escaping (_ response: ApiResponse<[GetUnitCategoryResult]>) -> Void, failure:@escaping (_ error:Error, _ statusCode:Int, _ errorResponse: ApiResponse<[GetUnitCategoryResult]>?) -> Void) -> Void {
         
@@ -169,7 +171,8 @@ class NetworkManager: NSObject {
             
         }
     }
-    
+    */
+    /*
     //MARK: - Get Unit Sub Categories (UnitCategory)
     class func getUnitSubCategoryList(hospitalId: Int, unitCategoryId: Int, success:@escaping (_ response: ApiResponse<[GetUnitSubCategoryResult]>) -> Void, failure:@escaping (_ error:Error, _ statusCode:Int, _ errorResponse: ApiResponse<[GetUnitSubCategoryResult]>?) -> Void) -> Void {
         
@@ -203,8 +206,8 @@ class NetworkManager: NSObject {
             }
             
         }
-    }
-    
+    }*/
+    /*
     //MARK: - Get Doctors (StaffCategory)
     class func getDoctorList(hospitalId: Int, unitSubCategoryId: Int?, success:@escaping (_ response: ApiResponse<[GetDoctorResult]>) -> Void, failure:@escaping (_ error:Error, _ statusCode:Int, _ errorResponse: ApiResponse<[GetDoctorResult]>?) -> Void) -> Void {
         
@@ -242,8 +245,8 @@ class NetworkManager: NSObject {
             }
             
         }
-    }
-    
+    }*/
+    /*
     //MARK: - Register
     class func register(deviceTokenId: String?, firstName: String, lastName: String, email: String, confirmEmail: String, birthYear: String, fatherName: String, password: String, confirmPassword: String, success:@escaping (_ response: ApiResponse<GetRegisterResult>) -> Void, failure:@escaping (_ error:Error, _ statusCode:Int, _ errorResponse: ApiResponse<GetRegisterResult>?) -> Void) -> Void {
         
@@ -287,8 +290,8 @@ class NetworkManager: NSObject {
             }
             
         }
-    }
-    
+    }*/
+    /*
     //MARK: - Sign In
     class func signIn(email: String, password: String, success:@escaping (_ response: ApiResponse<GetSignInResult>) -> Void, failure:@escaping (_ error:Error, _ statusCode:Int, _ errorResponse: ApiResponse<GetSignInResult>?) -> Void) -> Void {
         
@@ -326,8 +329,8 @@ class NetworkManager: NSObject {
             
         }
     }
-    
-    
+    */
+    /*
     //MARK: - Doctor Availability Times
     class func getAvailabilityTimes(appointmentDate: String, hospitalId: Int, doctorId: Int, success:@escaping (_ response: ApiResponse<[GetAvailabilityTimes]>) -> Void, failure:@escaping (_ error:Error, _ statusCode:Int, _ errorResponse: ApiResponse<[GetAvailabilityTimes]>?) -> Void) -> Void {
         
@@ -362,7 +365,8 @@ class NetworkManager: NSObject {
             
         }
     }
-    
+ */
+    /*
     //MARK: - Doctor Availability Times
     class func createAppointment(hospitalId: Int, doctorId: Int, appointmentDate: String, appointmentTime: String, success:@escaping (_ response: SuccessResponse) -> Void, failure:@escaping (_ error:Error, _ statusCode:Int, _ errorResponse: SuccessResponse?) -> Void) -> Void {
         
@@ -401,8 +405,8 @@ class NetworkManager: NSObject {
             }
             
         }
-    }
-    
+    }*/
+    /*
     //MARK: - Doctor Availability Times
     class func getAppointmentList(hospitalId: Int, success:@escaping (_ response: ApiResponse<[GetAppointmentResult]>) -> Void, failure:@escaping (_ error:Error, _ statusCode:Int, _ errorResponse: ApiResponse<[GetAppointmentResult]>?) -> Void) -> Void {
         
@@ -436,6 +440,6 @@ class NetworkManager: NSObject {
             }
             
         }
-    }
+    }*/
 
 }

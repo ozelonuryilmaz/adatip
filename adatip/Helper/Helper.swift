@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class Helper: NSObject {
     
@@ -50,6 +51,25 @@ class Helper: NSObject {
         }
         
         return dates
+    }
+    
+    class func getHeader() -> HTTPHeaders {
+        
+        let token = UserDefaults.standard.string(forKey: Constant.UserDefaults.ACCESS_TOKEN) ?? ""
+        let header : HTTPHeaders = ["Authorization": "Bearer " + token, "Content-Type": "application/json"]
+        
+        return header
+    }
+    
+    class func getHeaderWithoutToken() -> HTTPHeaders {
+        
+        let header : HTTPHeaders = ["Content-Type": "application/json"]
+        
+        return header
+    }
+    
+    class func printAndShowError(url: String, error: Error, statusCode: Int) {
+        print("***ERROR***\nurl = \(url)\nstatusCode = \(statusCode)\nlocalized = \(error.localizedDescription)\nerror = \(error)\n")
     }
     
     class func signIn(email: String, fullName: String, accessToken: String, refreshToken: String){

@@ -4,7 +4,7 @@ target 'adatip' do
   use_frameworks!
 
   # Pods for adatip
-  pod 'Alamofire', '~> 4.7'
+  pod 'Alamofire', '~> 5.2'
   pod 'IQKeyboardManagerSwift'
   pod 'Kingfisher', '~> 5.0'
   pod 'ImageSlideshow', '~> 1.9.0'

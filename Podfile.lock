@@ -1,5 +1,5 @@
 PODS:
-  - Alamofire (4.9.1)
+  - Alamofire (5.4.1)
   - BulletinBoard (5.0.0)
   - ImageSlideshow (1.9.1):
     - ImageSlideshow/Core (= 1.9.1)
@@ -10,7 +10,7 @@ PODS:
   - Kingfisher/Core (5.15.2)
 
 DEPENDENCIES:
-  - Alamofire (~> 4.7)
+  - Alamofire (~> 5.2)
   - BulletinBoard
   - ImageSlideshow (~> 1.9.0)
   - IQKeyboardManagerSwift
@@ -25,12 +25,12 @@ SPEC REPOS:
     - Kingfisher
 
 SPEC CHECKSUMS:
-  Alamofire: 85e8a02c69d6020a0d734f6054870d7ecb75cf18
+  Alamofire: 2291f7d21ca607c491dd17642e5d40fdcda0e65c
   BulletinBoard: dba77053c2a7b64953f63073f7534165af2edd21
   ImageSlideshow: 67184be896a28472bd3b906c33ce4e0734aa3d22
   IQKeyboardManagerSwift: c7df9d2deb356c04522f5c4b7b6e4ce4d8ed94fe
   Kingfisher: 1f60394409c6b916ce31474bcf73fdde6f3b9a7b
 
-PODFILE CHECKSUM: ef2eaff760d4d9c75359496278cf7d90ac2b0a4d
+PODFILE CHECKSUM: 16a7051adcae5e225a4827c599f3dc08b43615e6
 
-COCOAPODS: 1.9.3
+COCOAPODS: 1.10.0

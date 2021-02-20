@@ -12,7 +12,11 @@ class OurUnitsViewModel: BaseViewModel {
     
     class func getUnitCategoryList(hospitalId: Int, complation: @escaping(_ ourUnitList: [GetUnitCategoryResult]) -> Void, failure: @escaping(_ message: String) -> Void) -> Void {
         
-        NetworkManager.getUnitCategoryList(hospitalId: hospitalId, success: { (ourUnit) in
+        
+        let url = Constant.Url.PAGE + "v1/unit-category/list/\(hospitalId)"
+        let model = ApiResponse<[GetUnitCategoryResult]>.self
+        
+        BaseRemoteDataManager.request(url, method: .get, parameters: nil, headers: Helper.getHeaderWithoutToken(), type: model) { (ourUnit) in
             
             if let error = ourUnit.isError, error == true{
                 failure(ourUnit.message ?? "an_unexpected_error_occurred".localizable())
@@ -22,9 +26,11 @@ class OurUnitsViewModel: BaseViewModel {
                 complation(data)
             }
             
-        }) { (error, statusCode, errorResponse) in
-            failure(errorResponse?.message ?? "an_unexpected_error_occurred".localizable())
+        } failure: { (error, statusCode, errorResponse) in
+            
+            failure(errorResponse?.exceptionMessage ?? "an_unexpected_error_occurred".localizable())
         }
+        
     }
 
 }

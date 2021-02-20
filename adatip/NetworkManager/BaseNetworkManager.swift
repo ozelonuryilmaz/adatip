@@ -10,7 +10,7 @@ import UIKit
 import Alamofire
 
 class BaseNetworkManager: NSObject {
-    
+    /*
     class func post(url: String, parameters: [String : Any]?, headers:[String : String]?, success:@escaping (_ response: Foundation.Data?) -> Void, failure:@escaping (_ error:Error, _ statusCode:Int, _ errorResponse: Foundation.Data?) -> Void ) -> Void {
         
         Alamofire.request(url, method:.post, parameters: parameters, encoding:JSONEncoding.default, headers:headers).validate(statusCode: 200..<300).responseJSON(completionHandler: { response in
@@ -90,5 +90,5 @@ class BaseNetworkManager: NSObject {
             }
         }
     }
-
+*/
 }

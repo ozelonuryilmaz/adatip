@@ -12,7 +12,10 @@ class ProfileViewModel: BaseViewModel {
     
     class func getAppointmentList(hospitalId: Int, complation: @escaping(_ availabilityTimeList: [GetAppointmentResult]) -> Void, failure: @escaping(_ message: String) -> Void) -> Void {
         
-        NetworkManager.getAppointmentList(hospitalId: hospitalId, success: { (appointmentList) in
+        let url = Constant.Url.PAGE + "v1/customer/appointment/list?hospitalId=\(hospitalId)"
+        let model = ApiResponse<[GetAppointmentResult]>.self
+        
+        BaseRemoteDataManager.request(url, method: .get, parameters: nil, headers: Helper.getHeader(), type: model) { (appointmentList) in
             
             if let error = appointmentList.isError, error == true{
                 failure(appointmentList.message ?? "an_unexpected_error_occurred".localizable())
@@ -22,9 +25,11 @@ class ProfileViewModel: BaseViewModel {
                 complation(data)
             }
             
-        }) { (error, statusCode, errorResponse) in
-            failure(errorResponse?.message ?? "an_unexpected_error_occurred".localizable())
+        } failure: { (error, statusCode, errorResponse) in
+            
+            failure(errorResponse?.exceptionMessage ?? "an_unexpected_error_occurred".localizable())
         }
+        
     }
 
 }
