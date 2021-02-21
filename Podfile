@@ -7,11 +7,12 @@ target 'adatip' do
   pod 'Alamofire', '~> 5.2'
   pod 'Firebase/Analytics'
   pod 'Firebase/Messaging'
-  pod 'IQKeyboardManagerSwift'
+  pod 'FBSDKLoginKit'
+  pod 'GoogleSignIn'
   pod 'Kingfisher', '~> 5.0'
+  pod 'IQKeyboardManagerSwift'
   pod 'ImageSlideshow', '~> 1.9.0'
   pod 'BulletinBoard'
-  pod 'FBSDKLoginKit'
   #pod 'IISightSDK', '~> 5.2.1'
 
 end

@@ -76,4 +76,7 @@
 "close" = "Kapat";
 "my_past_appointments" = "Geçmiş Randevularım";
 "my_appointments" = "Randevularım";
-"with_facebook" = "Facebook ile Giriş";
+"with_facebook" = "Facebook ile Devam Et";
+"with_google" = "Google ile Devam Et";
+"with_apple" = "Apple ile Devam Et";
+"or" = "veya";

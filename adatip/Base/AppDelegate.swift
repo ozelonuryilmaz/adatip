@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import FBSDKCoreKit
+import GoogleSignIn
 import IQKeyboardManagerSwift
 //import IISightSDK
 
@@ -33,17 +34,21 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // MARK: *** Facebook Login
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)
         
+        // MARK: *** Google Login
+        GIDSignIn.sharedInstance().clientID = "268700802750-pv6ueev81i5b1pgcj9i8rjhn2gsbj9e6.apps.googleusercontent.com"
+        
         return true
     }
     
     // MARK: *** Facebook Login
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        ApplicationDelegate.shared.application(
-            app,
-            open: url,
-            sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String,
-            annotation: options[UIApplication.OpenURLOptionsKey.annotation]
+        
+        let handledFB = ApplicationDelegate.shared.application(app, open: url, sourceApplication: options[UIApplication.OpenURLOptionsKey.sourceApplication] as? String, annotation: options[UIApplication.OpenURLOptionsKey.annotation]
         )
+        
+        let handledGoogle = GIDSignIn.sharedInstance().handle(url)
+        
+        return handledFB || handledGoogle
     }
     
     /*

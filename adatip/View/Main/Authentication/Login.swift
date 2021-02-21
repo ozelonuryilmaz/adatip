@@ -8,6 +8,7 @@
 
 import UIKit
 import FBSDKLoginKit
+import GoogleSignIn
 //import IISightSDK
 
 class Login: BaseViewController/*, IISightSDKLoginDelegate*/ {
@@ -22,8 +23,11 @@ class Login: BaseViewController/*, IISightSDKLoginDelegate*/ {
     @IBOutlet weak var btnLogin: UIButton!
     @IBOutlet weak var btnRegister: UIButton!
     @IBOutlet weak var lblRegister: UILabel!
+    @IBOutlet weak var lblLogin: UILabel!
     
     @IBOutlet weak var btnFacebook: UIButton!
+    @IBOutlet weak var btnGoogle: UIButton!
+    @IBOutlet weak var btnApple: UIButton!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -64,12 +68,14 @@ class Login: BaseViewController/*, IISightSDKLoginDelegate*/ {
         
         btnForgotMyPassword.setTitle("forgot_my_password".localizable(), for: .normal)
         btnForgotMyPassword.setTitleColor(UIColor.customColorGrey, for: .normal)
-        btnForgotMyPassword.titleLabel?.font = UIFont.customFont(size: 12, customStyle: .Regular)
+        btnForgotMyPassword.titleLabel?.font = UIFont.customFont(size: 14, customStyle: .Regular)
         btnForgotMyPassword.addTarget(self, action: #selector(tapBtnForgotMyPassword(sender:)), for: .touchUpInside)
         
         btnLogin.setTitle("login".localizable(), for: .normal)
         btnLogin.clipsToBounds = true
         btnLogin.layer.cornerRadius = 10//btnLogin.frame.size.height / 2
+        btnGoogle.layer.borderWidth = 1
+        btnGoogle.layer.borderColor = UIColor.secondaryColor.cgColor
         btnLogin.backgroundColor = UIColor.secondaryColor
         btnLogin.setTitleColor(UIColor.customColorWhite, for: .normal)
         btnLogin.titleLabel?.font = UIFont.customFont(size: 15, customStyle: .Bold)
@@ -78,14 +84,56 @@ class Login: BaseViewController/*, IISightSDKLoginDelegate*/ {
         btnFacebook.setTitle("with_facebook".localizable(), for: .normal)
         btnFacebook.clipsToBounds = true
         btnFacebook.layer.cornerRadius = 10
+        btnGoogle.layer.borderWidth = 1
+        btnGoogle.layer.borderColor = UIColor.customColorFacebook.cgColor
         btnFacebook.backgroundColor = UIColor.customColorFacebook
+        btnFacebook.tintColor = UIColor.customColorWhite
         btnFacebook.setTitleColor(UIColor.customColorWhite, for: .normal)
-        btnFacebook.titleLabel?.font = UIFont.customFont(size: 15, customStyle: .Bold)
+        btnFacebook.titleLabel?.font = UIFont.customFont(size: 14, customStyle: .Bold)
+        btnFacebook.titleEdgeInsets = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 0)
+        btnFacebook.contentEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
+        btnFacebook.setImage(UIImage(named: "facebook"), for: .normal)
+        btnFacebook.contentHorizontalAlignment = .leading
         btnFacebook.addTarget(self, action: #selector(tapBtnFacebook(sender:)), for: .touchUpInside)
+        
+        GIDSignIn.sharedInstance()?.delegate = self
+        btnGoogle.setTitle("with_google".localizable(), for: .normal)
+        btnGoogle.clipsToBounds = true
+        btnGoogle.layer.cornerRadius = 10
+        btnGoogle.layer.borderWidth = 1
+        btnGoogle.layer.borderColor = UIColor.customColorGrey.cgColor
+        btnGoogle.backgroundColor = UIColor.customColorWhite
+        btnGoogle.tintColor = UIColor.customColorDarkGrey
+        btnGoogle.setTitleColor(UIColor.customColorDarkGrey, for: .normal)
+        btnGoogle.titleLabel?.font = UIFont.customFont(size: 14, customStyle: .Bold)
+        btnGoogle.titleEdgeInsets = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 0)
+        btnGoogle.contentEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
+        btnGoogle.setImage(UIImage(named: "google-login"), for: .normal)
+        btnGoogle.contentHorizontalAlignment = .leading
+        btnGoogle.addTarget(self, action: #selector(tapBtnGoogle(sender:)), for: .touchUpInside)
+        
+        btnApple.setTitle("with_apple".localizable(), for: .normal)
+        btnApple.clipsToBounds = true
+        btnApple.layer.cornerRadius = 10
+        btnApple.layer.borderWidth = 1
+        btnApple.layer.borderColor = UIColor.customColorBlack.cgColor
+        btnApple.backgroundColor = UIColor.customColorBlack
+        btnApple.tintColor = UIColor.customColorWhite
+        btnApple.setTitleColor(UIColor.customColorWhite, for: .normal)
+        btnApple.titleLabel?.font = UIFont.customFont(size: 14, customStyle: .Bold)
+        btnApple.titleEdgeInsets = UIEdgeInsets(top: 0, left: 24, bottom: 0, right: 0)
+        btnApple.contentEdgeInsets = UIEdgeInsets(top: 0, left: 8, bottom: 0, right: 8)
+        btnApple.setImage(UIImage(named: "apple-login"), for: .normal)
+        btnApple.contentHorizontalAlignment = .leading
+        btnApple.addTarget(self, action: #selector(tapBtnApple(sender:)), for: .touchUpInside)
         
         lblRegister.text = "dont_you_have_an_account".localizable()
         lblRegister.font = UIFont.customFont(size: 14, customStyle: .Regular)
         lblRegister.textColor = UIColor.customColorGrey
+        
+        lblLogin.text = "or".localizable()
+        lblLogin.font = UIFont.customFont(size: 14, customStyle: .Regular)
+        lblLogin.textColor = UIColor.customColorGrey
         
         btnRegister.setTitle("register".localizable(), for: .normal)
         btnRegister.setTitleColor(UIColor.primaryColor, for: .normal)
@@ -199,6 +247,18 @@ class Login: BaseViewController/*, IISightSDKLoginDelegate*/ {
         }
     }
     
+    @IBAction func tapBtnGoogle(sender: UIButton) {
+        GIDSignIn.sharedInstance()?.presentingViewController = self
+        if GIDSignIn.sharedInstance()?.currentUser != nil {
+            GIDSignIn.sharedInstance()?.signOut()
+        }
+        GIDSignIn.sharedInstance()?.signIn()
+    }
+    
+    @IBAction func tapBtnApple(sender: UIButton) {
+        
+    }
+    
     /*
     func loginSuccessful() {
         print("Successful login")
@@ -227,4 +287,19 @@ extension Login{
         
         return login
     }
+}
+
+extension Login: GIDSignInDelegate{
+    
+    func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
+        if let userId = user.userID{
+            print(userId)
+            print(user.profile.email ?? "")
+            print(user.profile.givenName ?? "")
+            print(user.profile.familyName ?? "")
+            print(user.profile.imageURL(withDimension: 400) ?? "")
+        }
+        
+    }
+    
 }
