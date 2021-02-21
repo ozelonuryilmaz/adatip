@@ -23,27 +23,10 @@ class Login: BaseViewController/*, IISightSDKLoginDelegate*/ {
     @IBOutlet weak var btnRegister: UIButton!
     @IBOutlet weak var lblRegister: UILabel!
     
+    @IBOutlet weak var btnFacebook: UIButton!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        
-        if let token = AccessToken.current, !token.isExpired {
-            let token = token.tokenString
-            let request = FBSDKLoginKit.GraphRequest(graphPath: "me",
-                                                     parameters: ["fields": "email, name"],
-                                                     tokenString: token,
-                                                     version: nil,
-                                                     httpMethod: .get)
-            
-            request.start { (connection, result, error) in
-                print("** \(result)")
-            }
-        }else {
-            let loginButton = FBLoginButton()
-            loginButton.center = view.center
-            loginButton.delegate = self
-            loginButton.permissions = ["public_profile", "email"]
-            view.addSubview(loginButton)
-        }
         
         setupViewComponents()
         
@@ -86,11 +69,19 @@ class Login: BaseViewController/*, IISightSDKLoginDelegate*/ {
         
         btnLogin.setTitle("login".localizable(), for: .normal)
         btnLogin.clipsToBounds = true
-        btnLogin.layer.cornerRadius = btnLogin.frame.size.height / 2
+        btnLogin.layer.cornerRadius = 10//btnLogin.frame.size.height / 2
         btnLogin.backgroundColor = UIColor.secondaryColor
         btnLogin.setTitleColor(UIColor.customColorWhite, for: .normal)
         btnLogin.titleLabel?.font = UIFont.customFont(size: 15, customStyle: .Bold)
         btnLogin.addTarget(self, action: #selector(tapBtnLogin(sender:)), for: .touchUpInside)
+        
+        btnFacebook.setTitle("with_facebook".localizable(), for: .normal)
+        btnFacebook.clipsToBounds = true
+        btnFacebook.layer.cornerRadius = 10
+        btnFacebook.backgroundColor = UIColor.customColorFacebook
+        btnFacebook.setTitleColor(UIColor.customColorWhite, for: .normal)
+        btnFacebook.titleLabel?.font = UIFont.customFont(size: 15, customStyle: .Bold)
+        btnFacebook.addTarget(self, action: #selector(tapBtnFacebook(sender:)), for: .touchUpInside)
         
         lblRegister.text = "dont_you_have_an_account".localizable()
         lblRegister.font = UIFont.customFont(size: 14, customStyle: .Regular)
@@ -152,6 +143,62 @@ class Login: BaseViewController/*, IISightSDKLoginDelegate*/ {
             self.showAlert(title: nil, message: errorMessage)
         }
     }
+    
+    @IBAction func tapBtnFacebook(sender: UIButton) {
+        
+        let loginManager = LoginManager()
+        
+        if let token = AccessToken.current, !token.isExpired {
+            loginManager.logOut()
+        }
+        
+        loginManager.logIn(permissions: [.publicProfile, .email], viewController: self) { (result) in
+            switch result {
+            case .cancelled:
+                print("cancelled")
+                break
+            case .failed(let error):
+                print("error \(error)")
+                break
+            case .success( _, _, let accessToken):
+                //let grantedPermission, let declinedPermissions, let accessToken
+                print("token \(accessToken?.userID ?? "")")
+                
+                let myGraphRequest = GraphRequest(graphPath: "me",
+                                                  parameters: ["fields": "id, first_name, last_name, email, picture.width(400)"],
+                                                  tokenString: AccessToken.current?.tokenString,
+                                                  version: nil,
+                                                  httpMethod: .get)
+                
+                myGraphRequest.start(completionHandler: { (connection, result, error) in
+                    
+                    let responseDict = result as? [String:Any]
+                    
+                    let idFb = responseDict?["id"] as? String
+                    let registerFirstName = responseDict?["first_name"] as? String
+                    let registerLastName = responseDict?["last_name"] as? String
+                    let registerEmail = responseDict?["email"] as? String
+                    
+                    if let picture = responseDict?["picture"] as? [String:Any] ,
+                       let imgData = picture["data"] as? [String:Any] ,
+                       let imgUrl = imgData["url"] as? String {
+                        print("imageUrl: \(imgUrl)")
+                    }
+                    
+                    print("userId: \(idFb ?? "")")
+                    print("registerEmail: \(registerEmail ?? "")")
+                    print("registerFirstName: \(registerFirstName ?? "")")
+                    print("registerLastName: \(registerLastName ?? "")")
+                    
+                    //self.loginAuthenticate(userName: registerEmail, password: nil, userId: idFb, loginType: "WithFacebook")
+                    
+                })
+                
+                break
+            }
+        }
+    }
+    
     /*
     func loginSuccessful() {
         print("Successful login")
@@ -179,25 +226,5 @@ extension Login{
         let login = mainStoryBoard.instantiateViewController(withIdentifier: reuseId) as! Login
         
         return login
-    }
-}
-
-extension Login: LoginButtonDelegate {
-    func loginButton(_ loginButton: FBLoginButton, didCompleteWith result: LoginManagerLoginResult?, error: Error?) {
-        let token = result?.token?.tokenString
-        let request = FBSDKLoginKit.GraphRequest(graphPath: "me",
-                                                 parameters: ["fields": "email, name"],
-                                                 tokenString: token,
-                                                 version: nil,
-                                                 httpMethod: .get)
-        
-        request.start { (connection, result, error) in
-            print("** \(result)")
-        }
-    }
-    
-    
-    func loginButtonDidLogOut(_ loginButton: FBLoginButton) {
-        
     }
 }
