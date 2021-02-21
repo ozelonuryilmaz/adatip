@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 import FBSDKCoreKit
 import IQKeyboardManagerSwift
 //import IISightSDK
@@ -25,6 +26,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // MARK: *** IISightSDK
         //IISightSDKManager.shared().start(withPartnerUrl: "sdktest.11sight.com")
         //registerForNotification()
+        
+        // MARK: *** Firebase
+        FirebaseApp.configure()
         
         // MARK: *** Facebook Login
         ApplicationDelegate.shared.application(application, didFinishLaunchingWithOptions: launchOptions)

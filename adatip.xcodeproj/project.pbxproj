@@ -69,6 +69,7 @@
 		675C6A6B2522065900E97C8E /* SettingsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 675C6A692522065900E97C8E /* SettingsCell.xib */; };
 		6761D1842519E24F00E8FC01 /* Home + CollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6761D1832519E24F00E8FC01 /* Home + CollectionViewExtension.swift */; };
 		6761D1892519F34F00E8FC01 /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6761D1872519F34F00E8FC01 /* HomeCollectionViewCell.swift */; };
+		6762E94A25E2620000A960AC /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 6762E94925E2620000A960AC /* GoogleService-Info.plist */; };
 		6770657B251DCC4200C62554 /* StaffCategory + CollectionViewExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6770657A251DCC4200C62554 /* StaffCategory + CollectionViewExtension.swift */; };
 		6770657E251DCC8600C62554 /* StaffCategoryCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6770657C251DCC8600C62554 /* StaffCategoryCollectionViewCell.swift */; };
 		6770657F251DCC8600C62554 /* StaffCategoryCollectionViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6770657D251DCC8600C62554 /* StaffCategoryCollectionViewCell.xib */; };
@@ -185,6 +186,7 @@
 		675C6A692522065900E97C8E /* SettingsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsCell.xib; sourceTree = "<group>"; };
 		6761D1832519E24F00E8FC01 /* Home + CollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Home + CollectionViewExtension.swift"; sourceTree = "<group>"; };
 		6761D1872519F34F00E8FC01 /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
+		6762E94925E2620000A960AC /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		6770657A251DCC4200C62554 /* StaffCategory + CollectionViewExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "StaffCategory + CollectionViewExtension.swift"; sourceTree = "<group>"; };
 		6770657C251DCC8600C62554 /* StaffCategoryCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StaffCategoryCollectionViewCell.swift; sourceTree = "<group>"; };
 		6770657D251DCC8600C62554 /* StaffCategoryCollectionViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = StaffCategoryCollectionViewCell.xib; sourceTree = "<group>"; };
@@ -407,6 +409,7 @@
 				672B5EFA2513D7370017FE31 /* Storyboard */,
 				672B5EFB2513D7530017FE31 /* Assets */,
 				672B5F082513D8500017FE31 /* Localizable.strings */,
+				6762E94925E2620000A960AC /* GoogleService-Info.plist */,
 				672B5EED2513D4610017FE31 /* Info.plist */,
 			);
 			path = Resource;
@@ -797,6 +800,7 @@
 				672B5F2B2513E29A0017FE31 /* OpenSans-LightItalic.ttf in Resources */,
 				672B5F4F2513EC5F0017FE31 /* Home.storyboard in Resources */,
 				672B5F2D2513E2A50017FE31 /* OpenSans-SemiBold.ttf in Resources */,
+				6762E94A25E2620000A960AC /* GoogleService-Info.plist in Resources */,
 				672B5EE92513D4610017FE31 /* Assets.xcassets in Resources */,
 				672B5F252513E2880017FE31 /* OpenSans-Bold.ttf in Resources */,
 				672B5F532513EC810017FE31 /* Appointment.storyboard in Resources */,

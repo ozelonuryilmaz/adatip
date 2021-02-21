@@ -5,6 +5,8 @@ target 'adatip' do
 
   # Pods for adatip
   pod 'Alamofire', '~> 5.2'
+  pod 'Firebase/Analytics'
+  pod 'Firebase/Messaging'
   pod 'IQKeyboardManagerSwift'
   pod 'Kingfisher', '~> 5.0'
   pod 'ImageSlideshow', '~> 1.9.0'
