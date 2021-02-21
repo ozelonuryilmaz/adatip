@@ -255,6 +255,7 @@
                         <outlet property="btnGoogle" destination="yhR-hT-HJD" id="0oA-rR-ME5"/>
                         <outlet property="btnLogin" destination="fPr-EY-p6D" id="VKT-cj-4en"/>
                         <outlet property="btnRegister" destination="rOb-hr-0db" id="yhl-LE-bdn"/>
+                        <outlet property="constraintApple" destination="zfa-kg-efK" id="evp-YL-LaN"/>
                         <outlet property="lblLogin" destination="sbV-Ou-OFy" id="JjF-CN-XpJ"/>
                         <outlet property="lblRegister" destination="QPd-4I-Z2G" id="KSf-MJ-hvy"/>
                         <outlet property="tfEmail" destination="Xhe-bw-hWT" id="SfA-Q1-f7r"/>

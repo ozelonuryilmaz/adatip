@@ -9,6 +9,7 @@
 import UIKit
 import FBSDKLoginKit
 import GoogleSignIn
+import AuthenticationServices
 //import IISightSDK
 
 class Login: BaseViewController/*, IISightSDKLoginDelegate*/ {
@@ -28,6 +29,7 @@ class Login: BaseViewController/*, IISightSDKLoginDelegate*/ {
     @IBOutlet weak var btnFacebook: UIButton!
     @IBOutlet weak var btnGoogle: UIButton!
     @IBOutlet weak var btnApple: UIButton!
+    @IBOutlet weak var constraintApple: NSLayoutConstraint!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -127,6 +129,14 @@ class Login: BaseViewController/*, IISightSDKLoginDelegate*/ {
         btnApple.contentHorizontalAlignment = .leading
         btnApple.addTarget(self, action: #selector(tapBtnApple(sender:)), for: .touchUpInside)
         
+        if #available(iOS 13.0, *) {
+            constraintApple.constant = 40
+            btnApple.isHidden = false
+        }else{
+            constraintApple.constant = 0
+            btnApple.isHidden = true
+        }
+        
         lblRegister.text = "dont_you_have_an_account".localizable()
         lblRegister.font = UIFont.customFont(size: 14, customStyle: .Regular)
         lblRegister.textColor = UIColor.customColorGrey
@@ -222,7 +232,7 @@ class Login: BaseViewController/*, IISightSDKLoginDelegate*/ {
                     
                     let responseDict = result as? [String:Any]
                     
-                    let idFb = responseDict?["id"] as? String
+                    let userId = responseDict?["id"] as? String
                     let registerFirstName = responseDict?["first_name"] as? String
                     let registerLastName = responseDict?["last_name"] as? String
                     let registerEmail = responseDict?["email"] as? String
@@ -233,12 +243,15 @@ class Login: BaseViewController/*, IISightSDKLoginDelegate*/ {
                         print("imageUrl: \(imgUrl)")
                     }
                     
-                    print("userId: \(idFb ?? "")")
+                    print("userId: \(userId ?? "")")
                     print("registerEmail: \(registerEmail ?? "")")
                     print("registerFirstName: \(registerFirstName ?? "")")
                     print("registerLastName: \(registerLastName ?? "")")
                     
-                    //self.loginAuthenticate(userName: registerEmail, password: nil, userId: idFb, loginType: "WithFacebook")
+                    self.tfEmail.text = registerEmail
+                    self.tfPassword.text = userId
+                    
+                    //self.loginAuthenticate(userName: registerEmail, password: nil, userId: userId, loginType: "WithFacebook")
                     
                 })
                 
@@ -256,6 +269,18 @@ class Login: BaseViewController/*, IISightSDKLoginDelegate*/ {
     }
     
     @IBAction func tapBtnApple(sender: UIButton) {
+        if #available(iOS 13.0, *) {
+            let provider = ASAuthorizationAppleIDProvider()
+            let request = provider.createRequest()
+            request.requestedScopes = [.fullName, .email]
+            
+            let controller = ASAuthorizationController(authorizationRequests: [request])
+            controller.delegate = self
+            controller.presentationContextProvider = self
+            controller.performRequests()
+            
+        }
+        
         
     }
     
@@ -300,9 +325,58 @@ extension Login: GIDSignInDelegate{
                 print(user.profile.givenName ?? "")
                 print(user.profile.familyName ?? "")
                 print(user.profile.imageURL(withDimension: 400) ?? "")
+                
+                self.tfEmail.text = user.profile.email ?? ""
+                self.tfPassword.text = userId
+                
+                //self.loginAuthenticate(userName: registerEmail, password: nil, userId: userId, loginType: "WithGoogle")
             }
         }
         
+    }
+    
+}
+
+
+@available(iOS 13.0, *)
+extension Login: ASAuthorizationControllerDelegate {
+    
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithError error: Error) {
+        print("Failed!")
+    }
+    
+    func authorizationController(controller: ASAuthorizationController, didCompleteWithAuthorization authorization: ASAuthorization) {
+        switch authorization.credential {
+        case let credentials as ASAuthorizationAppleIDCredential:
+            
+            let userId = credentials.user
+            let firstName = credentials.fullName?.givenName
+            let lastName = credentials.fullName?.familyName
+            let email = credentials.email
+            
+            print(firstName ?? "")
+            print(lastName ?? "")
+            print(email ?? "")
+            print(userId)
+            
+            self.tfEmail.text = email ?? ""
+            self.tfPassword.text = userId
+            
+            //self.loginAuthenticate(userName: email, password: nil, userId: userId, loginType: "WithApple")
+            
+            break
+        default:
+            break
+        }
+    }
+    
+}
+
+@available(iOS 13.0, *)
+extension Login: ASAuthorizationControllerPresentationContextProviding {
+    
+    func presentationAnchor(for controller: ASAuthorizationController) -> ASPresentationAnchor {
+        return view.window!
     }
     
 }
