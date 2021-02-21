@@ -292,12 +292,15 @@ extension Login{
 extension Login: GIDSignInDelegate{
     
     func sign(_ signIn: GIDSignIn!, didSignInFor user: GIDGoogleUser!, withError error: Error!) {
-        if let userId = user.userID{
-            print(userId)
-            print(user.profile.email ?? "")
-            print(user.profile.givenName ?? "")
-            print(user.profile.familyName ?? "")
-            print(user.profile.imageURL(withDimension: 400) ?? "")
+        
+        if error == nil{
+            if let userId = user.userID{
+                print(userId)
+                print(user.profile.email ?? "")
+                print(user.profile.givenName ?? "")
+                print(user.profile.familyName ?? "")
+                print(user.profile.imageURL(withDimension: 400) ?? "")
+            }
         }
         
     }
