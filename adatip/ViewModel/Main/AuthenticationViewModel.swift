@@ -19,10 +19,6 @@ class AuthenticationViewModel: BaseViewModel {
         
         BaseRemoteDataManager.request(url, method: .post, parameters: parametre, headers: Helper.getHeaderWithoutToken(), type: model) { (data) in
             
-            if let error = data.isError, error == true{
-                failure(data.message ?? "an_unexpected_error_occurred".localizable())
-            }
-            
             if let data = data.result{
                 complation(data)
             }
@@ -48,10 +44,6 @@ class AuthenticationViewModel: BaseViewModel {
                          "confirmPassword": confirmPassword as AnyObject]
         
         BaseRemoteDataManager.request(url, method: .post, parameters: parametre, headers: Helper.getHeaderWithoutToken(), type: model) { (data) in
-            
-            if let error = data.isError, error == true{
-                failure(data.message ?? "an_unexpected_error_occurred".localizable())
-            }
             
             if let data = data.result{
                 complation(data)

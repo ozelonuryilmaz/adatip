@@ -17,10 +17,6 @@ class HomeViewModel: BaseViewModel {
         
         BaseRemoteDataManager.request(url, method: .get, parameters: nil, headers: Helper.getHeaderWithoutToken(), type: model) { (announcement) in
             
-            if let error = announcement.isError, error == true{
-                failure(announcement.message ?? "an_unexpected_error_occurred".localizable())
-            }
-            
             if let data = announcement.result{
                 complation(data)
             }

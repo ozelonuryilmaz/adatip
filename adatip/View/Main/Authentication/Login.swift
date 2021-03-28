@@ -76,8 +76,8 @@ class Login: BaseViewController/*, IISightSDKLoginDelegate*/ {
         btnLogin.setTitle("login".localizable(), for: .normal)
         btnLogin.clipsToBounds = true
         btnLogin.layer.cornerRadius = 10//btnLogin.frame.size.height / 2
-        btnGoogle.layer.borderWidth = 1
-        btnGoogle.layer.borderColor = UIColor.secondaryColor.cgColor
+        btnLogin.layer.borderWidth = 1
+        btnLogin.layer.borderColor = UIColor.secondaryColor.cgColor
         btnLogin.backgroundColor = UIColor.secondaryColor
         btnLogin.setTitleColor(UIColor.customColorWhite, for: .normal)
         btnLogin.titleLabel?.font = UIFont.customFont(size: 15, customStyle: .Bold)
@@ -86,8 +86,8 @@ class Login: BaseViewController/*, IISightSDKLoginDelegate*/ {
         btnFacebook.setTitle("with_facebook".localizable(), for: .normal)
         btnFacebook.clipsToBounds = true
         btnFacebook.layer.cornerRadius = 10
-        btnGoogle.layer.borderWidth = 1
-        btnGoogle.layer.borderColor = UIColor.customColorFacebook.cgColor
+        btnFacebook.layer.borderWidth = 1
+        btnFacebook.layer.borderColor = UIColor.customColorFacebook.cgColor
         btnFacebook.backgroundColor = UIColor.customColorFacebook
         btnFacebook.tintColor = UIColor.customColorWhite
         btnFacebook.setTitleColor(UIColor.customColorWhite, for: .normal)

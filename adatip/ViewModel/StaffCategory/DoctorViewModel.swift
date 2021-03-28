@@ -18,10 +18,6 @@ class DoctorViewModel: BaseViewModel {
         
         BaseRemoteDataManager.request(url, method: .get, parameters: nil, headers: Helper.getHeader(), type: model) { (availabilityTimeList) in
             
-            if let error = availabilityTimeList.isError, error == true{
-                failure(availabilityTimeList.message ?? "an_unexpected_error_occurred".localizable())
-            }
-            
             if let data = availabilityTimeList.result{
                 complation(data)
             }

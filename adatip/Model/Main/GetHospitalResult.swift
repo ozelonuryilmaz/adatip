@@ -13,17 +13,15 @@ struct GetHospitalResult: Codable {
     let title: String?
     let code: String?
     let shortName: String?
-    let description: String?
+    let htmlContent: String?
     let imageUrl: String?
-    let detail: GetHospitalInfo?
     
     enum CodingKeys: String, CodingKey {
-        case hospitalId = "hospitalId"
+        case hospitalId = "id"
         case title = "title"
         case code = "code"
         case shortName = "shortName"
-        case description = "description"
+        case htmlContent = "htmlContent"
         case imageUrl = "imageUrl"
-        case detail = "Detail"
     }
 }

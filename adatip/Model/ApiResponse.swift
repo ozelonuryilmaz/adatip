@@ -9,17 +9,11 @@
 import Foundation
 
 struct ApiResponse<T : Codable>: Codable {
-    let version: String?
-    let statusCode: Int?
-    let message: String?
-    let isError: Bool?
+    let total: Int?
     let result: T?
     
     enum CodingKeys: String, CodingKey {
-        case version = "version"
-        case statusCode = "statusCode"
-        case message = "message"
-        case isError = "isError"
+        case total = "total"
         case result = "result"
     }
     

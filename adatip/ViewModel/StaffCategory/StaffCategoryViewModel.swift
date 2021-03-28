@@ -23,10 +23,6 @@ class StaffCategoryViewModel: BaseViewModel {
         
         BaseRemoteDataManager.request(url, method: .get, parameters: nil, headers: Helper.getHeaderWithoutToken(), type: model) { (ourUnit) in
             
-            if let error = ourUnit.isError, error == true{
-                failure(ourUnit.message ?? "an_unexpected_error_occurred".localizable())
-            }
-            
             if let data = ourUnit.result{
                 complation(data)
             }

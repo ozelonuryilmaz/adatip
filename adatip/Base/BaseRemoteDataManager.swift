@@ -28,7 +28,7 @@ class BaseRemoteDataManager: NSObject {
                 print("Url: ", url) // EndPoint
                 if let parameter = parameters {
                     let parameterJSON = parameter as NSDictionary
-                    print("Params:\n \(parameterJSON)") // Query Params
+                    print("Params:\n \(parameterJSON)")
                 }else { print("Parameters: nil") }
 //                if let JSON = response.value {
 //                    let responseJSON = JSON as! NSDictionary

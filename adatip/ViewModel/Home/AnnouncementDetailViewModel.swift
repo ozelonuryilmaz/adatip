@@ -17,9 +17,6 @@ class AnnouncementDetailViewModel: BaseViewModel {
         
         
         BaseRemoteDataManager.request(url, method: .get, parameters: nil, headers: Helper.getHeaderWithoutToken(), type: model) { (announcementDetail) in
-            if let error = announcementDetail.isError, error == true{
-                failure(announcementDetail.message ?? "an_unexpected_error_occurred".localizable())
-            }
             
             if let data = announcementDetail.result{
                 complation(data)

@@ -17,10 +17,6 @@ class ProfileViewModel: BaseViewModel {
         
         BaseRemoteDataManager.request(url, method: .get, parameters: nil, headers: Helper.getHeader(), type: model) { (appointmentList) in
             
-            if let error = appointmentList.isError, error == true{
-                failure(appointmentList.message ?? "an_unexpected_error_occurred".localizable())
-            }
-            
             if let data = appointmentList.result{
                 complation(data)
             }
